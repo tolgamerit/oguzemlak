@@ -1,0 +1,9 @@
+RewriteEngine on
+
+ErrorDocument 404 http://127.0.0.1/404.php
+
+RewriteRule ^iletisim$ iletisim.php [N,L]
+RewriteRule ^anasayfa$ index.php [N,L]
+RewriteRule ^hakkimizda$ hakkimizda.php [N,L]
+
+RewriteRule ^haber-detay/([0-9a-zA-Z-_]+)/([0-9]+)$ haber-detay.php?sef=$1&haber_id=$2 [L,QSA]
