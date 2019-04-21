@@ -52,9 +52,9 @@
               Satılık
             </a>
             <div class="dropdown-menu" aria-labelledby="satilikDropdown">
-              <a class="dropdown-item" href="#">ilan1</a>
-              <a class="dropdown-item" href="#">ilan2</a>
-              <a class="dropdown-item" href="#">ilan3</a>
+              <a class="dropdown-item" href="satilik-arsa">Arsa</a>
+              <a class="dropdown-item" href="satilik-isyeri">İşyeri</a>
+              <a class="dropdown-item" href="satilik-konut">Konut</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -62,9 +62,9 @@
               Kiralık
             </a>
             <div class="dropdown-menu" aria-labelledby="kiralikDropdown">
-              <a class="dropdown-item" href="#">ilan1</a>
-              <a class="dropdown-item" href="#">ilan2</a>
-              <a class="dropdown-item" href="#">ilan3</a>
+              <a class="dropdown-item" href="kiralik-arsa">Arsa</a>
+              <a class="dropdown-item" href="kiralik-isyeri">İşyeri</a>
+              <a class="dropdown-item" href="kiralik-konut">Konut</a>
             </div>
           </li>
           <li class="nav-item">
@@ -311,7 +311,7 @@
               <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/ofis.jpg" />
             </div>
             <div class="card-body">
-              <h4 class="card-title text-center"><strong>İŞ YERİ</strong></h4>
+              <h4 class="card-title text-center"><strong>İŞYERİ</strong></h4>
               <p class="card-text">
                 <div class="yayin-bilgi text-center">
                   <span><button class="btn btn-outline-success btn-round">Kiralık</button>
@@ -366,7 +366,7 @@
     <div class="text-center">
       <strong class="text-white ">Gayrimenkul Kategorileri</strong>
       <li><a class="text-white" href="#">Konut</a></li>
-      <li><a class="text-white" href="#">İş Yeri</a></li>
+      <li><a class="text-white" href="#">İşyeri</a></li>
       <li><a class="text-white" href="#">Arsa</a></li>
     </div>
   </ul>
@@ -375,9 +375,9 @@
     <ul class="list-unstyled h5">
     <div class="text-center">
       <strong class="text-white ">Site Haritası</strong>
-      <li><a class="text-white" href="#">AnaSayfa</a></li> 
-      <li><a class="text-white" href="#">Hakkımızda</a></li>
-      <li><a class="text-white" href="#">İletişim</a></li>
+      <li><a class="text-white" href="anasayfa">AnaSayfa</a></li>
+                    <li><a class="text-white" href="hakkimizda">Hakkımızda</a></li>
+                    <li><a class="text-white" href="iletisim">İletişim</a></li>
     </div>
   </ul>
     </div>

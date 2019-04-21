@@ -1,3 +1,8 @@
+<?php 
+
+define("include",true); 
+include("assets/config.php"); 
+?>
 <!doctype html>
 <html lang="tr">
 
@@ -69,9 +74,9 @@
               Satılık
             </a>
             <div class="dropdown-menu" aria-labelledby="satilikDropdown">
-              <a class="dropdown-item" href="#">ilan1</a>
-              <a class="dropdown-item" href="#">ilan2</a>
-              <a class="dropdown-item" href="#">ilan3</a>
+              <a class="dropdown-item" href="satilik-arsa">Arsa</a>
+              <a class="dropdown-item" href="satilik-isyeri">İşyeri</a>
+              <a class="dropdown-item" href="satilik-konut">Konut</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -79,9 +84,9 @@
               Kiralık
             </a>
             <div class="dropdown-menu" aria-labelledby="kiralikDropdown">
-              <a class="dropdown-item" href="#">ilan1</a>
-              <a class="dropdown-item" href="#">ilan2</a>
-              <a class="dropdown-item" href="#">ilan3</a>
+              <a class="dropdown-item" href="kiralik-arsa">Arsa</a>
+              <a class="dropdown-item" href="kiralik-isyeri">İşyeri</a>
+              <a class="dropdown-item" href="kiralik-konut">Konut</a>
             </div>
           </li>
           <li class="nav-item">
@@ -120,39 +125,57 @@
         <div class="col-md-6 p-5">
           <?php if (isset($_POST['submit'])) {
 
+
+
+ $konu=$_POST["konu"];
             $adsoyad = $_POST['adsoyad'];
             $email = $_POST['email'];
             $telefon = $_POST['telefon'];
-            $mesaj = htmlclean($_POST['mesaj']);
-            $tarih = date_default_timezone_set('Europe/Istanbul');
-            $ip = $_SERVER['REMOTE_ADDR'];
+            $mesaj = $_POST['mesaj'];
+            $ipadres = $_SERVER['REMOTE_ADDR'];
+$tarih=date('Y-m-d H:i:s');;           
 
-            if ($adsoyad == "" || $email == "" || $telefon == "" || $mesaj == "") {
-              echo '<strong style="color:red;">Lütfen tüm alanları doldurun!</strong>';
-            } else {
+            $query = $db->prepare("INSERT INTO tbl_iletisim SET
+            konu = ?,
+            ad_soyad = ?,
+            email = ?,
+            telefon=?,
+            mesaj=?,
+            ip_adresi=?,
+            tarih=?");
+            $insert = $query->execute(array(
+              $konu,$adsoyad, $email, $telefon, $mesaj, $ipadres,$tarih
+            ));
+            if ( $insert ){
+               
+              echo '
 
-              if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                echo '<strong style="color:red;">Lütfen geçerli bir e-mail adresi girin!</strong>';
-              } else {
 
-                $kayit = $db->prepare("insert into contact SET adsoyad=?,email=?,telefon=?,mesaj=?,tarih=?,ip=?");
-                $insert = $kayit->execute(array($adsoyad, $email, $telefon, $mesaj, $tarih, $ip));
-
-
-
-
-                echo '
-
-
-<div class="alert alert-success" role="alert">
-Mesajınız iletilmiştir.
-</div>
-<meta http-equiv="refresh" content="1;URL=index.php">        
-
-';
-              }
+              <div class="alert alert-success" role="alert">
+              Mesajınız iletilmiştir.
+              </div>
+              <meta http-equiv="refresh" content="1;URL=index.php">        
+              
+              ';
             }
-          } ?>
+else
+{
+  echo '
+
+
+  <div class="alert alert-danger" role="alert">
+  Mesajınız iletilememiştir.
+  </div>
+ 
+  ';
+
+}
+
+
+         
+              }
+              
+       ?>
 
 
 
@@ -161,11 +184,11 @@ Mesajınız iletilmiştir.
           <form method="POST">
             <div class="form-group">
 
-              <input class="form-control" placeholder="Konu" type="text" name="Konu" id="konu" required>
+              <input class="form-control" placeholder="Konu" type="text" name="konu" id="konu" required>
             </div>
             <div class="form-group">
 
-              <input class="form-control" placeholder="Ad Soyad" type="text" name="adsoyad" id="name" required>
+              <input class="form-control" placeholder="Ad Soyad" type="text" name="adsoyad" id="adsoyad" required>
             </div>
             <div class="form-group">
 
@@ -173,7 +196,7 @@ Mesajınız iletilmiştir.
             </div>
             <div class="form-group">
 
-              <input type="text" class="form-control" placeholder="Telefon" name="telefon" id="phone" required>
+              <input type="text" class="form-control" placeholder="Telefon" name="telefon" id="telefon" required>
             </div>
 
             <div class="form-group">
@@ -271,7 +294,7 @@ Mesajınız iletilmiştir.
               <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/ofis.jpg" />
             </div>
             <div class="card-body">
-              <h4 class="card-title text-center"><strong>İŞ YERİ</strong></h4>
+              <h4 class="card-title text-center"><strong>İŞYERİ</strong></h4>
               <p class="card-text">
                 <div class="yayin-bilgi text-center">
                   <span><button class="btn btn-outline-success btn-round">Kiralık</button>
@@ -324,7 +347,7 @@ Mesajınız iletilmiştir.
                   <div class="text-center">
                     <strong class="text-white ">Gayrimenkul Kategorileri</strong>
                     <li><a class="text-white" href="#">Konut</a></li>
-                    <li><a class="text-white" href="#">İş Yeri</a></li>
+                    <li><a class="text-white" href="#">İşyeri</a></li>
                     <li><a class="text-white" href="#">Arsa</a></li>
                   </div>
                 </ul>
@@ -333,9 +356,9 @@ Mesajınız iletilmiştir.
                 <ul class="list-unstyled h5">
                   <div class="text-center">
                     <strong class="text-white ">Site Haritası</strong>
-                    <li><a class="text-white" href="#">AnaSayfa</a></li>
-                    <li><a class="text-white" href="#">Hakkımızda</a></li>
-                    <li><a class="text-white" href="#">İletişim</a></li>
+                    <li><a class="text-white" href="anasayfa">AnaSayfa</a></li>
+                    <li><a class="text-white" href="hakkimizda">Hakkımızda</a></li>
+                    <li><a class="text-white" href="iletisim">İletişim</a></li>
                   </div>
                 </ul>
               </div>
