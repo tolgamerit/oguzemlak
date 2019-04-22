@@ -1,3 +1,7 @@
+<?php
+define("include",true); 
+include("assets/config.php"); 
+?>
 <!doctype html>
 <html lang="tr">
 
@@ -133,20 +137,29 @@
     <!-- NAVBAR -->
 
     <!--İLAN-->
+
+<?php
+$id = 1000; 
+ 
+$query = $db->prepare("SELECT * FROM tbl_ilan WHERE ilan_numarasi = :id");
+ 
+$query->execute(array( ":id" => $id ));
+ 
+if( $query->rowCount() ){
+    foreach( $query as $cek ){
+     $link= strtolower(str_replace('ı','i',$cek['ilan_Durum']."-".$cek['ilan_Kategori']));
+?>
     <div class="container">
-        <h3 class="p-3"> <strong>İLAN BAŞLIĞI BURAYA GELECEK</strong> </h3>
+        <h3 class="p-3"> <strong><?php echo $cek['ilan_Adi']; ?></strong> </h3>
         <nav id="hrt" aria-label="breadcrumb " role="navigation">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="anasayfa"> <strong>Anasayfa </strong></a></li>
-                <li class="breadcrumb-item active" aria-current="page"><strong>Satılık</strong></li>
-                <?php
-                if ($_GET['ilan'] == 'arsa')
-                    echo ' <li class="breadcrumb-item "><a href="satilik-arsa"><strong>Satılık Arsa</strong></a></li>';
-                elseif ($_GET['ilan'] == 'konut')
-                    echo ' <li class="breadcrumb-item "><a href="satilik-konut"><strong>Satılık Konut</strong></a></li>';
-                else
-                    echo ' <li class="breadcrumb-item "><a href="satilik-isyeri"><strong>Satılık İşyeri</strong></a></li>';
-                ?>
+                <li class="breadcrumb-item active" aria-current="page"><strong><?php echo $cek['ilan_Durum']; ?></strong></li>
+               
+                   <li class="breadcrumb-item "><a href="<?php echo $link;?>
+                   "><strong><?php echo $cek['ilan_Kategori']; ?></strong></a></li>
+              
+              
             </ol>
         </nav>
 
@@ -159,16 +172,22 @@
                     <div class="card-body">
                         <div class="carousel mb-3" data-flickity='{ "autoPlay": true }'>
 
-                            <img data-toggle="lightbox" data-gallery="example-gallery" href="assets/img/test1.jpg" src="assets/img/test1.jpg" class="carousel-cell-image rounded">
-                            <img data-toggle="lightbox" data-gallery="example-gallery" href="assets/img/test2.jpg" src="assets/img/test2.jpg" class="carousel-cell-image rounded">
-                            <img data-toggle="lightbox" data-gallery="example-gallery" href="assets/img/test3.jpg" src="assets/img/test3.jpg" class="carousel-cell-image rounded">
-                            <img data-toggle="lightbox" data-gallery="example-gallery" href="assets/img/test4.jpg" src="assets/img/test4.jpg" class="carousel-cell-image rounded">
-                            <img data-toggle="lightbox" data-gallery="example-gallery" href="assets/img/test5.jpg" src="assets/img/test5.jpg" class="carousel-cell-image rounded">
-                            <img data-toggle="lightbox" data-gallery="example-gallery" href="assets/img/test6.jpg" src="assets/img/test6.jpg" class="carousel-cell-image rounded">
+                          <?php
+                         
+                          for ($i=20; $i <=29; $i++) 
+                          { 
+                            if($cek[$i]!=NULL)
+                            { 
+                                ?> 
+                                <img data-toggle="lightbox" data-gallery="example-gallery" href="<?php echo $cek[$i]; ?>" src="<?php echo $cek[$i]; ?>" class="carousel-cell-image rounded">
+                            <?php }}?>         
+                         
                         </div>
                     </div>
                     <div class="card-footer row p-4">
-                    <button class="btn  btn-info btn-round col-xl-6 mt-2">212.000<em class="fas fa-lira-sign ml-1"></em></button>
+                    <button class="btn  btn-info btn-round col-xl-6 mt-2"><?php ECHO number_format($cek['ilan_Fiyat'], 0
+                
+                , ',', '.'); ?><em class="fas fa-lira-sign ml-1"></em></button>
             <a  class="btn btn-info btn-round col-xl-6 mt-2"  href="tel:05055555555"><em class="fa fa-phone mr-2"></em>0505 555 55 55</a>
                     </div>
                 </div>
@@ -186,92 +205,92 @@
                         <tr>
                             <td>
                                 <div><strong>İlan Numarası:</strong></div>
-                                <div>1938</div>
+                                <div><?php echo $cek['ilan_numarasi']; ?></div>
 
                             </td>
 
                             <td>
                                 <div><strong>Yayın Tarihi:</strong></div>
-                                <div>21.04.2019</div>
+                                <div><?php echo $cek['ilan_YayinTarihi']; ?></div>
 
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <div><strong>Metre kare M²:</strong></div>
-                                <div>210</div>
+                                <div><?php echo $cek['ilan_Metrekare']; ?></div>
 
                             </td>
                             <td>
                                 <div><strong>Oda Sayısı:</strong></div>
-                                <div>2+1</div>
+                                <div><?php echo $cek['ilan_OdaSayisi']; ?></div>
 
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <div><strong>Bulunduğu Kat:</strong></div>
-                                <div>Zemin Kat</div>
+                                <div><?php echo $cek['ilan_BulunduguKat']; ?></div>
 
                             </td>
                             <td>
                                 <div><strong>Kat Sayısı:</strong></div>
-                                <div>3</div>
+                                <div><?php echo $cek['ilan_KatSayisi']; ?></div>
 
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <div><strong>Bina Yaşı:</strong></div>
-                                <div>3</div>
+                                <div><?php echo $cek['ilan_BinaYasi']; ?></div>
 
                             </td>
                             <td>
                                 <div><strong>Isıtma:</strong></div>
-                                <div>Klima</div>
+                                <div><?php echo $cek['ilan_Isitma']; ?></div>
 
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <div><strong>Kullanım Durumu:</strong></div>
-                                <div>Boş</div>
+                                <div><?php echo $cek['ilan_KullanimDurumu']; ?></div>
 
                             </td>
                             <td>
                                 <div><strong>Eşyalı:</strong></div>
-                                <div>Hayır</div>
+                                <div><?php echo $cek['ilan_Esyali']; ?></div>
 
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <div><strong>Tapu Durumu:</strong></div>
-                                <div>Kat İrtifaklı</div>
+                                <div><?php echo $cek['ilan_TapuDurumu']; ?></div>
 
                             </td>
                             <td>
                                 <div><strong>Kredi Uygunluk:</strong></div>
-                                <div>Hayır</div>
+                                <div><?php echo $cek['ilan_KrediUygunluk']; ?></div>
 
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <div><strong>Site İçerisinde:</strong></div>
-                                <div>Evet</div>
+                                <div><?php echo $cek['ilan_SiteIcerisinde']; ?></div>
 
                             </td>
                             <td>
                                 <div><strong>Aidat:</strong></div>
-                                <div>150TL</div>
+                                <div><?php echo $cek['ilan_Aidat']; ?></div>
 
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <div><strong>Cephe: </strong></div>
-                                <div>Güney</div>
+                                <div><?php echo $cek['ilan_Cephe']; ?></div>
                             </td>
                             <td></td>
                         </tr>
@@ -290,12 +309,7 @@
             <div class="row">
             <div class="col-md-12 mx-auto">
             <p class="p-3 h5 text-center"> <strong>İlan Açıklaması</strong> </p>
-                <p class="lead text-justify p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis magni alias optio quisquam accusantium ex ducimus impedit temporibus, deleniti suscipit
-                    molestias tempore magnam autem cumque laboriosam libero repellendus ratione? Sed? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis magni alias optio quisquam accusantium ex ducimus impedit temporibus, deleniti suscipit
-                    molestias tempore magnam autem cumque laboriosam libero repellendus ratione? Sed? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis magni alias optio quisquam accusantium ex ducimus impedit temporibus, deleniti suscipit
-                    molestias tempore magnam autem cumque laboriosam libero repellendus ratione? Sed? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis magni alias optio quisquam accusantium ex ducimus impedit temporibus, deleniti suscipit
-                    molestias tempore magnam autem cumque laboriosam libero repellendus ratione? Sed? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis magni alias optio quisquam accusantium ex ducimus impedit temporibus, deleniti suscipit
-                    molestias tempore magnam autem cumque laboriosam libero repellendus ratione?</P>
+                <p class="lead text-justify p-3"><?php echo $cek['ilan_Aciklama']; ?></P>
           
        
             </div>
@@ -329,14 +343,14 @@
 
           <div class="map-responsive rounded" >
        
-       <iframe class="" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3186.493355859901!2d35.32783431487138!3d36.998024979908294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15288f6b7b4f5fa7%3A0xeff8c934d6fe8f47!2sCEM+CAR+SOUND+Adana+Multimedya+Navigasyon+ve+Ses+Sistemleri+Montaj+Servis+ve+Yedek+Par%C3%A7a+Merkezi!5e0!3m2!1str!2str!4v1477313124563" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+       <iframe class="" src="<?php echo $cek['ilan_Harita']; ?>" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
    </div>
           </div>
     <!-- İLAN KONUM -->
         </div>
 
 
-
+       <?php }}?>
 
 
 <!-- KATEGORİLER -->

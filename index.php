@@ -1,4 +1,9 @@
+<?php
+define("include",true); 
+include("assets/config.php"); 
+?>
 <!doctype html>
+
 <html lang="tr">
 
 <head>
@@ -131,144 +136,41 @@
       <p class="h3"><strong>Öne Çıkan İlanlar</strong></p>
     </div>
     <div class="row mt-3">
+    <?php
+
+foreach ($db->query("select * from tbl_ilan where ilan_OneCikan='evet'") as $gelen)
+{
+
+
+  ?>
       <!-- İLAN -->
       <div class="col-md-4 ">
-        <a href="#">
+        <a href="ilan.php">
           <div class="card">
             <div class="embed-responsive embed-responsive-16by9">
               <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
             </div>
             <div class="card-body">
-              <h4 class="card-title">İlan Başlığı</h4>
-              <p class="card-text">Girilen ilan hakkında yazılacak kısa bilgilendirme yazısı</p>
-              <div class="yayin-bilgi">
-                <span class="float-left"><strong>İlan Numarası: 000005</strong></span>
-                <span class="float-right"><strong>212.000 TL</strong></span>
+              <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'],'utf8');?></h4>
+      
+              <div class="yayin-bilgi mt-2">
+                <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi'];?></strong></span>
+                <span class="float-right"><strong><?php 
+                ECHO number_format($gelen['ilan_Fiyat'], 0
+                
+                , ',', '.');
+                ?> TL</strong></span>
               </div>
               <div class="mt-5">
-              <span class="text-muted float-left ">İlan Konumu</span>
+              <span class="text-muted float-left "><?php echo $gelen['ilan_Konum'];?></span>
 
               </div>
             </div>
           </div>
         </a>
-      </div>
+</div><?php }?>
       <!-- İLAN -->
-      <!-- İLAN -->
-      <div class="col-md-4 ">
-        <a href="#">
-          <div class="card">
-            <div class="embed-responsive embed-responsive-16by9">
-              <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">İlan Başlığı</h4>
-              <p class="card-text">Girilen ilan hakkında yazılacak kısa bilgilendirme yazısı</p>
-              <div class="yayin-bilgi">
-                <span class="float-left"><strong>İlan Numarası: 000005</strong></span>
-                <span class="float-right"><strong>212.000 TL</strong></span>
-              </div>
-              <div class="mt-5">
-              <span class="text-muted float-left ">İlan Konumu</span>
-
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
-      <!-- İLAN -->
-      <!-- İLAN -->
-      <div class="col-md-4 ">
-        <a href="#">
-          <div class="card">
-            <div class="embed-responsive embed-responsive-16by9">
-              <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">İlan Başlığı</h4>
-              <p class="card-text">Girilen ilan hakkında yazılacak kısa bilgilendirme yazısı</p>
-              <div class="yayin-bilgi">
-                <span class="float-left"><strong>İlan Numarası: 000005</strong></span>
-                <span class="float-right"><strong>212.000 TL</strong></span>
-              </div>
-              <div class="mt-5">
-              <span class="text-muted float-left ">İlan Konumu</span>
-
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
-      <!-- İLAN -->
-      <!-- İLAN -->
-      <div class="col-md-4 ">
-        <a href="#">
-          <div class="card">
-            <div class="embed-responsive embed-responsive-16by9">
-              <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">İlan Başlığı</h4>
-              <p class="card-text">Girilen ilan hakkında yazılacak kısa bilgilendirme yazısı</p>
-              <div class="yayin-bilgi">
-                <span class="float-left"><strong>İlan Numarası: 000005</strong></span>
-                <span class="float-right"><strong>212.000 TL</strong></span>
-              </div>
-              <div class="mt-5">
-              <span class="text-muted float-left ">İlan Konumu</span>
-
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
-      <!-- İLAN -->
-      <!-- İLAN -->
-      <div class="col-md-4 ">
-        <a href="#">
-          <div class="card">
-            <div class="embed-responsive embed-responsive-16by9">
-              <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">İlan Başlığı</h4>
-              <p class="card-text">Girilen ilan hakkında yazılacak kısa bilgilendirme yazısı</p>
-              <div class="yayin-bilgi">
-                <span class="float-left"><strong>İlan Numarası: 000005</strong></span>
-                <span class="float-right"><strong>212.000 TL</strong></span>
-              </div>
-              <div class="mt-5">
-              <span class="text-muted float-left ">İlan Konumu</span>
-
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
-      <!-- İLAN -->
-      <!-- İLAN -->
-      <div class="col-md-4 ">
-        <a href="#">
-          <div class="card">
-            <div class="embed-responsive embed-responsive-16by9">
-              <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">İlan Başlığı</h4>
-              <p class="card-text">Girilen ilan hakkında yazılacak kısa bilgilendirme yazısı</p>
-              <div class="yayin-bilgi">
-                <span class="float-left"><strong>İlan Numarası: 000005</strong></span>
-                <span class="float-right"><strong>212.000 TL</strong></span>
-              </div>
-              <div class="mt-5">
-              <span class="text-muted float-left ">İlan Konumu</span>
-
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
-      <!-- İLAN -->
+     
     </div>
   </div>
   <!-- ÖNE ÇIKAN İLANLAR -->
@@ -293,10 +195,10 @@
               <h4 class="card-title text-center"><strong>ARSA</strong></h4>
               <p class="card-text">
                 <div class="yayin-bilgi text-center">
-                  <span><button class="btn btn-outline-success btn-round">Kiralık</button>
-                  </span>
-                  <span><button class="btn btn-outline-success btn-round">Satılık</button>
-                  </span>
+                  <a class="btn btn-outline-success btn-round" href="kiralik-arsa">Kiralık</a>
+                  <a class="btn btn-outline-success btn-round" href="satilik-arsa">Satılık</a>
+                  
+                 
                 </div>
               </p>
             </div>
@@ -314,10 +216,9 @@
               <h4 class="card-title text-center"><strong>İŞYERİ</strong></h4>
               <p class="card-text">
                 <div class="yayin-bilgi text-center">
-                  <span><button class="btn btn-outline-success btn-round">Kiralık</button>
-                  </span>
-                  <span><button class="btn btn-outline-success btn-round">Satılık</button>
-                  </span>
+                <a class="btn btn-outline-success btn-round" href="kiralik-isyeri">Kiralık</a>
+                  <a class="btn btn-outline-success btn-round" href="satilik-isyeri">Satılık</a>
+                  
                 </div>
               </p>
             </div>
@@ -337,10 +238,9 @@
               <h4 class="card-title text-center"><strong>KONUT</strong></h4>
               <p class="card-text">
                 <div class="yayin-bilgi text-center">
-                  <span><button class="btn btn-outline-success btn-round">Kiralık</button>
-                  </span>
-                  <span><button class="btn btn-outline-success btn-round">Satılık</button>
-                  </span>
+                <a class="btn btn-outline-success btn-round" href="kiralik-konut">Kiralık</a>
+                  <a class="btn btn-outline-success btn-round" href="satilik-konut">Satılık</a>
+                  
                 </div>
               </p>
             </div>
