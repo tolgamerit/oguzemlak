@@ -244,7 +244,18 @@
 
                             </td>
                         </tr>
+                        <tr>
+                            <td>
+                                <div><strong>Tapu Durumu:</strong></div>
+                                <div>Kat İrtifaklı</div>
 
+                            </td>
+                            <td>
+                                <div><strong>Kredi Uygunluk:</strong></div>
+                                <div>Hayır</div>
+
+                            </td>
+                        </tr>
                         <tr>
                             <td>
                                 <div><strong>Site İçerisinde:</strong></div>
@@ -259,16 +270,12 @@
                         </tr>
                         <tr>
                             <td>
-                                <div><strong>Tapu Durumu:</strong></div>
-                                <div>Kat İrtifaklı</div>
-
+                                <div><strong>Cephe: </strong></div>
+                                <div>Güney</div>
                             </td>
-                            <td>
-                                <div><strong>Kredi Uygunluk:</strong></div>
-                                <div>Hayır</div>
-
-                            </td>
+                            <td></td>
                         </tr>
+                     
 
                     </tbody>
                 </table>
@@ -281,7 +288,7 @@
         <!-- İLAN ÖZELLİK -->
         <div class="container-fluid mt-5">
             <div class="row">
-            <div class="col-md-8 text-left">
+            <div class="col-md-12 mx-auto">
             <p class="p-3 h5 text-center"> <strong>İlan Açıklaması</strong> </p>
                 <p class="lead text-justify p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis magni alias optio quisquam accusantium ex ducimus impedit temporibus, deleniti suscipit
                     molestias tempore magnam autem cumque laboriosam libero repellendus ratione? Sed? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis magni alias optio quisquam accusantium ex ducimus impedit temporibus, deleniti suscipit
