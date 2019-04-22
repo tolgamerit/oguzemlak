@@ -13,36 +13,31 @@
 
     <!--     Fonts and icons     -->
     <style>
+        .modal-header
+
+        {
+            display: none !important;
+        }
         .modal-content {
             box-shadow: none !important;
             background-color: transparent !important;
-
-
         }
-
         .breadcrumb {
-
             background-color: #ffffff !important;
         }
-
         .ilan {
-
             margin-left: auto;
             margin-right: auto;
-
         }
-
         .embed-responsive .card-img-top {
             object-fit: cover;
         }
-
         .map-responsive {
       overflow: hidden;
       padding-bottom: 56.25%;
       position: relative;
       height: 0;
     }
-
     .map-responsive iframe {
       left: 0;
       top: 0;
@@ -50,42 +45,28 @@
       width: 100%;
       position: absolute;
     }
-
         .dropdown-item:hover {
             background-color: #6ec7e0 !important;
         }
-
         .dropdown-item:active {
             background-color: #86d9ab !important;
         }
-
         .ck {
             max-width: 70px !important;
         }
-
         .cll {
             color: #6c757d !important;
             border: 2px solid #17a2b8 !important;
         }
-
         .rsm1 {
-
             box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22) !important;
         }
-
         .ekko-lightbox-nav-overlay a {
             color: #101010 !important;
         }
-
-
-
-
-
         .carousel-cell {
-
             counter-increment: gallery-cell;
         }
-
         .modal-body {
             padding: 0px 0px 0px 0px !important;
         }
@@ -152,7 +133,7 @@
     <!-- NAVBAR -->
 
     <!--İLAN-->
-    <div class="container-fluid">
+    <div class="container">
         <h3 class="p-3"> <strong>İLAN BAŞLIĞI BURAYA GELECEK</strong> </h3>
         <nav id="hrt" aria-label="breadcrumb " role="navigation">
             <ol class="breadcrumb">
@@ -171,7 +152,7 @@
 
         <div class="row">
 
-            <div class="col-lg-4 col-md-5 col-sm-5">
+            <div class="col-lg-6 col-md-6 col-sm-6">
 
                 <div class="card rsm1 rounded">
 
@@ -187,30 +168,17 @@
                         </div>
                     </div>
                     <div class="card-footer row p-4">
-                    <button class="btn btn-lg btn-info btn-round col-xl-6 mt-2">212.000<em class="fas fa-lira-sign ml-1"></em></button>
-            <a  class="btn btn-lg btn-info btn-round col-xl-6 mt-2"  href="tel:05055555555"><em class="fa fa-phone mr-2"></em>0505 555 55 55</a>
+                    <button class="btn  btn-info btn-round col-xl-6 mt-2">212.000<em class="fas fa-lira-sign ml-1"></em></button>
+            <a  class="btn btn-info btn-round col-xl-6 mt-2"  href="tel:05055555555"><em class="fa fa-phone mr-2"></em>0505 555 55 55</a>
                     </div>
                 </div>
 
             </div>
-            <div class="col-lg-8 col-md-7 col-sm-7 ">
+            <div class="col-lg-6 col-md-6 col-sm-6 ">
            
-                <p class="p-3 h5"> <strong>İlan Açıklaması</strong> </p>
-                <p class="lead text-justify p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis magni alias optio quisquam accusantium ex ducimus impedit temporibus, deleniti suscipit
-                    molestias tempore magnam autem cumque laboriosam libero repellendus ratione? Sed? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis magni alias optio quisquam accusantium ex ducimus impedit temporibus, deleniti suscipit
-                    molestias tempore magnam autem cumque laboriosam libero repellendus ratione? Sed? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis magni alias optio quisquam accusantium ex ducimus impedit temporibus, deleniti suscipit
-                    molestias tempore magnam autem cumque laboriosam libero repellendus ratione? Sed? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis magni alias optio quisquam accusantium ex ducimus impedit temporibus, deleniti suscipit
-                    molestias tempore magnam autem cumque laboriosam libero repellendus ratione? Sed? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis magni alias optio quisquam accusantium ex ducimus impedit temporibus, deleniti suscipit
-                    molestias tempore magnam autem cumque laboriosam libero repellendus ratione?</P>
-            </div>
-        </div>
-
-        <!-- İLAN ÖZELLİK -->
-        <div class="container-fluid mt-5">
-            <div class="row">
-            <div class="table-responsive border-0 col-md-6 text-left" style="overflow: hidden;">
-            <p class="text-center h5 mb-5"> <strong>İlan Özellikleri</strong> </p>
-       
+                <p class="h5"> <strong>İlan Özellikleri</strong> </p>
+                <div class="table-responsive border-0 text-left" style="overflow: hidden;">
+         
                 <table class="table border-0">
 
                     <tbody class="lead">
@@ -305,18 +273,27 @@
                     </tbody>
                 </table>
             </div>
+            </div>
+        </div>
 
-          <div class="col-md-6">
-          <p class="text-center h5 mb-5"> <strong>İlan Konumu</strong> </p>
+    
+
+        <!-- İLAN ÖZELLİK -->
+        <div class="container-fluid mt-5">
+            <div class="row">
+            <div class="col-md-8 text-left">
+            <p class="p-3 h5 text-center"> <strong>İlan Açıklaması</strong> </p>
+                <p class="lead text-justify p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis magni alias optio quisquam accusantium ex ducimus impedit temporibus, deleniti suscipit
+                    molestias tempore magnam autem cumque laboriosam libero repellendus ratione? Sed? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis magni alias optio quisquam accusantium ex ducimus impedit temporibus, deleniti suscipit
+                    molestias tempore magnam autem cumque laboriosam libero repellendus ratione? Sed? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis magni alias optio quisquam accusantium ex ducimus impedit temporibus, deleniti suscipit
+                    molestias tempore magnam autem cumque laboriosam libero repellendus ratione? Sed? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis magni alias optio quisquam accusantium ex ducimus impedit temporibus, deleniti suscipit
+                    molestias tempore magnam autem cumque laboriosam libero repellendus ratione? Sed? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis magni alias optio quisquam accusantium ex ducimus impedit temporibus, deleniti suscipit
+                    molestias tempore magnam autem cumque laboriosam libero repellendus ratione?</P>
+          
        
+            </div>
 
-
-          <div class="map-responsive" >
-       
-       <iframe class="" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3186.493355859901!2d35.32783431487138!3d36.998024979908294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15288f6b7b4f5fa7%3A0xeff8c934d6fe8f47!2sCEM+CAR+SOUND+Adana+Multimedya+Navigasyon+ve+Ses+Sistemleri+Montaj+Servis+ve+Yedek+Par%C3%A7a+Merkezi!5e0!3m2!1str!2str!4v1477313124563" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-   </div>
-          </div>
-
+              
 
 
 
@@ -331,11 +308,25 @@
         </div>
         <!-- İLAN ÖZELLİK -->
 
-        <!-- İLAN KONUM -->
+      
       
     </div>
-    <!-- İLAN KONUM -->
+
     <!-- İLAN-->
+    <div class="row d-flex justify-content-center mt-2">
+            <!-- İLAN KONUM -->
+          <div class="col-md-6">
+          <p class="text-center h5 mb-5"> <strong>İlan Konumu</strong> </p>
+       
+
+
+          <div class="map-responsive rounded" >
+       
+       <iframe class="" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3186.493355859901!2d35.32783431487138!3d36.998024979908294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15288f6b7b4f5fa7%3A0xeff8c934d6fe8f47!2sCEM+CAR+SOUND+Adana+Multimedya+Navigasyon+ve+Ses+Sistemleri+Montaj+Servis+ve+Yedek+Par%C3%A7a+Merkezi!5e0!3m2!1str!2str!4v1477313124563" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+   </div>
+          </div>
+    <!-- İLAN KONUM -->
+        </div>
 
 
 
@@ -487,6 +478,7 @@
 <script src="assets/js/bootstrap-datepicker.js"></script>
 <script src="assets/js/paper-kit.js"></script>
 <script src="assets/js/ekko-lightbox.js"></script>
+<script src="assets/js/ekko-lightbox.min.js"></script>
 
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 

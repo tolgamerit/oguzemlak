@@ -153,29 +153,29 @@ include("assets/config.php");
       <div class="col-lg-2 col-md-3 col-sm-3 ">
         <div class="">
         <?php if($_GET['ilan']=="arsa"){ ?>
-          <form class="form ">
-            <div class="form-group">
+          <form class="form text-center">
+          <div class="form-group">
               <label class="lead">Fiyat Aralığı</label>
               <div class="row">
-                <div class="col-md-6">
-                  <input type="text" class="form-control ck" name="min-fiyat" id="min-fiyat" placeholder="min">
+                <div class="col-md-6 mt-2">
+                  <input type="text" class="form-control ck mx-auto" name="min-fiyat" id="min-fiyat" placeholder="min">
 
                 </div>
-                <div class="col-md-6">
-                  <input type="text" class="form-control ck" name="max-fiyat" id="max-fiyat" placeholder="max">
+                <div class="col-md-6 mt-2">
+                  <input type="text" class="form-control ck mx-auto" name="max-fiyat" id="max-fiyat" placeholder="max">
 
                 </div>
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group ">
               <label class="lead">Metrekare (Brüt)</label>
               <div class="row">
-                <div class="col-md-6">
-                  <input type="text" class="form-control ck" name="min-m2" id="min-m2" placeholder="m²">
+                <div class="col-md-6 mt-2">
+                  <input type="text" class="form-control ck mx-auto" name="min-m2" id="min-m2" placeholder="m²">
 
                 </div>
-                <div class="col-md-6">
-                  <input type="text" class="form-control ck" name="max-m2" id="max-m2" placeholder="m²">
+                <div class="col-md-6 mt-2">
+                  <input type="text" class="form-control ck mx-auto" name="max-m2" id="max-m2" placeholder="m²">
 
                 </div>
               </div>
@@ -183,19 +183,25 @@ include("assets/config.php");
             <div class="form-group ">
               <label class="lead">Krediye Uygunluk</label>
 
-              <select style="  max-width: 100px !important;" class="custom-select " name="kredidurum">
+          <div class="row">
+            <div class="col-md-6 mx-auto">
+            <select style="  max-width: 100px !important;" class="custom-select " name="kredidurum">
                 <option value='evet'>Evet</option>
                 <option value='hayir'>Hayır</option>
 
 
               </select>
+            </div>
+          </div>
 
             </div>
 
             <div class="form-group ">
               <label class="lead">Tapu Durumu</label>
 
-              <select style="  max-width: 165px !important;" class="custom-select " name="tapudurum">
+           <div class="row">
+             <div class="col-md-6 mx-auto">
+             <select style="  max-width: 165px !important;" class="custom-select " name="tapudurum">
                 <option value='arsa'>Arsa</option>
                 <option value='hisseli'>Hisseli</option>
                 <option value='kat-irtifak'>Kat İrtifaklı</option>
@@ -204,35 +210,38 @@ include("assets/config.php");
 
 
               </select>
+             </div>
+           </div>
 
             </div>
 
             <button type="submit" class="btn mx-auto btn-danger">ARA</button>
           </form>
-          <?php }elseif($_GET['ilan']=='isyeri'){ ?>
-            <form class="form ">
+        
+        <?php }elseif($_GET['ilan']=='isyeri'){ ?>
+            <form class="form text-center">
             <div class="form-group">
               <label class="lead">Fiyat Aralığı</label>
               <div class="row">
-                <div class="col-md-6">
-                  <input type="text" class="form-control ck" name="min-fiyat" id="min-fiyat" placeholder="min">
+                <div class="col-md-6 mt-2">
+                  <input type="text" class="form-control ck mx-auto" name="min-fiyat" id="min-fiyat" placeholder="min">
 
                 </div>
-                <div class="col-md-6">
-                  <input type="text" class="form-control ck" name="max-fiyat" id="max-fiyat" placeholder="max">
+                <div class="col-md-6 mt-2">
+                  <input type="text" class="form-control ck mx-auto" name="max-fiyat" id="max-fiyat" placeholder="max">
 
                 </div>
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group ">
               <label class="lead">Metrekare (Brüt)</label>
               <div class="row">
-                <div class="col-md-6">
-                  <input type="text" class="form-control ck" name="min-m2" id="min-m2" placeholder="m²">
+                <div class="col-md-6 mt-2">
+                  <input type="text" class="form-control ck mx-auto" name="min-m2" id="min-m2" placeholder="m²">
 
                 </div>
-                <div class="col-md-6">
-                  <input type="text" class="form-control ck" name="max-m2" id="max-m2" placeholder="m²">
+                <div class="col-md-6 mt-2">
+                  <input type="text" class="form-control ck mx-auto" name="max-m2" id="max-m2" placeholder="m²">
 
                 </div>
               </div>
@@ -240,61 +249,35 @@ include("assets/config.php");
             
 
             <button type="submit" class="btn mx-auto btn-danger">ARA</button>
-          </form><?php }elseif($_GET['ilan']=='isyeri'){ ?>
-            <form class="form ">
+          </form>
+          
+          <?php }elseif($_GET['ilan']=='konut') {?>
+
+
+
+            <form class="form text-center">
             <div class="form-group">
               <label class="lead">Fiyat Aralığı</label>
               <div class="row">
-                <div class="col-md-6">
-                  <input type="text" class="form-control ck" name="min-fiyat" id="min-fiyat" placeholder="min">
+                <div class="col-md-6 mt-2">
+                  <input type="text" class="form-control ck mx-auto" name="min-fiyat" id="min-fiyat" placeholder="min">
 
                 </div>
-                <div class="col-md-6">
-                  <input type="text" class="form-control ck" name="max-fiyat" id="max-fiyat" placeholder="max">
+                <div class="col-md-6 mt-2">
+                  <input type="text" class="form-control ck mx-auto" name="max-fiyat" id="max-fiyat" placeholder="max">
 
                 </div>
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group ">
               <label class="lead">Metrekare (Brüt)</label>
               <div class="row">
-                <div class="col-md-6">
-                  <input type="text" class="form-control ck" name="min-m2" id="min-m2" placeholder="m²">
+                <div class="col-md-6 mt-2">
+                  <input type="text" class="form-control ck mx-auto" name="min-m2" id="min-m2" placeholder="m²">
 
                 </div>
-                <div class="col-md-6">
-                  <input type="text" class="form-control ck" name="max-m2" id="max-m2" placeholder="m²">
-
-                </div>
-              </div>
-            </div>
-            
-
-            <button type="submit" class="btn mx-auto btn-danger">ARA</button>
-          </form><?php }elseif($_GET['ilan']=='konut') {?>
-            <form class="form ">
-            <div class="form-group">
-              <label class="lead">Fiyat Aralığı</label>
-              <div class="row">
-                <div class="col-md-6">
-                  <input type="text" class="form-control ck" name="min-fiyat" id="min-fiyat" placeholder="min">
-
-                </div>
-                <div class="col-md-6">
-                  <input type="text" class="form-control ck" name="max-fiyat" id="max-fiyat" placeholder="max">
-
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="lead">Metrekare (Brüt)</label>
-              <div class="row">
-                <div class="col-md-6">
-                  <input type="text" class="form-control ck" name="min-m2" id="min-m2" placeholder="m²">
-
-                </div>
-                <div class="col-md-6">
-                  <input type="text" class="form-control ck" name="max-m2" id="max-m2" placeholder="m²">
+                <div class="col-md-6 mt-2">
+                  <input type="text" class="form-control ck mx-auto" name="max-m2" id="max-m2" placeholder="m²">
 
                 </div>
               </div>
@@ -302,6 +285,8 @@ include("assets/config.php");
             <div class="form-group ">
               <label class="lead">Oda Sayısı</label>
 
+            <div class="row ">
+              <div class="col-md-6 mx-auto">
               <select style="  max-width: 70px !important;" class="custom-select " name="odasayisi">
                 <option value='0'>1+0</option>
                 <option value='1'>1+1</option>
@@ -310,12 +295,16 @@ include("assets/config.php");
                 <option value='4'>4+1</option>
                 <option value='5'>5+1</option>
               </select>
+              </div>
+            </div>
 
             </div>
             <div class="form-group ">
               <label class="lead">Bina Yaşı</label>
 
-              <select style="  max-width: 70px !important;" class="custom-select " name="binayas">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+        <select style="  max-width: 70px !important;" class="custom-select " name="binayas">
                 <option value='0'>0</option>
                 <option value='1'>1</option>
                 <option value='2'>2</option>
@@ -328,12 +317,16 @@ include("assets/config.php");
                 <option value='26-30'>26-30</option>
                 <option value='30ust'>30+</option>
               </select>
+        </div>
+      </div>
 
             </div>
             <div class="form-group ">
               <label class="lead">Bulunduğu Kat</label>
 
-              <select style="  max-width: 135px !important;" class="custom-select " name="bulundugukat">
+           <div class="row">
+             <div class="col-md-6 mx-auto">
+             <select style="  max-width: 135px !important;" class="custom-select " name="bulundugukat">
                 <option value='zemin'>Zemin Kat</option>
                 <option value='giris'>Giriş Katı</option>
                 <option value='yuksekgiris'>Yüksek Giriş</option>
@@ -344,37 +337,47 @@ include("assets/config.php");
                
                 <option value='30ust'>30+</option>
               </select>
+             </div>
+           </div>
 
             </div>
             <div class="form-group ">
               <label class="lead">Kat Sayısı</label>
 
-              <select style="  max-width:  70px !important;" class="custom-select " name="katsayisi">
+             <div class="row">
+               <div class="col-md-6 mx-auto">
+               <select style="  max-width:  70px !important;" class="custom-select " name="katsayisi">
           
-                <?php  for ($i=0; $i <=20 ; $i++) { 
-                  echo '<option value="'.$i.'"> '.$i.'</option>';
-                } ?>
-               
-          
-              </select>
+          <?php  for ($i=0; $i <=20 ; $i++) { 
+            echo '<option value="'.$i.'"> '.$i.'</option>';
+          } ?>
+         
+    
+        </select>
+               </div>
+             </div>
 
             </div>
             <div class="form-group ">
               <label class="lead">Isıtma</label>
 
-              <select style="  max-width: 165px !important;" class="custom-select " name="isitma">
+          <div class="row">
+            <div class="col-md-6 mx-auto">
+            <select style="  max-width: 165px !important;" class="custom-select " name="isitma">
                 <option value='soba'>Soba</option>
                 <option value='merkezi'>Merkezi Sistem</option>
                 <option value='dogalgaz'>Doğalgaz</option>
                 <option value='klima'>Klima</option>
                
               </select>
+            </div>
+          </div>
 
             </div>
           
             
 
-            <button type="submit" class="btn mx-auto btn-danger">ARA</button>
+            <button type="submit" class="btn mx-auto btn-danger mb-4">ARA</button>
           </form>
           <?php }?>
   
@@ -624,10 +627,10 @@ include("assets/config.php");
               <h4 class="card-title text-center"><strong>ARSA</strong></h4>
               <p class="card-text">
                 <div class="yayin-bilgi text-center">
-                  <span><button class="btn btn-outline-success btn-round">Kiralık</button>
-                  </span>
-                  <span><button class="btn btn-outline-success btn-round">Satılık</button>
-                  </span>
+                  <a class="btn btn-outline-success btn-round" href="kiralik-arsa">Kiralık</a>
+                  <a class="btn btn-outline-success btn-round" href="satilik-arsa">Satılık</a>
+                  
+                 
                 </div>
               </p>
             </div>
@@ -642,13 +645,12 @@ include("assets/config.php");
               <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/ofis.jpg" />
             </div>
             <div class="card-body">
-              <h4 class="card-title text-center"><strong>İŞ YERİ</strong></h4>
+              <h4 class="card-title text-center"><strong>İŞYERİ</strong></h4>
               <p class="card-text">
                 <div class="yayin-bilgi text-center">
-                  <span><button class="btn btn-outline-success btn-round">Kiralık</button>
-                  </span>
-                  <span><button class="btn btn-outline-success btn-round">Satılık</button>
-                  </span>
+                <a class="btn btn-outline-success btn-round" href="kiralik-isyeri">Kiralık</a>
+                  <a class="btn btn-outline-success btn-round" href="satilik-isyeri">Satılık</a>
+                  
                 </div>
               </p>
             </div>
@@ -668,10 +670,9 @@ include("assets/config.php");
               <h4 class="card-title text-center"><strong>KONUT</strong></h4>
               <p class="card-text">
                 <div class="yayin-bilgi text-center">
-                  <span><button class="btn btn-outline-success btn-round">Kiralık</button>
-                  </span>
-                  <span><button class="btn btn-outline-success btn-round">Satılık</button>
-                  </span>
+                <a class="btn btn-outline-success btn-round" href="kiralik-konut">Kiralık</a>
+                  <a class="btn btn-outline-success btn-round" href="satilik-konut">Satılık</a>
+                  
                 </div>
               </p>
             </div>
