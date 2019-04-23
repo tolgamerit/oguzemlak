@@ -1,9 +1,23 @@
 RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteCond $1 !^(css|js|images|inc|lang)
+Options +FollowSymLinks
+RewriteEngine On
 
-ErrorDocument 404 http://127.0.0.1/404.php
 
 RewriteRule ^iletisim$ iletisim.php [N,L]
 RewriteRule ^anasayfa$ index.php [N,L]
 RewriteRule ^hakkimizda$ hakkimizda.php [N,L]
+RewriteRule ^satilik$ satilik.php [N,L]
 
-RewriteRule ^haber-detay/([0-9a-zA-Z-_]+)/([0-9]+)$ haber-detay.php?sef=$1&haber_id=$2 [L,QSA]
+
+RewriteRule ^satilik-konut$ satilik.php?ilan=konut [L,QSA]
+
+
+RewriteRule ^([a-zA-Z0-9_-]+)-([0-9]+)$ ilan.php?sef=$1&id=$2  [L,QSA]
+
+RewriteRule ^satilik-arsa$ satilik.php?ilan=arsa [L,QSA]
+RewriteRule ^satilik-isyeri$ satilik.php?ilan=isyeri [L,QSA]
+RewriteRule ^kiralik-konut$ kiralik.php?ilan=konut [L,QSA]
+RewriteRule ^kiralik-arsa$ kiralik.php?ilan=arsa [L,QSA]
+RewriteRule ^kiralik-isyeri$ kiralik.php?ilan=isyeri [L,QSA]
