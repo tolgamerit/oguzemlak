@@ -8,6 +8,7 @@ include("assets/config.php");
 <head>
     <title>Oğuz Emlak | Hakkımızda</title>
     <meta charset="utf-8">
+    <base href="127.0.0.1" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
@@ -139,8 +140,8 @@ include("assets/config.php");
     <!--İLAN-->
 
 <?php
-$id = 1000; 
- 
+$sef  ="SULTAN DAN HAYALPRK CV. 4+1+KİLER+G.ODALI Ç.BANYO LUX DAİRE";
+$id =$_GET['id']; 
 $query = $db->prepare("SELECT * FROM tbl_ilan WHERE ilan_numarasi = :id");
  
 $query->execute(array( ":id" => $id ));

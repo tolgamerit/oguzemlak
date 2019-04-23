@@ -1,6 +1,7 @@
 <?php
 define("include",true); 
 include("assets/config.php"); 
+include("assets/function.php");
 ?>
 <!doctype html>
 
@@ -8,6 +9,7 @@ include("assets/config.php");
 
 <head>
   <title>Oğuz Emlak</title>
+  <base href="127.0.0.1" />
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -140,12 +142,12 @@ include("assets/config.php");
 
 foreach ($db->query("select * from tbl_ilan where ilan_OneCikan='evet'") as $gelen)
 {
-
+$seourl= seo($gelen['ilan_Adi']);
 
   ?>
       <!-- İLAN -->
       <div class="col-md-4 ">
-        <a href="ilan.php">
+        <a href="<?php echo $seourl.'-'.$gelen['ilan_numarasi']; ?>">
           <div class="card">
             <div class="embed-responsive embed-responsive-16by9">
               <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
