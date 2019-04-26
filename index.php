@@ -145,6 +145,8 @@ foreach ($db->query("select * from tbl_ilan where ilan_OneCikan='evet'") as $gel
 $seourl= seo($gelen['ilan_Adi']);
 
   ?>
+
+    
       <!-- İLAN -->
       <div class="col-md-4 ">
         <a href="<?php echo $seourl.'-'.$gelen['ilan_numarasi']; ?>">
@@ -157,14 +159,14 @@ $seourl= seo($gelen['ilan_Adi']);
       
               <div class="yayin-bilgi mt-2">
                 <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi'];?></strong></span>
-                <span class="float-right"><strong><?php 
+                <span class="float-right text-muted text-danger"><strong><?php 
                 ECHO number_format($gelen['ilan_Fiyat'], 0
                 
                 , ',', '.');
                 ?> TL</strong></span>
               </div>
               <div class="mt-5">
-              <span class="text-muted float-left "><?php echo $gelen['ilan_Konum'];?></span>
+              <span class="h6 text-muted float-left "><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum'];?></span>
 
               </div>
             </div>
