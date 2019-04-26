@@ -354,8 +354,8 @@ if( $query->rowCount() ){
        <?php }}?>
 
 
-<!-- KATEGORİLER -->
-<div class="container-fluid">
+  <!-- KATEGORİLER -->
+  <div class="container-fluid">
     <div class="border-bottom mb-3">
       <p class="h3"><strong>Kategoriler</strong></p>
     </div>
@@ -371,10 +371,10 @@ if( $query->rowCount() ){
               <h4 class="card-title text-center"><strong>ARSA</strong></h4>
               <p class="card-text">
                 <div class="yayin-bilgi text-center">
-                  <span><button class="btn btn-outline-success btn-round">Kiralık</button>
-                  </span>
-                  <span><button class="btn btn-outline-success btn-round">Satılık</button>
-                  </span>
+                  <a class="btn btn-outline-success btn-round" href="kiralik-arsa">Kiralık</a>
+                  <a class="btn btn-outline-success btn-round" href="satilik-arsa">Satılık</a>
+                  
+                 
                 </div>
               </p>
             </div>
@@ -392,10 +392,9 @@ if( $query->rowCount() ){
               <h4 class="card-title text-center"><strong>İŞYERİ</strong></h4>
               <p class="card-text">
                 <div class="yayin-bilgi text-center">
-                  <span><button class="btn btn-outline-success btn-round">Kiralık</button>
-                  </span>
-                  <span><button class="btn btn-outline-success btn-round">Satılık</button>
-                  </span>
+                <a class="btn btn-outline-success btn-round" href="kiralik-isyeri">Kiralık</a>
+                  <a class="btn btn-outline-success btn-round" href="satilik-isyeri">Satılık</a>
+                  
                 </div>
               </p>
             </div>
@@ -415,10 +414,9 @@ if( $query->rowCount() ){
               <h4 class="card-title text-center"><strong>KONUT</strong></h4>
               <p class="card-text">
                 <div class="yayin-bilgi text-center">
-                  <span><button class="btn btn-outline-success btn-round">Kiralık</button>
-                  </span>
-                  <span><button class="btn btn-outline-success btn-round">Satılık</button>
-                  </span>
+                <a class="btn btn-outline-success btn-round" href="kiralik-konut">Kiralık</a>
+                  <a class="btn btn-outline-success btn-round" href="satilik-konut">Satılık</a>
+                  
                 </div>
               </p>
             </div>
@@ -441,9 +439,9 @@ if( $query->rowCount() ){
                                 <ul class="list-unstyled h5">
                                     <div class="text-center">
                                         <strong class="text-white ">Gayrimenkul Kategorileri</strong>
-                                        <li><a class="text-white" href="#">Konut</a></li>
-                                        <li><a class="text-white" href="#">İşyeri</a></li>
-                                        <li><a class="text-white" href="#">Arsa</a></li>
+                                        <li><a class="text-white" href="kiralik-konut">Konut</a></li>
+                                        <li><a class="text-white" href="kiralik-isyeri">İşyeri</a></li>
+                                        <li><a class="text-white" href="kiralik-arsa">Arsa</a><li>
                                     </div>
                                 </ul>
                             </div>
