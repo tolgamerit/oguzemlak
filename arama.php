@@ -135,14 +135,25 @@ include("assets/function.php");
       <ol class="breadcrumb">
 
         <li class="breadcrumb-item"><a href="anasayfa"> <strong>Anasayfa </strong></a></li>
-        <li class="breadcrumb-item active" aria-current="page"><strong>Satılık</strong></li>
+        <li class="breadcrumb-item active" aria-current="page"><strong>
+          <?php if($_POST['durum'] == 'kiralik')
+          
+            echo 'Kiralık'; else echo 'Satılık';  ?>
+        </strong></li>
         <?php
-        if ($_GET['ilan'] == 'arsa')
+        if ($_POST['kategori'] == 'arsa' and $_POST['durum']=='kiralik')
           echo ' <li class="breadcrumb-item "><a href="kiralik-arsa"><strong>Kiralık Arsa</strong></a></li>';
-        elseif ($_GET['ilan'] == 'konut')
+          elseif($_POST['kategori'] == 'arsa' and $_POST['durum']=='satilik')
+          echo ' <li class="breadcrumb-item "><a href="satilik-arsa"><strong>Satılık Arsa</strong></a></li>';
+
+        if ($_POST['kategori'] == 'konut' and $_POST['durum']=='kiralik')
           echo ' <li class="breadcrumb-item "><a href="kiralik-konut"><strong>Kiralık Konut</strong></a></li>';
-        else
+          elseif($_POST['kategori'] == 'konut' and $_POST['durum']=='satilik')
+          echo ' <li class="breadcrumb-item "><a href="satilik-konut"><strong>Satılık Konut</strong></a></li>';
+          if ($_POST['kategori'] == 'isyeri' and $_POST['durum']=='kiralik')
           echo ' <li class="breadcrumb-item "><a href="kiralik-isyeri"><strong>Kiralık İşyeri</strong></a></li>';
+          elseif($_POST['kategori'] == 'isyeri' and $_POST['durum']=='satilik')
+          echo ' <li class="breadcrumb-item "><a href="satilik-isyeri"><strong>Satılık İşyeri</strong></a></li>';
 
         ?>
 
