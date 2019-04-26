@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 define("include", true);
 include("assets/config.php");
 include("assets/function.php");
@@ -98,15 +100,21 @@ include("assets/function.php");
     <div class="rounded text-center" style=" box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)">
       <div class="card-body">
         <p class="h3 lead mb-4 "><strong>İLAN ARAMA</strong> </p>
-        
-            <form action="arama.php" method="POST" class="">
+        <?php  
+        $_SESSION['kategori'] = $_POST['kategori'];      
+        $_SESSION['ilanad'] = $_POST['ilanad'];      
+        $_SESSION['durum'] = $_POST['durum'];  
+        if(isset($_POST['submit'])) 
+        header("Location: arama");   
+        ?>
+            <form  method="POST" >
               <div class="row d-flex justify-content-center">
                 <div class="col-md-2 col-lg-2">
                 <div class="form-group mb-1">
 
 <select name="durum" class="form-control" id="exampleFormControlSelect1">
-  <option value="satılık">Satılık</option>
-  <option value="kiralık">Kiralık</option>
+  <option value="satilik">Satılık</option>
+  <option value="kiralik">Kiralık</option>
 
 </select>
 </div>          <div class="form-group mb-1">
@@ -130,7 +138,7 @@ include("assets/function.php");
 </div>
                 </div>
                 <div class="col-md-1">
-                <button type="submit" class=" btn btn-success rounded ">ARA</button>
+                <button type="submit" class=" btn btn-success rounded " name="submit" value="submit">ARA</button>
 
                 </div>
               </div>

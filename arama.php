@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 define("include", true);
 include("assets/config.php");
 include("assets/function.php");
@@ -136,23 +137,23 @@ include("assets/function.php");
 
         <li class="breadcrumb-item"><a href="anasayfa"> <strong>Anasayfa </strong></a></li>
         <li class="breadcrumb-item active" aria-current="page"><strong>
-          <?php if($_POST['durum'] == 'kiralik')
+          <?php if(isset($_SESSION['kategori']) == 'kiralik')
           
-            echo 'Kiralık'; else echo 'Satılık';  ?>
+            echo 'Kiralık'; elseif(isset($_SESSION['kategori']) == 'satilik') echo 'Satılık';  ?>
         </strong></li>
         <?php
-        if ($_POST['kategori'] == 'arsa' and $_POST['durum']=='kiralik')
+        if ($_SESSION['kategori'] == 'arsa' and $_SESSION['durum']=='kiralik')
           echo ' <li class="breadcrumb-item "><a href="kiralik-arsa"><strong>Kiralık Arsa</strong></a></li>';
-          elseif($_POST['kategori'] == 'arsa' and $_POST['durum']=='satilik')
+          elseif($_SESSION['kategori'] == 'arsa' and $_SESSION['durum']=='satilik')
           echo ' <li class="breadcrumb-item "><a href="satilik-arsa"><strong>Satılık Arsa</strong></a></li>';
 
-        if ($_POST['kategori'] == 'konut' and $_POST['durum']=='kiralik')
+        if ($_SESSION['kategori'] == 'konut' and $_SESSION['durum']=='kiralik')
           echo ' <li class="breadcrumb-item "><a href="kiralik-konut"><strong>Kiralık Konut</strong></a></li>';
-          elseif($_POST['kategori'] == 'konut' and $_POST['durum']=='satilik')
+          elseif($_SESSION['kategori'] == 'konut' and $_SESSION['durum']=='satilik')
           echo ' <li class="breadcrumb-item "><a href="satilik-konut"><strong>Satılık Konut</strong></a></li>';
-          if ($_POST['kategori'] == 'isyeri' and $_POST['durum']=='kiralik')
+          if ($_SESSION['kategori'] == 'isyeri' and $_SESSION['durum']=='kiralik')
           echo ' <li class="breadcrumb-item "><a href="kiralik-isyeri"><strong>Kiralık İşyeri</strong></a></li>';
-          elseif($_POST['kategori'] == 'isyeri' and $_POST['durum']=='satilik')
+          elseif($_SESSION['kategori'] == 'isyeri' and $_SESSION['durum']=='satilik')
           echo ' <li class="breadcrumb-item "><a href="satilik-isyeri"><strong>Satılık İşyeri</strong></a></li>';
 
         ?>
@@ -167,11 +168,7 @@ include("assets/function.php");
           <?php
           if($_POST['kategori']!="")
           {
-            $_SESSION['kategori'] = $_POST['kategori'];      
-            $_SESSION['ilanad'] = $_POST['ilanad'];      
-            $_SESSION['durum'] = $_POST['durum'];      
            
-
          
           }
       
