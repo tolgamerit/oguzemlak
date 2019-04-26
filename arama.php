@@ -1,27 +1,51 @@
 <?php
+session_start();
 define("include", true);
 include("assets/config.php");
 include("assets/function.php");
+
 ?>
 <!doctype html>
-
 <html lang="tr">
 
 <head>
-  <title>Oğuz Emlak</title>
-  <base href="127.0.0.1" />
+  <title>Oğuz Emlak | Aranan İlanlar</title>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="assets/css/paper-kit.css" rel="stylesheet" />
   <!--     Fonts and icons     -->
-
   <style>
+    .breadcrumb {
 
+      background-color: #ffffff !important;
+    }
+
+    .ilan {
+
+      margin-left: auto;
+      margin-right: auto;
+
+    }
 
     .embed-responsive .card-img-top {
       object-fit: cover;
+    }
+
+    .map-responsive {
+      overflow: hidden;
+      padding-bottom: 56.25%;
+      position: relative;
+      height: 0;
+    }
+
+    .map-responsive iframe {
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      position: absolute;
     }
 
     .dropdown-item:hover {
@@ -31,7 +55,18 @@ include("assets/function.php");
     .dropdown-item:active {
       background-color: #86d9ab !important;
     }
+
+    .ck {
+      max-width: 70px !important;
+    }
+
+    .cll {
+      color: #6c757d !important;
+      border: 2px solid #17a2b8 !important;
+    }
   </style>
+
+
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
@@ -92,118 +127,124 @@ include("assets/function.php");
   <!-- NAVBAR -->
 
 
+  <!-- KİRALIK LİSTELEME -->
+  <?php
+  ?>
+  <div class="container mt-5 ">
+    <nav id="hrt" aria-label="breadcrumb " role="navigation">
+      <ol class="breadcrumb">
 
-  <!-- İLAN ARAMA -->
-  <div class="container-fluid mt-5">
-    <div class="rounded text-center" style=" box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)">
-      <div class="card-body">
-        <p class="h3 lead mb-4 "><strong>İLAN ARAMA</strong> </p>
-        
-            <form action="arama.php" method="POST" class="">
-              <div class="row d-flex justify-content-center">
-                <div class="col-md-2 col-lg-2">
-                <div class="form-group mb-1">
-
-<select name="durum" class="form-control" id="exampleFormControlSelect1">
-  <option value="satılık">Satılık</option>
-  <option value="kiralık">Kiralık</option>
-
-</select>
-</div>          <div class="form-group mb-1">
-
-<select name="kategori" class="form-control" id="exampleFormControlSelect1">
-  <option value="arsa">Arsa</option>
-  <option value="isyeri">İşyeri</option>
-  <option value="konut">Konut</option>
-
-</select>
-</div>
-                </div>
-
-               
-                <div class="col-md-4 col-lg-4">
-                <div class="form-group ">
-
-<input name="ilanad" type="text" class="form-control" placeholder="Konum ya da İlan Numarası...">
-
-            
-</div>
-                </div>
-                <div class="col-md-1">
-                <button type="submit" class=" btn btn-success rounded ">ARA</button>
-
-                </div>
-              </div>
-         
-              
-            
-
-            
-
-            </form>
-
-      </div>
-    </div>
-
-  </div>
-
-  <!-- İLAN ARAMA -->
-
-
-
-
-  <!-- ÖNE ÇIKAN İLANLAR -->
-
-
-  <div class="container mt-3">
-    <div class="border-bottom mt-5">
-      <p class="h3"><strong>Öne Çıkan İlanlar</strong></p>
-    </div>
-    <div class="row mt-3">
-      <?php
-
-      foreach ($db->query("select * from tbl_ilan where ilan_OneCikan='evet'") as $gelen) {
-        $seourl = seo($gelen['ilan_Adi']);
+        <li class="breadcrumb-item"><a href="anasayfa"> <strong>Anasayfa </strong></a></li>
+        <li class="breadcrumb-item active" aria-current="page"><strong>Satılık</strong></li>
+        <?php
+        if ($_GET['ilan'] == 'arsa')
+          echo ' <li class="breadcrumb-item "><a href="kiralik-arsa"><strong>Kiralık Arsa</strong></a></li>';
+        elseif ($_GET['ilan'] == 'konut')
+          echo ' <li class="breadcrumb-item "><a href="kiralik-konut"><strong>Kiralık Konut</strong></a></li>';
+        else
+          echo ' <li class="breadcrumb-item "><a href="kiralik-isyeri"><strong>Kiralık İşyeri</strong></a></li>';
 
         ?>
 
+      </ol>
+    </nav>
+    <div class="row">
+    
 
-        <!-- İLAN -->
-        <div class="col-md-4 ">
-          <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
-            <div class="card">
-              <div class="embed-responsive embed-responsive-16by9">
-                <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
-              </div>
-              <div class="card-body">
-                <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+      <div class="col-lg-12">
+        <div class="row">
+          <?php
+          if($_POST['kategori']!="")
+          {
+            $_SESSION['kategori'] = $_POST['kategori'];      
+            $_SESSION['ilanad'] = $_POST['ilanad'];      
+            $_SESSION['durum'] = $_POST['durum'];      
+           
 
-                <div class="yayin-bilgi mt-2">
-                  <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-                  <span class="float-right text-muted text-danger"><strong><?php
-                                                                            echo number_format(
-                                                                              $gelen['ilan_Fiyat'],
-                                                                              0,
-                                                                              ',',
-                                                                              '.'
-                                                                            );
-                                                                            ?> TL</strong></span>
-                </div>
-                <div class="mt-5">
-                  <span class="h6 text-muted float-left "><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+         
+          }
+      
+         $listelenen = 9;
+         $sayi = $db->query("SELECT * FROM tbl_ilan ")->rowCount(); 
+ 
+         $toplamsayfa     = ceil($sayi / $listelenen);
+         $sayfa = isset($_GET['sayfa']) ? (int)$_GET['sayfa'] : 1;
+         if ($sayfa < 1) $sayfa = 1;
+         if ($sayfa > $toplamsayfa) $sayfa = $toplamsayfa;
+         $limit = ($sayfa - 1) * $listelenen;
 
-                </div>
-              </div>
-            </div>
-          </a>
-        </div><?php } ?>
-      <!-- İLAN -->
+$kategori=$_SESSION['kategori'];
+$durum=$_SESSION['durum'];
+$ilanad=$_SESSION['ilanad'];
 
+         foreach ($db->query("select * from tbl_ilan where ilan_numarasi like '%$ilanad%' or ilan_Konum like '%$ilanad%'  and ilan_Kategori='$kategori' and ilan_Durum='$durum' LIMIT $limit,$listelenen") as $gelen)  {
+              
+
+                $seourl = seo($gelen['ilan_Adi']);
+                ?>
+                <!-- İLAN -->
+                <div class="col-md-4 ">
+                  <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
+                    <div class="card">
+                      <div class="embed-responsive embed-responsive-16by9">
+                        <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
+                      </div>
+                      <div class="card-body">
+                        <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+
+                        <div class="yayin-bilgi mt-2">
+                          <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
+                          <span class="float-right text-muted text-danger"><strong><?php
+                                                                                    echo number_format(
+                                                                                      $gelen['ilan_Fiyat'],
+                                                                                      0,
+                                                                                      ',',
+                                                                                      '.'
+                                                                                    );
+                                                                                    ?> TL</strong></span>
+                        </div>
+                        <div class="mt-5">
+                          <span class="h6 text-muted float-left "><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div><?php 
+                }
+               ?>
+
+
+
+
+
+
+        </div>
+      </div>
     </div>
+
+    <nav aria-label="sayfalama">
+      <ul class="pagination justify-content-center">
+        <?php
+        for ($s = 1; $s <= $toplamsayfa; $s++) {
+          if ($sayfa == $s) { // eğer bulunduğumuz sayfa ise link yapma.
+            echo '<li class="page-item active"><a class="page-link"href="?sayfa=' . $s . '">' . $s . '</a></li>';
+          } else {
+            echo '<li class="page-item"><a class="page-link"href="?sayfa=' . $s . '">' . $s . '</a></li> ';
+          }
+        }
+        ?>
+
+
+      </ul>
+    </nav>
+
+
+
+
   </div>
-  <!-- ÖNE ÇIKAN İLANLAR -->
 
-
+  <!-- KİRALIK LİSTELEME -->
 
 
   <!-- KATEGORİLER -->
@@ -279,8 +320,6 @@ include("assets/function.php");
     </div>
   </div>
   <!-- KATEGORİLER -->
-
-
   <!-- FOOTER -->
   <div class="container-fluid fixed-row-bottom mt-3">
     <div class="row p-5 bg-info">
@@ -294,7 +333,7 @@ include("assets/function.php");
                   <div class="text-center">
                     <strong class="text-white ">Gayrimenkul Kategorileri</strong>
                     <li><a class="text-white" href="#">Konut</a></li>
-                    <li><a class="text-white" href="#">İşyeri</a></li>
+                    <li><a class="text-white" href="#">İş Yeri</a></li>
                     <li><a class="text-white" href="#">Arsa</a></li>
                   </div>
                 </ul>
