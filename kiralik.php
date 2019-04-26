@@ -410,8 +410,21 @@ include("assets/function.php");
           <?php
           $ktgr = $_GET['ilan'];
           if ($ktgr == "konut") {
-            foreach ($db->query("select * from tbl_ilan WHERE ilan_Kategori='konut' and ilan_Durum='kiralık'") as $gelen) {
+            $listelenen = 9;
+            $sayi = $db->query("SELECT * FROM tbl_ilan WHERE ilan_Kategori='konut' and ilan_Durum='kiralık'");
+          if($sayi->rowCount()>0)
+          $sayi = $sayi->rowCount(); 
+          $toplamsayfa     = ceil($sayi / $listelenen);
+          $sayfa = isset($_GET['sayfa']) ? (int)$_GET['sayfa'] : 1;
+          if ($sayfa < 1) $sayfa = 1;
+          if ($sayfa > $toplamsayfa) $sayfa = $toplamsayfa;
+          $limit = ($sayfa - 1) * $listelenen;
 
+
+
+          foreach ($db->query("select * from tbl_ilan where  ilan_Kategori='konut'
+          and
+         ilan_Durum='kiralık' LIMIT $limit,$listelenen") as $gelen) {
               if ($gelen['ilan_numarasi'] != 0) {
 
 
@@ -448,7 +461,21 @@ include("assets/function.php");
                 </div><?php }
                 }
               } elseif ($ktgr == "arsa") {
-                foreach ($db->query("select * from tbl_ilan WHERE ilan_Kategori='arsa' and ilan_Durum='kiralık' ") as $gelen) {
+                $listelenen = 9;
+                $sayi = $db->query("SELECT * FROM tbl_ilan WHERE ilan_Kategori='arsa' and ilan_Durum='kiralık'");
+          if($sayi->rowCount()>0)
+          $sayi = $sayi->rowCount();  
+                $toplamsayfa     = ceil($sayi / $listelenen);
+                $sayfa = isset($_GET['sayfa']) ? (int)$_GET['sayfa'] : 1;
+                if ($sayfa < 1) $sayfa = 1;
+                if ($sayfa > $toplamsayfa) $sayfa = $toplamsayfa;
+                $limit = ($sayfa - 1) * $listelenen;
+      
+      
+      
+                foreach ($db->query("select * from tbl_ilan where  ilan_Kategori='arsa'
+                and
+               ilan_Durum='kiralık' LIMIT $limit,$listelenen") as $gelen) {
                   if ($gelen['ilan_numarasi'] != 0) {
 
 
@@ -485,13 +512,23 @@ include("assets/function.php");
           }
         }
         if ($ktgr == "isyeri") {
+          $listelenen = 9;
+         
+          $sayi = $db->query("SELECT * FROM tbl_ilan WHERE ilan_Kategori='isyeri' and ilan_Durum='kiralık'");
+          if($sayi->rowCount()>0)
+          $sayi = $sayi->rowCount(); 
+          $toplamsayfa     = ceil($sayi / $listelenen);
+          $sayfa = isset($_GET['sayfa']) ? (int)$_GET['sayfa'] : 1;
+          if ($sayfa < 1) $sayfa = 1;
+          if ($sayfa > $toplamsayfa) $sayfa = $toplamsayfa;
+          $limit = ($sayfa - 1) * $listelenen;
 
-          foreach ($db->query("select * from tbl_ilan WHERE 
-          ilan_Kategori='isyeri'
-           and
-          ilan_Durum='kiralık'
+
+
+          foreach ($db->query("select * from tbl_ilan where  ilan_Kategori='isyeri'
+          and
+         ilan_Durum='kiralık' LIMIT $limit,$listelenen") as $gelen) {
           
-          ") as $gelen) {
             if ($gelen['ilan_numarasi'] != 0) {
 
 
@@ -537,15 +574,26 @@ include("assets/function.php");
         </div>
       </div>
     </div>
+
     <nav aria-label="sayfalama">
-      <ul class="pagination justify-content-center">
+                                <ul class="pagination justify-content-center">
+                                    <?php 
+                                    for ($s = 1; $s <= $toplamsayfa; $s++) {
+                                        if ($sayfa == $s) { // eğer bulunduğumuz sayfa ise link yapma.
+                                            echo '<li class="page-item active"><a class="page-link"href="?sayfa=' . $s . '">' . $s . '</a></li>';
+                                        } else {
+                                            echo '<li class="page-item"><a class="page-link"href="?sayfa=' . $s . '">' . $s . '</a></li> ';
+                                        }
+                                    }
+                                    ?>
 
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
 
-      </ul>
-    </nav>
+                                </ul>
+                            </nav>
+
+
+
+  
   </div>
 
   <!-- KİRALIK LİSTELEME -->
