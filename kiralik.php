@@ -2,7 +2,7 @@
 
 define("include", true);
 include("assets/config.php");
-
+include("assets/function.php");
 ?>
 <!doctype html>
 <html lang="tr">
@@ -58,13 +58,11 @@ include("assets/config.php");
     .ck {
       max-width: 70px !important;
     }
-    .cll
-    {
-      color: #6c757d!important;
-      border: 2px solid  #17a2b8 !important;
+
+    .cll {
+      color: #6c757d !important;
+      border: 2px solid #17a2b8 !important;
     }
-  
-   
   </style>
 
 
@@ -127,8 +125,8 @@ include("assets/config.php");
   </nav>
   <!-- NAVBAR -->
 
-  
-    <!-- SATILIK LİSTELEME -->
+
+  <!-- KİRALIK LİSTELEME -->
   <?php
   ?>
   <div class="container-fluid mt-5 ">
@@ -136,7 +134,7 @@ include("assets/config.php");
       <ol class="breadcrumb">
 
         <li class="breadcrumb-item"><a href="anasayfa"> <strong>Anasayfa </strong></a></li>
-        <li class="breadcrumb-item active" aria-current="page"><strong>Kiralık</strong></li>
+        <li class="breadcrumb-item active" aria-current="page"><strong>Satılık</strong></li>
         <?php
         if ($_GET['ilan'] == 'arsa')
           echo ' <li class="breadcrumb-item "><a href="kiralik-arsa"><strong>Kiralık Arsa</strong></a></li>';
@@ -152,463 +150,406 @@ include("assets/config.php");
     <div class="row">
       <div class="col-lg-2 col-md-3 col-sm-3 ">
         <div class="">
-        <?php if($_GET['ilan']=="arsa"){ ?>
-          <form class="form text-center">
-          <div class="form-group">
-              <label class="lead">Fiyat Aralığı</label>
-              <div class="row">
-                <div class="col-md-6 mt-2">
-                  <input type="text" class="form-control ck mx-auto" name="min-fiyat" id="min-fiyat" placeholder="min">
-
-                </div>
-                <div class="col-md-6 mt-2">
-                  <input type="text" class="form-control ck mx-auto" name="max-fiyat" id="max-fiyat" placeholder="max">
-
-                </div>
-              </div>
-            </div>
-            <div class="form-group ">
-              <label class="lead">Metrekare (Brüt)</label>
-              <div class="row">
-                <div class="col-md-6 mt-2">
-                  <input type="text" class="form-control ck mx-auto" name="min-m2" id="min-m2" placeholder="m²">
-
-                </div>
-                <div class="col-md-6 mt-2">
-                  <input type="text" class="form-control ck mx-auto" name="max-m2" id="max-m2" placeholder="m²">
-
-                </div>
-              </div>
-            </div>
-            <div class="form-group ">
-              <label class="lead">Krediye Uygunluk</label>
-
-          <div class="row">
-            <div class="col-md-6 mx-auto">
-            <select style="  max-width: 100px !important;" class="custom-select " name="kredidurum">
-                <option value='evet'>Evet</option>
-                <option value='hayir'>Hayır</option>
-
-
-              </select>
-            </div>
-          </div>
-
-            </div>
-
-            <div class="form-group ">
-              <label class="lead">Tapu Durumu</label>
-
-           <div class="row">
-             <div class="col-md-6 mx-auto">
-             <select style="  max-width: 165px !important;" class="custom-select " name="tapudurum">
-                <option value='arsa'>Arsa</option>
-                <option value='hisseli'>Hisseli</option>
-                <option value='kat-irtifak'>Kat İrtifaklı</option>
-                <option value='kat-mulkiyet'>Kat Mülkiyetli</option>
-                <option value='mustakil-parsel'>Müstakil Parsel</option>
-
-
-              </select>
-             </div>
-           </div>
-
-            </div>
-
-            <button type="submit" class="btn mx-auto btn-danger">ARA</button>
-          </form>
-        
-        <?php }elseif($_GET['ilan']=='isyeri'){ ?>
-            <form class="form text-center">
-            <div class="form-group">
-              <label class="lead">Fiyat Aralığı</label>
-              <div class="row">
-                <div class="col-md-6 mt-2">
-                  <input type="text" class="form-control ck mx-auto" name="min-fiyat" id="min-fiyat" placeholder="min">
-
-                </div>
-                <div class="col-md-6 mt-2">
-                  <input type="text" class="form-control ck mx-auto" name="max-fiyat" id="max-fiyat" placeholder="max">
-
-                </div>
-              </div>
-            </div>
-            <div class="form-group ">
-              <label class="lead">Metrekare (Brüt)</label>
-              <div class="row">
-                <div class="col-md-6 mt-2">
-                  <input type="text" class="form-control ck mx-auto" name="min-m2" id="min-m2" placeholder="m²">
-
-                </div>
-                <div class="col-md-6 mt-2">
-                  <input type="text" class="form-control ck mx-auto" name="max-m2" id="max-m2" placeholder="m²">
-
-                </div>
-              </div>
-            </div>
-            
-
-            <button type="submit" class="btn mx-auto btn-danger">ARA</button>
-          </form>
-          
-          <?php }elseif($_GET['ilan']=='konut') {?>
-
-
+        <?php
+      $min_m2=$_GET['min-m2'];  
+      $max_m2=$_GET['max-m2'];  
+      $min_fiyat=$_GET['min-fiyat'];  
+      $max_fiyat=$_GET['min-fiyat'];  
+      ?>
+          <?php if ($_GET['ilan'] == "arsa") { ?>
 
             <form class="form text-center">
-            <div class="form-group">
-              <label class="lead">Fiyat Aralığı</label>
-              <div class="row">
-                <div class="col-md-6 mt-2">
-                  <input type="text" class="form-control ck mx-auto" name="min-fiyat" id="min-fiyat" placeholder="min">
+              <div class="form-group">
+                <label class="lead">Fiyat Aralığı</label>
+                <div class="row">
+                  <div class="col-md-6 mt-2">
+                    <input type="text" class="form-control ck mx-auto" name="min-fiyat" id="min-fiyat" placeholder="min">
 
-                </div>
-                <div class="col-md-6 mt-2">
-                  <input type="text" class="form-control ck mx-auto" name="max-fiyat" id="max-fiyat" placeholder="max">
+                  </div>
+                  <div class="col-md-6 mt-2">
+                    <input type="text" class="form-control ck mx-auto" name="max-fiyat" id="max-fiyat" placeholder="max">
 
-                </div>
-              </div>
-            </div>
-            <div class="form-group ">
-              <label class="lead">Metrekare (Brüt)</label>
-              <div class="row">
-                <div class="col-md-6 mt-2">
-                  <input type="text" class="form-control ck mx-auto" name="min-m2" id="min-m2" placeholder="m²">
-
-                </div>
-                <div class="col-md-6 mt-2">
-                  <input type="text" class="form-control ck mx-auto" name="max-m2" id="max-m2" placeholder="m²">
-
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="form-group ">
-              <label class="lead">Oda Sayısı</label>
+              <div class="form-group ">
+                <label class="lead">Metrekare (Brüt)</label>
+                <div class="row">
+                  <div class="col-md-6 mt-2">
+                    <input type="text" class="form-control ck mx-auto" name="min-m2" id="min-m2" placeholder="m²">
 
-            <div class="row ">
-              <div class="col-md-6 mx-auto">
-              <select style="  max-width: 70px !important;" class="custom-select " name="odasayisi">
-                <option value='0'>1+0</option>
-                <option value='1'>1+1</option>
-                <option value='2'>2+1</option>
-                <option value='3'>3+1</option>
-                <option value='4'>4+1</option>
-                <option value='5'>5+1</option>
-              </select>
+                  </div>
+                  <div class="col-md-6 mt-2">
+                    <input type="text" class="form-control ck mx-auto" name="max-m2" id="max-m2" placeholder="m²">
+
+                  </div>
+                </div>
               </div>
-            </div>
+              <div class="form-group ">
+                <label class="lead">Krediye Uygunluk</label>
 
-            </div>
-            <div class="form-group ">
-              <label class="lead">Bina Yaşı</label>
+                <div class="row">
+                  <div class="col-md-6 mx-auto">
+                    <select style="  max-width: 100px !important;" class="custom-select " name="kredidurum">
+                      <option value='evet'>Evet</option>
+                      <option value='hayir'>Hayır</option>
 
-      <div class="row">
-        <div class="col-md-6 mx-auto">
-        <select style="  max-width: 70px !important;" class="custom-select " name="binayas">
-                <option value='0'>0</option>
-                <option value='1'>1</option>
-                <option value='2'>2</option>
-                <option value='3'>3</option>
-                <option value='4'>4</option>
-                <option value='5-10'>5-10</option>
-                <option value='11-15'>11-15</option>
-                <option value='16-20'>16-20</option>
-                <option value='21-25'>21-25</option>
-                <option value='26-30'>26-30</option>
-                <option value='30ust'>30+</option>
-              </select>
+
+                    </select>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="form-group ">
+                <label class="lead">Tapu Durumu</label>
+                <div class="row">
+                  <div class="col-md-6 mx-auto">
+
+                    <select style="  max-width: 165px !important;" class="custom-select " name="tapudurum">
+                      <option value='arsa'>Arsa</option>
+                      <option value='hisseli'>Hisseli</option>
+                      <option value='kat-irtifak'>Kat İrtifaklı</option>
+                      <option value='kat-mulkiyet'>Kat Mülkiyetli</option>
+                      <option value='mustakil-parsel'>Müstakil Parsel</option>
+
+
+                    </select>
+                  </div>
+                </div>
+
+              </div>
+
+              <button type="submit" class="btn mx-auto btn-danger mb-3">ARA</button>
+            </form>
+          <?php } elseif ($_GET['ilan'] == 'isyeri') { ?>
+            <form class="form text-center">
+              <div class="form-group">
+                <label class="lead">Fiyat Aralığı</label>
+                <div class="row">
+                  <div class="col-md-6 mt-2">
+
+
+
+
+                  <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form-control ck mx-auto" name="min-fiyat" id="min-fiyat" placeholder="min">
+
+                  </div>
+                  <div class="col-md-6 mt-2">
+                    <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form-control ck mx-auto" name="max-fiyat" id="max-fiyat" placeholder="max">
+
+                  </div>
+                </div>
+              </div>
+              <div class="form-group ">
+                <label class="lead">Metrekare (Brüt)</label>
+                <div class="row">
+                  <div class="col-md-6 mt-2">
+                    <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form-control ck mx-auto" name="min-m2" id="min-m2" placeholder="m²">
+
+                  </div>
+                  <div class="col-md-6 mt-2">
+                    <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="form-control ck mx-auto" name="max-m2" id="max-m2" placeholder="m²">
+
+                  </div>
+                </div>
+              </div>
+
+
+              <button type="submit" class="btn mx-auto btn-danger mb-3">ARA</button>
+            </form><?php } elseif ($_GET['ilan'] == 'konut') { ?>
+            <form class="form text-center">
+              <div class="form-group">
+                <label class="lead">Fiyat Aralığı</label>
+                <div class="row">
+                  <div class="col-md-6 mt-2">
+                    <input type="text" class="form-control ck mx-auto" name="min-fiyat" id="min-fiyat" placeholder="min">
+
+                  </div>
+                  <div class="col-md-6 mt-2">
+                    <input type="text" class="form-control ck mx-auto" name="max-fiyat" id="max-fiyat" placeholder="max">
+
+                  </div>
+                </div>
+              </div>
+              <div class="form-group ">
+                <label class="lead">Metrekare (Brüt)</label>
+                <div class="row">
+                  <div class="col-md-6 mt-2">
+                    <input type="text" class="form-control ck mx-auto" name="min-m2" id="min-m2" placeholder="m²">
+
+                  </div>
+                  <div class="col-md-6 mt-2">
+                    <input type="text" class="form-control ck mx-auto" name="max-m2" id="max-m2" placeholder="m²">
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group ">
+                <label class="lead">Oda Sayısı</label>
+
+                <div class="row">
+                  <div class="col-md-6 mx-auto">
+                    <select style="  max-width: 70px !important;" class="custom-select " name="odasayisi">
+                      <option value='0'>1+0</option>
+                      <option value='1'>1+1</option>
+                      <option value='2'>2+1</option>
+                      <option value='3'>3+1</option>
+                      <option value='4'>4+1</option>
+                      <option value='5'>5+1</option>
+                    </select>
+                  </div>
+                </div>
+
+              </div>
+              <div class="form-group ">
+                <label class="lead">Bina Yaşı</label>
+                <div class="row">
+                  <div class="col-md-6 mx-auto">
+
+                    <select style="  max-width: 70px !important;" class="custom-select " name="binayas">
+                      <option value='0'>0</option>
+                      <option value='1'>1</option>
+                      <option value='2'>2</option>
+                      <option value='3'>3</option>
+                      <option value='4'>4</option>
+                      <option value='5-10'>5-10</option>
+                      <option value='11-15'>11-15</option>
+                      <option value='16-20'>16-20</option>
+                      <option value='21-25'>21-25</option>
+                      <option value='26-30'>26-30</option>
+                      <option value='30ust'>30+</option>
+                    </select>
+                  </div>
+                </div>
+
+              </div>
+              <div class="form-group ">
+                <label class="lead">Bulunduğu Kat</label>
+
+                <div class="row">
+                  <div class="col-md-6 mx-auto">
+                    <select style="  max-width: 135px !important;" class="custom-select " name="bulundugukat">
+                      <option value='zemin'>Zemin Kat</option>
+                      <option value='giris'>Giriş Katı</option>
+                      <option value='yuksekgiris'>Yüksek Giriş</option>
+                      <option value='mustakil'>Müstakil</option>
+                      <?php for ($i = 0; $i <= 29; $i++) {
+                        echo '<option value="' . $i . '"> ' . $i . '</option>';
+                      } ?>
+
+                      <option value='30ust'>30+</option>
+                    </select>
+                  </div>
+                </div>
+
+              </div>
+              <div class="form-group ">
+                <label class="lead">Kat Sayısı</label>
+                <div class="row">
+                  <div class="col-md-6 mx-auto">
+
+                    <select style="  max-width:  70px !important;" class="custom-select " name="katsayisi">
+
+                      <?php for ($i = 0; $i <= 20; $i++) {
+                        echo '<option value="' . $i . '"> ' . $i . '</option>';
+                      } ?>
+
+
+                    </select>
+
+                  </div>
+                </div>
+              </div>
+              <div class="form-group ">
+                <label class="lead">Isıtma</label>
+
+                <div class="row">
+                  <div class="col-md-6 mx-auto">
+                    <select style="  max-width: 165px !important;" class="custom-select " name="isitma">
+                      <option value='soba'>Soba</option>
+                      <option value='merkezi'>Merkezi Sistem</option>
+                      <option value='dogalgaz'>Doğalgaz</option>
+                      <option value='klima'>Klima</option>
+
+                    </select>
+                  </div>
+                </div>
+
+              </div>
+              <div class="form-group ">
+                <label class="lead">Krediye Uygunluk</label>
+
+                <div class="row">
+                  <div class="col-md-6 mx-auto">
+                    <select style="  max-width: 100px !important;" class="custom-select " name="kredidurum">
+                      <option value='evet'>Evet</option>
+                      <option value='hayir'>Hayır</option>
+
+
+                    </select>
+                  </div>
+                </div>
+
+              </div>
+
+
+              <button type="submit" class="btn mx-auto btn-danger mb-3">ARA</button>
+
+            </form>
+          <?php } ?>
+
         </div>
+
       </div>
-
-            </div>
-            <div class="form-group ">
-              <label class="lead">Bulunduğu Kat</label>
-
-           <div class="row">
-             <div class="col-md-6 mx-auto">
-             <select style="  max-width: 135px !important;" class="custom-select " name="bulundugukat">
-                <option value='zemin'>Zemin Kat</option>
-                <option value='giris'>Giriş Katı</option>
-                <option value='yuksekgiris'>Yüksek Giriş</option>
-                <option value='mustakil'>Müstakil</option>
-                <?php  for ($i=0; $i <=29 ; $i++) { 
-                  echo '<option value="'.$i.'"> '.$i.'</option>';
-                } ?>
-               
-                <option value='30ust'>30+</option>
-              </select>
-             </div>
-           </div>
-
-            </div>
-            <div class="form-group ">
-              <label class="lead">Kat Sayısı</label>
-
-             <div class="row">
-               <div class="col-md-6 mx-auto">
-               <select style="  max-width:  70px !important;" class="custom-select " name="katsayisi">
-          
-          <?php  for ($i=0; $i <=20 ; $i++) { 
-            echo '<option value="'.$i.'"> '.$i.'</option>';
-          } ?>
-         
     
-        </select>
-               </div>
-             </div>
-
-            </div>
-            <div class="form-group ">
-              <label class="lead">Isıtma</label>
-
-          <div class="row">
-            <div class="col-md-6 mx-auto">
-            <select style="  max-width: 165px !important;" class="custom-select " name="isitma">
-                <option value='soba'>Soba</option>
-                <option value='merkezi'>Merkezi Sistem</option>
-                <option value='dogalgaz'>Doğalgaz</option>
-                <option value='klima'>Klima</option>
-               
-              </select>
-            </div>
-          </div>
-
-            </div>
-          
-            
-
-            <button type="submit" class="btn mx-auto btn-danger mb-4">ARA</button>
-          </form>
-          <?php }?>
-  
-        </div>
-
-      </div>
+      
       <div class="col-lg-10 col-md-9 col-sm-9">
         <div class="row">
-          <!-- İLAN -->
-          <div class="col-md-4 ">
-            <a href="#">
-              <div class="card">
-                <div class="embed-responsive embed-responsive-16by9">
-                  <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/arsa.jpg" />
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">İlan Başlığı</h4>
+          <?php
+          $ktgr = $_GET['ilan'];
+          if ($ktgr == "konut") {
+            foreach ($db->query("select * from tbl_ilan WHERE ilan_Kategori='konut' and ilan_Durum='kiralık'") as $gelen) {
 
-                  <div class="yayin-bilgi mt-2">
-                    <span class="float-left"><strong>İlan Numarası: 000005</strong></span>
-                    <span class="float-right text-muted text-danger"><strong>212.000 TL</strong></span>
-                  </div>
-                  <div class="mt-5">
-                    <p class="h6 text-muted h5 mt-4"><em class="fa fa-map-marker"></em>Adana / Seyhan / Reşatbey Mah.</p>
+              if ($gelen['ilan_numarasi'] != 0) {
 
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <!-- İLAN -->
-          <!-- İLAN -->
-          <div class="col-md-4 ">
-            <a href="#">
-              <div class="card">
-                <div class="embed-responsive embed-responsive-16by9">
-                  <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/arsa.jpg" />
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">İlan Başlığı</h4>
 
-                  <div class="yayin-bilgi mt-2">
-                    <span class="float-left"><strong>İlan Numarası: 000005</strong></span>
-                    <span class="float-right text-muted text-danger"><strong>212.000 TL</strong></span>
-                  </div>
-                  <div class="mt-5">
-                    <p class="h6 text-muted h5 mt-4"><em class="fa fa-map-marker"></em>Adana / Seyhan / Reşatbey Mah.</p>
+                $seourl = seo($gelen['ilan_Adi']);
+                ?>
+                <!-- İLAN -->
+                <div class="col-md-4 ">
+                  <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
+                    <div class="card">
+                      <div class="embed-responsive embed-responsive-16by9">
+                        <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
+                      </div>
+                      <div class="card-body">
+                        <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
 
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <!-- İLAN -->
-          <!-- İLAN -->
-          <div class="col-md-4 ">
-            <a href="#">
-              <div class="card">
-                <div class="embed-responsive embed-responsive-16by9">
-                  <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/arsa.jpg" />
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">İlan Başlığı</h4>
+                        <div class="yayin-bilgi mt-2">
+                          <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
+                          <span class="float-right text-muted text-danger"><strong><?php
+                                                                                    echo number_format(
+                                                                                      $gelen['ilan_Fiyat'],
+                                                                                      0,
+                                                                                      ',',
+                                                                                      '.'
+                                                                                    );
+                                                                                    ?> TL</strong></span>
+                        </div>
+                        <div class="mt-5">
+                          <span class="h6 text-muted float-left "><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
 
-                  <div class="yayin-bilgi mt-2">
-                    <span class="float-left"><strong>İlan Numarası: 000005</strong></span>
-                    <span class="float-right text-muted text-danger"><strong>212.000 TL</strong></span>
-                  </div>
-                  <div class="mt-5">
-                    <p class="h6 text-muted h5 mt-4"><em class="fa fa-map-marker"></em>Adana / Seyhan / Reşatbey Mah.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div><?php }
+                }
+              } elseif ($ktgr == "arsa") {
+                foreach ($db->query("select * from tbl_ilan WHERE ilan_Kategori='arsa' and ilan_Durum='kiralık' ") as $gelen) {
+                  if ($gelen['ilan_numarasi'] != 0) {
 
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <!-- İLAN -->
-          <!-- İLAN -->
-          <div class="col-md-4 ">
-            <a href="#">
-              <div class="card">
-                <div class="embed-responsive embed-responsive-16by9">
-                  <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/arsa.jpg" />
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">İlan Başlığı</h4>
 
-                  <div class="yayin-bilgi mt-2">
-                    <span class="float-left"><strong>İlan Numarası: 000005</strong></span>
-                    <span class="float-right text-muted text-danger"><strong>212.000 TL</strong></span>
-                  </div>
-                  <div class="mt-5">
-                    <p class="h6 text-muted h5 mt-4"><em class="fa fa-map-marker"></em>Adana / Seyhan / Reşatbey Mah.</p>
+                    $seourl = seo($gelen['ilan_Adi']); ?>
+                <div class="col-md-4 ">
+                  <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
+                    <div class="card">
+                      <div class="embed-responsive embed-responsive-16by9">
+                        <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
+                      </div>
+                      <div class="card-body">
+                        <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
 
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <!-- İLAN -->
-          <!-- İLAN -->
-          <div class="col-md-4 ">
-            <a href="#">
-              <div class="card">
-                <div class="embed-responsive embed-responsive-16by9">
-                  <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/arsa.jpg" />
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">İlan Başlığı</h4>
+                        <div class="yayin-bilgi mt-2">
+                          <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
+                          <span class="float-right text-muted text-danger"><strong><?php
+                                                                                    echo number_format(
+                                                                                      $gelen['ilan_Fiyat'],
+                                                                                      0,
+                                                                                      ',',
+                                                                                      '.'
+                                                                                    );
+                                                                                    ?> TL</strong></span>
+                        </div>
+                        <div class="mt-5">
+                          <span class="h6 text-muted float-left "><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
 
-                  <div class="yayin-bilgi mt-2">
-                    <span class="float-left"><strong>İlan Numarası: 000005</strong></span>
-                    <span class="float-right text-muted text-danger"><strong>212.000 TL</strong></span>
-                  </div>
-                  <div class="mt-5">
-                    <p class="h6 text-muted h5 mt-4"><em class="fa fa-map-marker"></em>Adana / Seyhan / Reşatbey Mah.</p>
-
-                  </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
                 </div>
-              </div>
-            </a>
-          </div>
-          <!-- İLAN -->
-          <!-- İLAN -->
-          <div class="col-md-4 ">
-            <a href="#">
-              <div class="card">
-                <div class="embed-responsive embed-responsive-16by9">
-                  <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/arsa.jpg" />
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">İlan Başlığı</h4>
+              <?php }
+          }
+        }
+        if ($ktgr == "isyeri") {
 
-                  <div class="yayin-bilgi mt-2">
-                    <span class="float-left"><strong>İlan Numarası: 000005</strong></span>
-                    <span class="float-right text-muted text-danger"><strong>212.000 TL</strong></span>
-                  </div>
-                  <div class="mt-5">
-                    <p class="h6 text-muted h5 mt-4"><em class="fa fa-map-marker"></em>Adana / Seyhan / Reşatbey Mah.</p>
+          foreach ($db->query("select * from tbl_ilan WHERE 
+          ilan_Kategori='isyeri'
+           and
+          ilan_Durum='kiralık'
+          
+          ") as $gelen) {
+            if ($gelen['ilan_numarasi'] != 0) {
 
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <!-- İLAN -->
-          <!-- İLAN -->
-          <div class="col-md-4 ">
-            <a href="#">
-              <div class="card">
-                <div class="embed-responsive embed-responsive-16by9">
-                  <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/arsa.jpg" />
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">İlan Başlığı</h4>
 
-                  <div class="yayin-bilgi mt-2">
-                    <span class="float-left"><strong>İlan Numarası: 000005</strong></span>
-                    <span class="float-right text-muted text-danger"><strong>212.000 TL</strong></span>
-                  </div>
-                  <div class="mt-5">
-                    <p class="h6 text-muted h5 mt-4"><em class="fa fa-map-marker"></em>Adana / Seyhan / Reşatbey Mah.</p>
+              $seourl = seo($gelen['ilan_Adi']);
+            } ?>
+              <div class="col-md-4 ">
+                <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
+                  <div class="card">
+                    <div class="embed-responsive embed-responsive-16by9">
+                      <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
+                    </div>
+                    <div class="card-body">
+                      <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
 
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <!-- İLAN -->
-          <!-- İLAN -->
-          <div class="col-md-4 ">
-            <a href="#">
-              <div class="card">
-                <div class="embed-responsive embed-responsive-16by9">
-                  <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/arsa.jpg" />
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">İlan Başlığı</h4>
+                      <div class="yayin-bilgi mt-2">
+                        <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
+                        <span class="float-right text-muted text-danger"><strong><?php
+                                                                                  echo number_format(
+                                                                                    $gelen['ilan_Fiyat'],
+                                                                                    0,
+                                                                                    ',',
+                                                                                    '.'
+                                                                                  );
+                                                                                  ?> TL</strong></span>
+                      </div>
+                      <div class="mt-5">
+                        <span class="h6 text-muted float-left "><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
 
-                  <div class="yayin-bilgi mt-2">
-                    <span class="float-left"><strong>İlan Numarası: 000005</strong></span>
-                    <span class="float-right text-muted text-danger"><strong>212.000 TL</strong></span>
+                      </div>
+                    </div>
                   </div>
-                  <div class="mt-5">
-                    <p class="h6 text-muted h5 mt-4"><em class="fa fa-map-marker"></em>Adana / Seyhan / Reşatbey Mah.</p>
+                </a>
+              </div><?php
+                }
+              }
+              ?>
 
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <!-- İLAN -->
-          <!-- İLAN -->
-          <div class="col-md-4 ">
-            <a href="#">
-              <div class="card">
-                <div class="embed-responsive embed-responsive-16by9">
-                  <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/arsa.jpg" />
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">İlan Başlığı</h4>
 
-                  <div class="yayin-bilgi mt-2">
-                    <span class="float-left"><strong>İlan Numarası: 000005</strong></span>
-                    <span class="float-right text-muted text-danger"><strong>212.000 TL</strong></span>
-                  </div>
-                  <div class="mt-5">
-                    <p class="h6 text-muted h5 mt-4"><em class="fa fa-map-marker"></em>Adana / Seyhan / Reşatbey Mah.</p>
 
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <!-- İLAN -->
+
+
 
         </div>
       </div>
-    </div><nav aria-label="sayfalama">
-  <ul class="pagination justify-content-center">
-   
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    
-  </ul>
-</nav>
+    </div>
+    <nav aria-label="sayfalama">
+      <ul class="pagination justify-content-center">
+
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+
+      </ul>
+    </nav>
   </div>
 
-  <!-- SATILIK LİSTELEME -->
- 
+  <!-- KİRALIK LİSTELEME -->
+
 
   <!-- KATEGORİLER -->
   <div class="container-fluid">
@@ -629,8 +570,8 @@ include("assets/config.php");
                 <div class="yayin-bilgi text-center">
                   <a class="btn btn-outline-success btn-round" href="kiralik-arsa">Kiralık</a>
                   <a class="btn btn-outline-success btn-round" href="satilik-arsa">Satılık</a>
-                  
-                 
+
+
                 </div>
               </p>
             </div>
@@ -648,9 +589,9 @@ include("assets/config.php");
               <h4 class="card-title text-center"><strong>İŞYERİ</strong></h4>
               <p class="card-text">
                 <div class="yayin-bilgi text-center">
-                <a class="btn btn-outline-success btn-round" href="kiralik-isyeri">Kiralık</a>
+                  <a class="btn btn-outline-success btn-round" href="kiralik-isyeri">Kiralık</a>
                   <a class="btn btn-outline-success btn-round" href="satilik-isyeri">Satılık</a>
-                  
+
                 </div>
               </p>
             </div>
@@ -670,9 +611,9 @@ include("assets/config.php");
               <h4 class="card-title text-center"><strong>KONUT</strong></h4>
               <p class="card-text">
                 <div class="yayin-bilgi text-center">
-                <a class="btn btn-outline-success btn-round" href="kiralik-konut">Kiralık</a>
+                  <a class="btn btn-outline-success btn-round" href="kiralik-konut">Kiralık</a>
                   <a class="btn btn-outline-success btn-round" href="satilik-konut">Satılık</a>
-                  
+
                 </div>
               </p>
             </div>
