@@ -155,10 +155,19 @@ if( $query->rowCount() ){
         <nav id="hrt" aria-label="breadcrumb " role="navigation">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="anasayfa"> <strong>Anasayfa </strong></a></li>
-                <li class="breadcrumb-item active" aria-current="page"><strong><?php echo $cek['ilan_Durum']; ?></strong></li>
+                <li class="breadcrumb-item active" aria-current="page"><strong><?php  if($cek['ilan_Durum']=="satilik")echo "Satılık"; else echo "Kiralık"; ?></strong></li>
                
                    <li class="breadcrumb-item "><a href="<?php echo $link;?>
-                   "><strong><?php echo $cek['ilan_Kategori']; ?></strong></a></li>
+                   "><strong>
+                       <?php 
+                   if($cek['ilan_Kategori']=="konut")
+                   echo "Konut";
+                   elseif($cek['ilan_Kategori']=="isyeri")
+                   echo "İşyeri"; 
+                   elseif($cek['ilan_Kategori']=="arsa")
+                    echo "Arsa"; 
+                    ?>
+                    </strong></a></li>
               
               
             </ol>
