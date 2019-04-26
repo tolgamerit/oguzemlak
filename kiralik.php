@@ -134,7 +134,7 @@ include("assets/function.php");
       <ol class="breadcrumb">
 
         <li class="breadcrumb-item"><a href="anasayfa"> <strong>Anasayfa </strong></a></li>
-        <li class="breadcrumb-item active" aria-current="page"><strong>Satılık</strong></li>
+        <li class="breadcrumb-item active" aria-current="page"><strong>Kiralık</strong></li>
         <?php
         if ($_GET['ilan'] == 'arsa')
           echo ' <li class="breadcrumb-item "><a href="kiralik-arsa"><strong>Kiralık Arsa</strong></a></li>';
