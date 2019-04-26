@@ -89,17 +89,21 @@
   <!-- NAVBAR -->
 
 <!--HAKKIMIZDA -->
-<div class="container-fluid mt-5 mb-5">
-
-<div  class="rounded p-3"style="box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)"> 
+<div class="container mt-5 mb-5">
+<div class="row rounded p-3" style="box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)">
+  <div class="col-md-12">
+  
 <p class="lead p-3 ml-5 h2">
 <strong>Hakkımızda</strong>
 </p>
-<div class="p-3 h4">
+<div class="p-3 h4 text-justify">
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium culpa repellendus accusamus officia architecto. Nostrum culpa officia non iusto necessitatibus excepturi ad inventore, quis illo omnis numquam magnam! Ipsam, optio. Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis quas aperiam distinctio unde dolor, est officia nobis ipsum nostrum! Vel, beatae itaque. A accusantium magnam labore, consectetur sint unde illum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro ea laboriosam repellendus quas pariatur illum ab quo cumque. Quaerat sint corrupti doloremque unde exercitationem nemo quisquam esse assumenda laboriosam sunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea ullam eveniet error. Obcaecati alias similique eaque deleniti. Dolores modi rerum corporis, quibusdam corrupti aliquam veritatis, laudantium ducimus itaque et ipsum! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam minima accusamus sit repudiandae natus dolor eos recusandae laboriosam quaerat, deserunt sint libero, praesentium quia commodi, corporis ab sapiente error dicta. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae nulla sequi quaerat, sit omnis cupiditate et quos cumque nobis neque itaque similique, dolores beatae. Optio cupiditate praesentium error aperiam amet. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque molestiae impedit ipsum fugiat. Repellendus, nihil itaque nobis explicabo minima delectus temporibus sapiente voluptates veritatis tenetur, officiis adipisci tempora vitae? Nihil. Lorem ipsum dolor sit amet consectetur adipisicing elit. Et tempora illum quo eos architecto minima! Eveniet, ea exercitationem! Enim consectetur repudiandae magni laboriosam dolor recusandae? Tempora, facere. Perferendis, totam impedit! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam laudantium praesentium doloremque cupiditate quia eveniet aliquid ratione rerum dolorem, odit omnis natus necessitatibus, quibusdam ex vero aspernatur vel dolorum optio.
 </div>
 
+  </div>
+
 </div>
+
 </div>
 
 <!-- HAKKIMIZDA -->
