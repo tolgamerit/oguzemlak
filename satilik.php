@@ -10,6 +10,8 @@ include("assets/function.php");
 <head>
   <title>Oğuz Emlak | Satılık İlanlar</title>
   <meta charset="utf-8">
+  <meta name="theme-color" content="#6ec7e0">
+
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
