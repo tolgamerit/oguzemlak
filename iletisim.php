@@ -154,7 +154,7 @@ $tarih=date('Y-m-d H:i:s');;
               <div class="alert alert-success" role="alert">
               Mesajınız iletilmiştir.
               </div>
-              <meta http-equiv="refresh" content="1;URL=index.php">        
+              <meta http-equiv="refresh" content="1;URL=anasayfa">        
               
               ';
             }
