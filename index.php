@@ -35,11 +35,6 @@ include("assets/function.php");
     }
    
 }
-    
-
-
-
-
   </style>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -119,7 +114,7 @@ include("assets/function.php");
         <form method="POST">
           <div class="row d-flex justify-content-center">
             <div class="form-group float-left mb-2">
-            <input class="form-control" type="checkbox" name="durum" value="satilik" checked data-toggle="toggle" data-onstyle="info" data-offstyle="info" data-on="Satılık" data-off="Kiralık">
+            <input class="form-control" type="checkbox" name="durum" value="satilik" checked data-toggle="toggle" data-onstyle="success" data-offstyle="info" data-on="Satılık" data-off="Kiralık">
 
             </div>
         
