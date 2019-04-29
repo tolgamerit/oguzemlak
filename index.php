@@ -23,8 +23,9 @@ include("assets/function.php");
 
   <style>
     .navbar .navbar-collapse:after {
-  background-color: #FFFFFF !important;
-}
+      background-color: #FFFFFF !important;
+    }
+
     .embed-responsive .card-img-top {
       object-fit: cover;
     }
@@ -36,8 +37,8 @@ include("assets/function.php");
     .dropdown-item:active {
       background-color: #86d9ab !important;
     }
-   
-}
+
+    }
   </style>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -109,7 +110,7 @@ include("assets/function.php");
         $_SESSION['durum'] = $_POST['durum'];
         $_SESSION['kategori'] = $_POST['kategori'];
         $_SESSION['ilanad'] = $_POST['ilanad'];
-     
+
         if (isset($_POST['submit']))
           header("Location: arama");
         ?>
@@ -117,12 +118,12 @@ include("assets/function.php");
         <form method="POST">
           <div class="row d-flex justify-content-center">
             <div class="form-group float-left mb-2">
-            <input class="form-control" type="checkbox" name="durum" value="satilik" checked data-toggle="toggle" data-onstyle="success" data-offstyle="info" data-on="Satılık" data-off="Kiralık">
+              <input class="form-control" type="checkbox" name="durum" value="satilik" checked data-toggle="toggle" data-onstyle="success" data-offstyle="info" data-on="Satılık" data-off="Kiralık">
 
             </div>
-        
+
             <div class="col-md-2 col-lg-2">
-             
+
               <div class="form-group mb-1">
 
                 <select name="kategori" class="form-control" id="kategori">
@@ -184,46 +185,51 @@ include("assets/function.php");
 
         <!-- İLAN -->
         <div class="col-md-4 d-flex">
-          <div class="card  flex-fill">
-          <div class="embed-responsive embed-responsive-16by9 ">
-                  <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
-                </div>
-         
+        
+            <div class="card  flex-fill">
+            <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
+
+              <div class="embed-responsive embed-responsive-16by9 ">
+                <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
+              </div>
+
               <div class="card-body">
-              
+
                 <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
                 <div class="yayin-bilgi mt-2">
-                    <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-                    <span class="float-right text-muted text-danger"><strong><?php
-                                                                              echo number_format(
-                                                                                $gelen['ilan_Fiyat'],
-                                                                                0,
-                                                                                ',',
-                                                                                '.'
-                                                                              );
-                                                                              ?> TL</strong></span>
-                  </div>
-                 
+                  <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
+                  <span class="float-right text-muted text-danger"><strong><?php
+                                                                            echo number_format(
+                                                                              $gelen['ilan_Fiyat'],
+                                                                              0,
+                                                                              ',',
+                                                                              '.'
+                                                                            );
+                                                                            ?> TL</strong></span>
+                </div>
+
               </div>
               <div class="card-footer ">
-                  <div class="row">
+                <div class="row">
                   <span class="col-12 h6 text-muted text-left"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
 
-                  </div>
-<div class="row"> 
-<span class="col-12 h6 text-muted text-left"><i class="fas fa-calendar ml-1 mr-1"> </i><?php echo $gelen['ilan_YayinTarihi']; ?></span>
+                </div>
+                <div class="row ">
+                  <span class="col-12 h6 text-muted text-left"><i class="fas fa-calendar ml-1 mr-1"> </i><?php echo $gelen['ilan_YayinTarihi']; ?></span>
 
-</div>
                 </div>
               </div>
-
-
-
+            </a>
             </div>
- 
-        
-        
-        <?php } ?>
+         
+
+
+
+        </div>
+
+
+
+      <?php } ?>
       <!-- İLAN -->
 
     </div>
@@ -364,12 +370,11 @@ include("assets/function.php");
     </div>
   </div>
   <!-- FOOTER -->
-<script>
-if($("[data-toggle='switch']").length != 0){
-  $("[data-toggle='switch']").bootstrapSwitch();
-}
-
-</script>
+  <script>
+    if ($("[data-toggle='switch']").length != 0) {
+      $("[data-toggle='switch']").bootstrapSwitch();
+    }
+  </script>
 
 </body>
 <!-- PAPER-UI VE EKLENTILER -->
