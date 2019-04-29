@@ -9,6 +9,7 @@ RewriteRule ^iletisim$ iletisim.php [N,L]
 RewriteRule ^anasayfa$ index.php [N,L]
 RewriteRule ^hakkimizda$ hakkimizda.php [N,L]
 RewriteRule ^satilik$ satilik.php [N,L]
+RewriteRule ^arama$ arama.php [N,L]
 
 
 RewriteRule ^satilik-konut$ satilik.php?ilan=konut [L,QSA]
