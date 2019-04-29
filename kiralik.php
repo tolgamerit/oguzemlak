@@ -155,7 +155,9 @@ include("assets/function.php");
     </div>
     <div class="row">
       <div class="col-lg-2 col-md-3 col-sm-3 ">
-        <div class="">
+        
+            <!-- 
+                <div class="">
           <?php
           $min_m2 = $_GET['min-m2'];
           $max_m2 = $_GET['max-m2'];
@@ -273,11 +275,13 @@ include("assets/function.php");
           <?php } ?>
 
         </div>
+            -->
+      
 
       </div>
 
 
-      <div class="col-lg-10 col-md-9 col-sm-9">
+      <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="row">
           <?php
           $ktgr = $_GET['ilan'];

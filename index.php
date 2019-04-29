@@ -118,47 +118,37 @@ include("assets/function.php");
 
         <form method="POST">
           <div class="row d-flex justify-content-center">
-         
-       
-
-
             <div class="col-lg-5">
               <div class="form-group ">
-
                 <input name="ilanad" type="text" class="form-control" placeholder="Konum ya da İlan Numarası...">
-
-
               </div>
             </div>
-          
           </div>
+
           <div class="row d-flex justify-content-center">
-          <div class="form-group float-left mb-2">
+            <div class="col-md-2 col-lg-2">
+            <div class="form-group">
               <input class="form-control" type="checkbox" name="durum" value="satilik" checked data-toggle="toggle" data-onstyle="success" data-offstyle="info" data-on="Satılık" data-off="Kiralık">
-
             </div>
-            <div class="col-md-2 col-lg-1">
+            </div>
+         
 
-<div class="form-group mb-1">
-
+            <div class="col-md-2 col-lg-2">
+<div class=" form-group ">
   <select name="kategori" class="form-control" id="kategori">
     <option value="arsa">Arsa</option>
     <option value="isyeri">İşyeri</option>
     <option value="konut">Konut</option>
-
   </select>
 </div>
-
           </div>
-         
-          </div>
-          <div class="row d-flex justify-content-center">
 
-          <div class="col-lg-1">
-              <button type="submit" class=" btn btn-success rounded " name="submit" value="submit">ARA</button>
+          <div class="col-md-2 col-lg-2">
+              <button style="width:106px;" type="submit" class="btn btn-success rounded " name="submit" value="submit">ARA</button>
 
             </div>
           </div>
+         
               
 
 
