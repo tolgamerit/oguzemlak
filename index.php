@@ -205,10 +205,17 @@ include("assets/function.php");
                                                                               );
                                                                               ?> TL</strong></span>
                   </div>
-                  <div class="mt-5">
-                    <span class="h6 text-muted float-left onecikanayar"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+                  
+                </div>
+                <div class="card-footer">
+                  <div class="row">
+                  <span class="col-12 h6 text-muted text-left"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
 
                   </div>
+<div class="row"> 
+<span class="col-12 h6 text-muted text-left"><i class="fas fa-calendar ml-1 mr-1"> </i><?php echo $gelen['ilan_YayinTarihi']; ?></span>
+
+</div>
                 </div>
               </div>
           
