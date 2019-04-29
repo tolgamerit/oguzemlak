@@ -1,10 +1,9 @@
 <?php
+ob_start();
 session_start();
-
 define("include", true);
 include("assets/config.php");
 include("assets/function.php");
-
 ?>
 <!doctype html>
 <html lang="tr">
@@ -19,28 +18,21 @@ include("assets/function.php");
   <!--     Fonts and icons     -->
   <style>
     .breadcrumb {
-
       background-color: #ffffff !important;
     }
-
     .ilan {
-
       margin-left: auto;
       margin-right: auto;
-
     }
-
     .embed-responsive .card-img-top {
       object-fit: cover;
     }
-
     .map-responsive {
       overflow: hidden;
       padding-bottom: 56.25%;
       position: relative;
       height: 0;
     }
-
     .map-responsive iframe {
       left: 0;
       top: 0;
@@ -48,19 +40,15 @@ include("assets/function.php");
       width: 100%;
       position: absolute;
     }
-
     .dropdown-item:hover {
       background-color: #6ec7e0 !important;
     }
-
     .dropdown-item:active {
       background-color: #86d9ab !important;
     }
-
     .ck {
       max-width: 70px !important;
     }
-
     .cll {
       color: #6c757d !important;
       border: 2px solid #17a2b8 !important;
@@ -137,16 +125,15 @@ include("assets/function.php");
 
         <li class="breadcrumb-item"><a href="anasayfa"> <strong>Anasayfa </strong></a></li>
         <li class="breadcrumb-item active" aria-current="page"><strong>
-          <?php if(isset($_SESSION['kategori']) == 'kiralik')
+          <?php if($_SESSION['durum'] == 'kiralik')
           
-            echo 'Kiralık'; elseif(isset($_SESSION['kategori']) == 'satilik') echo 'Satılık';  ?>
+            echo 'Kiralık'; elseif($_SESSION['durum'] == 'satilik') echo 'Satılık';  ?>
         </strong></li>
         <?php
         if ($_SESSION['kategori'] == 'arsa' and $_SESSION['durum']=='kiralik')
           echo ' <li class="breadcrumb-item "><a href="kiralik-arsa"><strong>Kiralık Arsa</strong></a></li>';
           elseif($_SESSION['kategori'] == 'arsa' and $_SESSION['durum']=='satilik')
           echo ' <li class="breadcrumb-item "><a href="satilik-arsa"><strong>Satılık Arsa</strong></a></li>';
-
         if ($_SESSION['kategori'] == 'konut' and $_SESSION['durum']=='kiralik')
           echo ' <li class="breadcrumb-item "><a href="kiralik-konut"><strong>Kiralık Konut</strong></a></li>';
           elseif($_SESSION['kategori'] == 'konut' and $_SESSION['durum']=='satilik')
@@ -155,7 +142,6 @@ include("assets/function.php");
           echo ' <li class="breadcrumb-item "><a href="kiralik-isyeri"><strong>Kiralık İşyeri</strong></a></li>';
           elseif($_SESSION['kategori'] == 'isyeri' and $_SESSION['durum']=='satilik')
           echo ' <li class="breadcrumb-item "><a href="satilik-isyeri"><strong>Satılık İşyeri</strong></a></li>';
-
         ?>
 
       </ol>
@@ -192,7 +178,6 @@ include("assets/function.php");
          if ($sayfa < 1) $sayfa = 1;
          if ($sayfa > $toplamsayfa) $sayfa = $toplamsayfa;
          $limit = ($sayfa - 1) * $listelenen;
-
 $kategori=$_SESSION['kategori'];
 $durum=$_SESSION['durum'];
 $ilanad=$_SESSION['ilanad'];
@@ -200,7 +185,6 @@ if ($_GET['sirala'] == "tarih")
 {
   foreach ($db->query("select * from tbl_ilan where ilan_numarasi like '%$ilanad%' or ilan_Konum like '%$ilanad%'  and ilan_Kategori='$kategori' and ilan_Durum='$durum' order by ilan_YayinTarihi desc LIMIT $limit,$listelenen") as $gelen)  {
               
-
     $seourl = seo($gelen['ilan_Adi']);
     ?>
     <!-- İLAN -->
@@ -311,7 +295,7 @@ if ($_GET['sirala'] == "tarih")
       }
       else
   {
-    foreach ($db->query("select * from tbl_ilan where ilan_numarasi like '%$ilanad%' or ilan_Konum like '%$ilanad%'  and ilan_Kategori='$kategori' and ilan_Durum='$durum'  LIMIT $limit,$listelenen") as $gelen)  {
+    foreach ($db->query("SELECT * from tbl_ilan where (ilan_numarasi like '%$ilanad%' and ilan_Kategori='$kategori' and ilan_Durum='$durum') or (ilan_Konum like '%$ilanad%' and ilan_Kategori='$kategori' and ilan_Durum='$durum') LIMIT $limit,$listelenen") as $gelen)  {
                 
   
       $seourl = seo($gelen['ilan_Adi']);

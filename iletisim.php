@@ -110,7 +110,7 @@ include("assets/config.php");
   </nav>
   <!-- NAVBAR -->
   <!--İLETİŞİM -->
-  <div class="container-fluid mt-5 mb-5">
+  <div class="container mt-5 mb-5">
 
     <div class="rounded" style="box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)">
 

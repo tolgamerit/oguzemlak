@@ -21,12 +21,7 @@ include("assets/function.php");
       background-color: #ffffff !important;
     }
 
-    .ilan {
-
-      margin-left: auto;
-      margin-right: auto;
-
-    }
+    
 
     .embed-responsive .card-img-top {
       object-fit: cover;
@@ -55,14 +50,7 @@ include("assets/function.php");
       background-color: #86d9ab !important;
     }
 
-    .ck {
-      max-width: 70px !important;
-    }
-
-    .cll {
-      color: #6c757d !important;
-      border: 2px solid #17a2b8 !important;
-    }
+   
   </style>
 
 
@@ -164,7 +152,7 @@ include("assets/function.php");
       </div>
     </div>
     <div class="row">
-      <!--<div class="col-lg-2 col-md-3 col-sm-3 ">
+      <div class="col-lg-2 col-md-3 col-sm-3 ">
         <div class="">
           <?php
           $min_m2 = $_GET['min-m2'];
@@ -201,40 +189,9 @@ include("assets/function.php");
                                                                               </div>
                                                                             </div>
                                                                           </div>
-                                                                          <div class="form-group ">
-                                                                            <label class="lead">Krediye Uygunluk</label>
+                                                                      
 
-                                                                            <div class="row">
-                                                                              <div class="col-md-6 mx-auto">
-                                                                                <select style="  max-width: 100px !important;" class="custom-select " name="kredidurum">
-                                                                                  <option value='evet'>Evet</option>
-                                                                                  <option value='hayir'>Hayır</option>
-
-
-                                                                                </select>
-                                                                              </div>
-                                                                            </div>
-
-                                                                          </div>
-
-                                                                          <div class="form-group ">
-                                                                            <label class="lead">Tapu Durumu</label>
-                                                                            <div class="row">
-                                                                              <div class="col-md-6 mx-auto">
-
-                                                                                <select style="  max-width: 165px !important;" class="custom-select " name="tapudurum">
-                                                                                  <option value='arsa'>Arsa</option>
-                                                                                  <option value='hisseli'>Hisseli</option>
-                                                                                  <option value='kat-irtifak'>Kat İrtifaklı</option>
-                                                                                  <option value='kat-mulkiyet'>Kat Mülkiyetli</option>
-                                                                                  <option value='mustakil-parsel'>Müstakil Parsel</option>
-
-
-                                                                                </select>
-                                                                              </div>
-                                                                            </div>
-
-                                                                          </div>
+                                                                
 
                                                                           <button type="submit" class="btn mx-auto btn-danger mb-3">ARA</button>
                                                                         </form>
@@ -273,7 +230,8 @@ include("assets/function.php");
 
 
                                                                           <button type="submit" class="btn mx-auto btn-danger mb-3">ARA</button>
-                                                                        </form><?php } elseif ($_GET['ilan'] == 'konut') { ?>
+                                                                        </form><?php } 
+                                                                        elseif ($_GET['ilan'] == 'konut') { ?>
                                                                         <form class="form text-center">
                                                                           <div class="form-group">
                                                                             <label class="lead">Fiyat Aralığı</label>
@@ -302,132 +260,28 @@ include("assets/function.php");
                                                                             </div>
                                                                           </div>
 
-                                                                          <div class="form-group ">
-                                                                            <label class="lead">Oda Sayısı</label>
-
-                                                                            <div class="row">
-                                                                              <div class="col-md-6 mx-auto">
-                                                                                <select style="  max-width: 70px !important;" class="custom-select " name="odasayisi">
-                                                                                  <option value='0'>1+0</option>
-                                                                                  <option value='1'>1+1</option>
-                                                                                  <option value='2'>2+1</option>
-                                                                                  <option value='3'>3+1</option>
-                                                                                  <option value='4'>4+1</option>
-                                                                                  <option value='5'>5+1</option>
-                                                                                </select>
-                                                                              </div>
-                                                                            </div>
-
-                                                                          </div>
-                                                                          <div class="form-group ">
-                                                                            <label class="lead">Bina Yaşı</label>
-                                                                            <div class="row">
-                                                                              <div class="col-md-6 mx-auto">
-
-                                                                                <select style="  max-width: 70px !important;" class="custom-select " name="binayas">
-                                                                                  <option value='0'>0</option>
-                                                                                  <option value='1'>1</option>
-                                                                                  <option value='2'>2</option>
-                                                                                  <option value='3'>3</option>
-                                                                                  <option value='4'>4</option>
-                                                                                  <option value='5-10'>5-10</option>
-                                                                                  <option value='11-15'>11-15</option>
-                                                                                  <option value='16-20'>16-20</option>
-                                                                                  <option value='21-25'>21-25</option>
-                                                                                  <option value='26-30'>26-30</option>
-                                                                                  <option value='30ust'>30+</option>
-                                                                                </select>
-                                                                              </div>
-                                                                            </div>
-
-                                                                          </div>
-                                                                          <div class="form-group ">
-                                                                            <label class="lead">Bulunduğu Kat</label>
-
-                                                                            <div class="row">
-                                                                              <div class="col-md-6 mx-auto">
-                                                                                <select style="  max-width: 135px !important;" class="custom-select " name="bulundugukat">
-                                                                                  <option value='zemin'>Zemin Kat</option>
-                                                                                  <option value='giris'>Giriş Katı</option>
-                                                                                  <option value='yuksekgiris'>Yüksek Giriş</option>
-                                                                                  <option value='mustakil'>Müstakil</option>
-                                                                                  <?php for ($i = 0; $i <= 29; $i++) {
-                                                                                    echo '<option value="' . $i . '"> ' . $i . '</option>';
-                                                                                  } ?>
-
-                                                                                  <option value='30ust'>30+</option>
-                                                                                </select>
-                                                                              </div>
-                                                                            </div>
-
-                                                                          </div>
-                                                                          <div class="form-group ">
-                                                                            <label class="lead">Kat Sayısı</label>
-                                                                            <div class="row">
-                                                                              <div class="col-md-6 mx-auto">
-
-                                                                                <select style="  max-width:  70px !important;" class="custom-select " name="katsayisi">
-
-                                                                                  <?php for ($i = 0; $i <= 20; $i++) {
-                                                                                    echo '<option value="' . $i . '"> ' . $i . '</option>';
-                                                                                  } ?>
+                                                                       
+                                                                         
+                                                                         
 
 
-                                                                                </select>
-
-                                                                              </div>
-                                                                            </div>
-                                                                          </div>
-                                                                          <div class="form-group ">
-                                                                            <label class="lead">Isıtma</label>
-
-                                                                            <div class="row">
-                                                                              <div class="col-md-6 mx-auto">
-                                                                                <select style="  max-width: 165px !important;" class="custom-select " name="isitma">
-                                                                                  <option value='soba'>Soba</option>
-                                                                                  <option value='merkezi'>Merkezi Sistem</option>
-                                                                                  <option value='dogalgaz'>Doğalgaz</option>
-                                                                                  <option value='klima'>Klima</option>
-
-                                                                                </select>
-                                                                              </div>
-                                                                            </div>
-
-                                                                          </div>
-                                                                          <div class="form-group ">
-                                                                            <label class="lead">Krediye Uygunluk</label>
-
-                                                                            <div class="row">
-                                                                              <div class="col-md-6 mx-auto">
-                                                                                <select style="  max-width: 100px !important;" class="custom-select " name="kredidurum">
-                                                                                  <option value='evet'>Evet</option>
-                                                                                  <option value='hayir'>Hayır</option>
-
-
-                                                                                </select>
-                                                                              </div>
-                                                                            </div>
-
-                                                                          </div>
-
-
-                                                                          <button type="submit" class="btn mx-auto btn-danger mb-3">ARA</button>
+                                                                          <button value="submit" type="submit" class="btn mx-auto btn-danger mb-3">ARA</button>
 
                                                                         </form>
           <?php } ?>
 
         </div>
 
-      </div>-->
+      </div>
 
 
-      <div class="col-lg-12 col-md-12 col-sm-12">
+      <div class="col-lg-10 col-md-9 col-sm-9">
         <div class="row">
           <?php
           $ktgr = $_GET['ilan'];
           if ($ktgr == "konut") {
             $listelenen = 15;
-            $sayi = $db->query("SELECT * FROM tbl_ilan WHERE ilan_Kategori='konut' and ilan_Durum='kiralık'");
+            $sayi = $db->query("SELECT * FROM tbl_ilan WHERE ilan_Kategori='konut' and ilan_Durum='kiralik'");
             if ($sayi->rowCount() > 0)
               $sayi = $sayi->rowCount();
             $toplamsayfa     = ceil($sayi / $listelenen);
@@ -438,7 +292,7 @@ include("assets/function.php");
             if ($_GET['sirala'] == "ucuz-pahali") {
               foreach ($db->query("select * from tbl_ilan where  ilan_Kategori='konut'
       and
-     ilan_Durum='kiralık' order by ilan_Fiyat asc LIMIT $limit,$listelenen") as $gelen) {
+     ilan_Durum='kiralik' order by ilan_Fiyat asc LIMIT $limit,$listelenen") as $gelen) {
 
 
                 if ($gelen['ilan_numarasi'] != 0) {
@@ -481,7 +335,7 @@ include("assets/function.php");
           } elseif ($_GET['sirala'] == "pahali-ucuz") {
             foreach ($db->query("select * from tbl_ilan where  ilan_Kategori='konut'
     and
-   ilan_Durum='kiralık' order by ilan_Fiyat desc LIMIT  $limit, $listelenen ") as $gelen) {
+   ilan_Durum='kiralik' order by ilan_Fiyat desc LIMIT  $limit, $listelenen ") as $gelen) {
 
 
               if ($gelen['ilan_numarasi'] != 0) {
@@ -523,7 +377,7 @@ include("assets/function.php");
           } elseif ($_GET['sirala'] == "tarih") {
             foreach ($db->query("select * from tbl_ilan where  ilan_Kategori='konut'
   and
-  ilan_Durum='kiralık' order by ilan_YayinTarihi desc LIMIT  $limit, $listelenen ") as $gelen) {
+  ilan_Durum='kiralik' order by ilan_YayinTarihi desc LIMIT  $limit, $listelenen ") as $gelen) {
 
 
               if ($gelen['ilan_numarasi'] != 0) {
@@ -565,7 +419,7 @@ include("assets/function.php");
           } else {
             foreach ($db->query("select * from tbl_ilan where  ilan_Kategori='konut'
                         and
-                       ilan_Durum='kiralık'LIMIT  $limit, $listelenen ") as $gelen) {
+                       ilan_Durum='kiralik'LIMIT  $limit, $listelenen ") as $gelen) {
 
 
               if ($gelen['ilan_numarasi'] != 0) {
@@ -610,7 +464,7 @@ include("assets/function.php");
           }
         } elseif ($ktgr == "arsa") {
           $listelenen = 15;
-          $sayi = $db->query("SELECT * FROM tbl_ilan WHERE ilan_Kategori='arsa' and ilan_Durum='kiralık'");
+          $sayi = $db->query("SELECT * FROM tbl_ilan WHERE ilan_Kategori='arsa' and ilan_Durum='kiralik'");
           if ($sayi->rowCount() > 0)
             $sayi = $sayi->rowCount();
           $toplamsayfa     = ceil($sayi / $listelenen);
@@ -621,7 +475,7 @@ include("assets/function.php");
           if ($_GET['sirala'] == "ucuz-pahali") {
             foreach ($db->query("select * from tbl_ilan where  ilan_Kategori='arsa'
           and
-         ilan_Durum='kiralık' order by ilan_Fiyat asc LIMIT  $limit, $listelenen ") as $gelen) {
+         ilan_Durum='kiralik' order by ilan_Fiyat asc LIMIT  $limit, $listelenen ") as $gelen) {
 
 
               if ($gelen['ilan_numarasi'] != 0) {
@@ -663,7 +517,7 @@ include("assets/function.php");
           } elseif ($_GET['sirala'] == "pahali-ucuz") {
             foreach ($db->query("select * from tbl_ilan where  ilan_Kategori='arsa'
     and
-   ilan_Durum='kiralık' order by ilan_Fiyat desc LIMIT  $limit, $listelenen ") as $gelen) {
+   ilan_Durum='kiralik' order by ilan_Fiyat desc LIMIT  $limit, $listelenen ") as $gelen) {
 
 
               if ($gelen['ilan_numarasi'] != 0) {
@@ -705,7 +559,7 @@ include("assets/function.php");
           } elseif ($_GET['sirala'] == "tarih") {
             foreach ($db->query("select * from tbl_ilan where  ilan_Kategori='arsa'
 and
-ilan_Durum='kiralık' order by ilan_YayinTarihi desc LIMIT  $limit, $listelenen ") as $gelen) {
+ilan_Durum='kiralik' order by ilan_YayinTarihi desc LIMIT  $limit, $listelenen ") as $gelen) {
 
 
               if ($gelen['ilan_numarasi'] != 0) {
@@ -747,7 +601,7 @@ ilan_Durum='kiralık' order by ilan_YayinTarihi desc LIMIT  $limit, $listelenen 
           } else {
             foreach ($db->query("select * from tbl_ilan where  ilan_Kategori='arsa'
                     and
-                   ilan_Durum='kiralık'LIMIT  $limit, $listelenen ") as $gelen) {
+                   ilan_Durum='kiralik'LIMIT  $limit, $listelenen ") as $gelen) {
 
 
               if ($gelen['ilan_numarasi'] != 0) {
@@ -797,7 +651,7 @@ ilan_Durum='kiralık' order by ilan_YayinTarihi desc LIMIT  $limit, $listelenen 
           <?php if ($ktgr == "isyeri") {
             $listelenen = 15;
 
-            $sayi = $db->query("SELECT * FROM tbl_ilan WHERE ilan_Kategori='isyeri' and ilan_Durum='kiralık'");
+            $sayi = $db->query("SELECT * FROM tbl_ilan WHERE ilan_Kategori='isyeri' and ilan_Durum='kiralik'");
             if ($sayi->rowCount() > 0)
               $sayi = $sayi->rowCount();
             $toplamsayfa     = ceil($sayi / $listelenen);
@@ -810,7 +664,7 @@ ilan_Durum='kiralık' order by ilan_YayinTarihi desc LIMIT  $limit, $listelenen 
             if ($_GET['sirala'] == "pahali-ucuz") {
               foreach ($db->query("select * from tbl_ilan where  ilan_Kategori='isyeri'
               and
-             ilan_Durum='kiralık' order by ilan_Fiyat desc LIMIT $limit,$listelenen") as $gelen) {
+             ilan_Durum='kiralik' order by ilan_Fiyat desc LIMIT $limit,$listelenen") as $gelen) {
 
 
                 if ($gelen['ilan_numarasi'] != 0) {
@@ -852,7 +706,7 @@ ilan_Durum='kiralık' order by ilan_YayinTarihi desc LIMIT  $limit, $listelenen 
           } elseif ($_GET['sirala'] == "ucuz-pahali") {
             foreach ($db->query("select * from tbl_ilan where  ilan_Kategori='isyeri'
         and
-       ilan_Durum='kiralık' order by ilan_Fiyat asc LIMIT $limit,$listelenen") as $gelen) {
+       ilan_Durum='kiralik' order by ilan_Fiyat asc LIMIT $limit,$listelenen") as $gelen) {
 
 
               if ($gelen['ilan_numarasi'] != 0) {
@@ -894,7 +748,7 @@ ilan_Durum='kiralık' order by ilan_YayinTarihi desc LIMIT  $limit, $listelenen 
           } elseif ($_GET['sirala'] == "tarih") {
             foreach ($db->query("select * from tbl_ilan where  ilan_Kategori='isyeri'
         and
-       ilan_Durum='kiralık' order by ilan_YayinTarihi desc LIMIT $limit,$listelenen") as $gelen) {
+       ilan_Durum='kiralik' order by ilan_YayinTarihi desc LIMIT $limit,$listelenen") as $gelen) {
 
 
               if ($gelen['ilan_numarasi'] != 0) {
@@ -936,7 +790,7 @@ ilan_Durum='kiralık' order by ilan_YayinTarihi desc LIMIT  $limit, $listelenen 
           } else {
             foreach ($db->query("select * from tbl_ilan where  ilan_Kategori='isyeri'
         and
-       ilan_Durum='kiralık'  LIMIT $limit,$listelenen") as $gelen) {
+       ilan_Durum='kiralik'  LIMIT $limit,$listelenen") as $gelen) {
 
 
               if ($gelen['ilan_numarasi'] != 0) {

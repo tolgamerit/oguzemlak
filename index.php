@@ -1,6 +1,6 @@
 <?php
+ob_start();
 session_start();
-
 define("include", true);
 include("assets/config.php");
 include("assets/function.php");
@@ -20,8 +20,6 @@ include("assets/function.php");
   <!--     Fonts and icons     -->
 
   <style>
-
-
     .embed-responsive .card-img-top {
       object-fit: cover;
     }
@@ -33,6 +31,13 @@ include("assets/function.php");
     .dropdown-item:active {
       background-color: #86d9ab !important;
     }
+   
+}
+    
+
+
+
+
   </style>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -100,55 +105,57 @@ include("assets/function.php");
     <div class="rounded text-center" style=" box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)">
       <div class="card-body">
         <p class="h3 lead mb-4 "><strong>İLAN ARAMA</strong> </p>
-        <?php  
-        $_SESSION['kategori'] = $_POST['kategori'];      
-        $_SESSION['ilanad'] = $_POST['ilanad'];      
-        $_SESSION['durum'] = $_POST['durum'];  
-        if(isset($_POST['submit'])) 
-        header("Location: arama");   
+        <?php
+        $_SESSION['durum'] = $_POST['durum'];
+        $_SESSION['kategori'] = $_POST['kategori'];
+        $_SESSION['ilanad'] = $_POST['ilanad'];
+     
+        if (isset($_POST['submit']))
+          header("Location: arama");
         ?>
-            <form  method="POST" >
-              <div class="row d-flex justify-content-center">
-                <div class="col-md-2 col-lg-2">
-                <div class="form-group mb-1">
+        <form method="POST">
+          <div class="row d-flex justify-content-center">
+            <div class="col-md-2 col-lg-2">
+              <div class="form-group mb-1">
 
-<select name="durum" class="form-control" id="exampleFormControlSelect1">
-  <option value="satilik">Satılık</option>
-  <option value="kiralik">Kiralık</option>
-
-</select>
-</div>          <div class="form-group mb-1">
-
-<select name="kategori" class="form-control" id="exampleFormControlSelect1">
-  <option value="arsa">Arsa</option>
-  <option value="isyeri">İşyeri</option>
-  <option value="konut">Konut</option>
-
-</select>
-</div>
-                </div>
-
-               
-                <div class="col-md-4 col-lg-4">
-                <div class="form-group ">
-
-<input name="ilanad" type="text" class="form-control" placeholder="Konum ya da İlan Numarası...">
-
-            
-</div>
-                </div>
-                <div class="col-md-1">
-                <button type="submit" class=" btn btn-success rounded " name="submit" value="submit">ARA</button>
-
-                </div>
+                <select name="durum" class="form-control" id="durum">
+                <option value="kiralik">Kiralık</option>  
+                <option value="satilik">Satılık</option>
+                 
+                </select>
               </div>
-         
-              
-            
+              <div class="form-group mb-1">
 
-            
+                <select name="kategori" class="form-control" id="kategori">
+                  <option value="arsa">Arsa</option>
+                  <option value="isyeri">İşyeri</option>
+                  <option value="konut">Konut</option>
 
-            </form>
+                </select>
+              </div>
+            </div>
+
+
+            <div class="col-md-4 col-lg-4">
+              <div class="form-group ">
+
+                <input name="ilanad" type="text" class="form-control" placeholder="Konum ya da İlan Numarası...">
+
+
+              </div>
+            </div>
+            <div class="col-md-1">
+              <button type="submit" class=" btn btn-success rounded " name="submit" value="submit">ARA</button>
+
+            </div>
+          </div>
+
+
+
+
+
+
+        </form>
 
       </div>
     </div>
@@ -167,7 +174,7 @@ include("assets/function.php");
     <div class="border-bottom mt-5">
       <p class="h3"><strong>Öne Çıkan İlanlar</strong></p>
     </div>
-    <div class="row mt-3">
+    <div class="row mt-3 ">
       <?php
 
       foreach ($db->query("select * from tbl_ilan where ilan_OneCikan='evet'") as $gelen) {
@@ -179,32 +186,38 @@ include("assets/function.php");
         <!-- İLAN -->
         <div class="col-md-4 ">
           <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
-            <div class="card">
-              <div class="embed-responsive embed-responsive-16by9">
-                <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
-              </div>
-              <div class="card-body">
-                <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+            
 
-                <div class="yayin-bilgi mt-2">
-                  <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-                  <span class="float-right text-muted text-danger"><strong><?php
-                                                                            echo number_format(
-                                                                              $gelen['ilan_Fiyat'],
-                                                                              0,
-                                                                              ',',
-                                                                              '.'
-                                                                            );
-                                                                            ?> TL</strong></span>
+              <div class="card " >
+                <div class="embed-responsive embed-responsive-16by9 ">
+                  <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
                 </div>
-                <div class="mt-5">
-                  <span class="h6 text-muted float-left "><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+                <div class="card-body ">
+                  <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
 
+                  <div class="yayin-bilgi mt-2">
+                    <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
+                    <span class="float-right text-muted text-danger"><strong><?php
+                                                                              echo number_format(
+                                                                                $gelen['ilan_Fiyat'],
+                                                                                0,
+                                                                                ',',
+                                                                                '.'
+                                                                              );
+                                                                              ?> TL</strong></span>
+                  </div>
+                  <div class="mt-5">
+                    <span class="h6 text-muted float-left onecikanayar"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+
+                  </div>
                 </div>
               </div>
-            </div>
+          
           </a>
-        </div><?php } ?>
+        </div>
+        
+        
+        <?php } ?>
       <!-- İLAN -->
 
     </div>
@@ -347,8 +360,6 @@ include("assets/function.php");
   <!-- FOOTER -->
 
 
-
-
 </body>
 <!-- PAPER-UI VE EKLENTILER -->
 <script src="assets/js/jquery.min.js" type="text/javascript"></script>
@@ -359,6 +370,7 @@ include("assets/function.php");
 <script src="assets/js/moment.min.js"></script>
 <script src="assets/js/bootstrap-datepicker.js"></script>
 <script src="assets/js/paper-kit.js"></script>
+
 <!-- PAPER-UI VE EKLENTILER -->
 
 </html>

@@ -6,7 +6,7 @@ include("assets/config.php");
 <html lang="tr">
 
 <head>
-    <title>Oğuz Emlak | Hakkımızda</title>
+    <title>Oğuz Emlak</title>
     <meta charset="utf-8">
     <base href="127.0.0.1" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
