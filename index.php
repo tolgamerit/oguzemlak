@@ -22,6 +22,9 @@ include("assets/function.php");
   <!--     Fonts and icons     -->
 
   <style>
+    .navbar .navbar-collapse:after {
+  background-color: #FFFFFF !important;
+}
     .embed-responsive .card-img-top {
       object-fit: cover;
     }
