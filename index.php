@@ -11,7 +11,7 @@ include("assets/function.php");
 
 <head>
   <title>Oğuz Emlak</title>
-  <base href="emlak.navisit.tk" />
+
   <meta name="theme-color" content="#6ec7e0">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
@@ -118,26 +118,11 @@ include("assets/function.php");
 
         <form method="POST">
           <div class="row d-flex justify-content-center">
-            <div class="form-group float-left mb-2">
-              <input class="form-control" type="checkbox" name="durum" value="satilik" checked data-toggle="toggle" data-onstyle="success" data-offstyle="info" data-on="Satılık" data-off="Kiralık">
-
-            </div>
-
-            <div class="col-md-2 col-lg-2">
-
-              <div class="form-group mb-1">
-
-                <select name="kategori" class="form-control" id="kategori">
-                  <option value="arsa">Arsa</option>
-                  <option value="isyeri">İşyeri</option>
-                  <option value="konut">Konut</option>
-
-                </select>
-              </div>
-            </div>
+         
+       
 
 
-            <div class="col-md-4 col-lg-4">
+            <div class="col-lg-5">
               <div class="form-group ">
 
                 <input name="ilanad" type="text" class="form-control" placeholder="Konum ya da İlan Numarası...">
@@ -145,11 +130,36 @@ include("assets/function.php");
 
               </div>
             </div>
-            <div class="col-md-1">
+          
+          </div>
+          <div class="row d-flex justify-content-center">
+          <div class="form-group float-left mb-2">
+              <input class="form-control" type="checkbox" name="durum" value="satilik" checked data-toggle="toggle" data-onstyle="success" data-offstyle="info" data-on="Satılık" data-off="Kiralık">
+
+            </div>
+            <div class="col-md-2 col-lg-1">
+
+<div class="form-group mb-1">
+
+  <select name="kategori" class="form-control" id="kategori">
+    <option value="arsa">Arsa</option>
+    <option value="isyeri">İşyeri</option>
+    <option value="konut">Konut</option>
+
+  </select>
+</div>
+
+          </div>
+         
+          </div>
+          <div class="row d-flex justify-content-center">
+
+          <div class="col-lg-1">
               <button type="submit" class=" btn btn-success rounded " name="submit" value="submit">ARA</button>
 
             </div>
           </div>
+              
 
 
 
@@ -327,9 +337,9 @@ include("assets/function.php");
                 <ul class="list-unstyled h5">
                   <div class="text-center">
                     <strong class="text-white ">Gayrimenkul Kategorileri</strong>
-                    <li><a class="text-white" href="#">Konut</a></li>
-                    <li><a class="text-white" href="#">İşyeri</a></li>
-                    <li><a class="text-white" href="#">Arsa</a></li>
+                    <li><a class="text-white" href="kiralik-konut">Konut</a></li>
+                    <li><a class="text-white" href="kiralik-isyeri">İşyeri</a></li>
+                    <li><a class="text-white" href="kiralik-arsa">Arsa</a></li>
                   </div>
                 </ul>
               </div>

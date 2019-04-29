@@ -8,7 +8,7 @@ include("assets/config.php");
 <head>
     <title>Oğuz Emlak</title>
     <meta charset="utf-8">
-    <base href="emlak.navisit.tk" />
+
   <meta name="theme-color" content="#6ec7e0">
 
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />

@@ -348,9 +348,9 @@ else
                 <ul class="list-unstyled h5">
                   <div class="text-center">
                     <strong class="text-white ">Gayrimenkul Kategorileri</strong>
-                    <li><a class="text-white" href="#">Konut</a></li>
-                    <li><a class="text-white" href="#">İşyeri</a></li>
-                    <li><a class="text-white" href="#">Arsa</a></li>
+                    <li><a class="text-white" href="kiralik-konut">Konut</a></li>
+                    <li><a class="text-white" href="kiralik-isyeri">İşyeri</a></li>
+                    <li><a class="text-white" href="kiralik-arsa">Arsa</a></li>
                   </div>
                 </ul>
               </div>

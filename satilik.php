@@ -1265,9 +1265,9 @@ ilan_Durum='satilik' order by ilan_YayinTarihi desc LIMIT  $limit, $listelenen "
                 <ul class="list-unstyled h5">
                   <div class="text-center">
                     <strong class="text-white ">Gayrimenkul Kategorileri</strong>
-                    <li><a class="text-white" href="#">Konut</a></li>
-                    <li><a class="text-white" href="#">İş Yeri</a></li>
-                    <li><a class="text-white" href="#">Arsa</a></li>
+                    <li><a class="text-white" href="kiralik-konut">Konut</a></li>
+                    <li><a class="text-white" href="kiralik-isyeri">İşyeri</a></li>
+                    <li><a class="text-white" href="kiralik-arsa">Arsa</a></li>
                   </div>
                 </ul>
               </div>
