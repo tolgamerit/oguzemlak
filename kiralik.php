@@ -304,34 +304,48 @@ include("assets/function.php");
                 }
 
                 ?>
-                <div class="col-md-4 ">
-                  <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
-                    <div class="card">
-                      <div class="embed-responsive embed-responsive-16by9">
-                        <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
-                      </div>
-                      <div class="card-body">
-                        <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+               <div class="col-md-4 d-flex">
+        
+        <div class="card  flex-fill">
+        <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
 
-                        <div class="yayin-bilgi mt-2">
-                          <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-                          <span class="float-right text-muted text-danger"><strong><?php
-                                                                                    echo number_format(
-                                                                                      $gelen['ilan_Fiyat'],
-                                                                                      0,
-                                                                                      ',',
-                                                                                      '.'
-                                                                                    );
-                                                                                    ?> TL</strong></span>
-                        </div>
-                        <div class="mt-5">
-                          <span class="h6 text-muted float-left "><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+          <div class="embed-responsive embed-responsive-16by9 ">
+            <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
+          </div>
 
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
+          <div class="card-body">
+
+            <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+            <div class="yayin-bilgi mt-2">
+              <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
+              <span class="float-right text-muted text-danger"><strong><?php
+                                                                        echo number_format(
+                                                                          $gelen['ilan_Fiyat'],
+                                                                          0,
+                                                                          ',',
+                                                                          '.'
+                                                                        );
+                                                                        ?> TL</strong></span>
+            </div>
+
+          </div>
+          <div class="card-footer ">
+            <div class="row">
+              <span class="col-12 h6 text-muted text-left"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+
+            </div>
+            <div class="row ">
+              <span class="col-12 h6 text-muted text-left"><i class="fas fa-calendar ml-1 mr-1"> </i><?php echo $gelen['ilan_YayinTarihi']; ?></span>
+
+            </div>
+          </div>
+        </a>
+        </div>
+     
+
+
+
+    </div>
               <?php
             }
           } elseif ($_GET['sirala'] == "pahali-ucuz") {
@@ -346,34 +360,48 @@ include("assets/function.php");
                 $seourl = seo($gelen['ilan_Adi']);
               }
               ?>
-                <div class="col-md-4 ">
-                  <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
-                    <div class="card">
-                      <div class="embed-responsive embed-responsive-16by9">
-                        <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
-                      </div>
-                      <div class="card-body">
-                        <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+                <div class="col-md-4 d-flex">
+        
+        <div class="card  flex-fill">
+        <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
 
-                        <div class="yayin-bilgi mt-2">
-                          <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-                          <span class="float-right text-muted text-danger"><strong><?php
-                                                                                    echo number_format(
-                                                                                      $gelen['ilan_Fiyat'],
-                                                                                      0,
-                                                                                      ',',
-                                                                                      '.'
-                                                                                    );
-                                                                                    ?> TL</strong></span>
-                        </div>
-                        <div class="mt-5">
-                          <span class="h6 text-muted float-left "><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+          <div class="embed-responsive embed-responsive-16by9 ">
+            <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
+          </div>
 
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
+          <div class="card-body">
+
+            <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+            <div class="yayin-bilgi mt-2">
+              <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
+              <span class="float-right text-muted text-danger"><strong><?php
+                                                                        echo number_format(
+                                                                          $gelen['ilan_Fiyat'],
+                                                                          0,
+                                                                          ',',
+                                                                          '.'
+                                                                        );
+                                                                        ?> TL</strong></span>
+            </div>
+
+          </div>
+          <div class="card-footer ">
+            <div class="row">
+              <span class="col-12 h6 text-muted text-left"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+
+            </div>
+            <div class="row ">
+              <span class="col-12 h6 text-muted text-left"><i class="fas fa-calendar ml-1 mr-1"> </i><?php echo $gelen['ilan_YayinTarihi']; ?></span>
+
+            </div>
+          </div>
+        </a>
+        </div>
+     
+
+
+
+    </div>
               <?php
             }
           } elseif ($_GET['sirala'] == "tarih") {
@@ -388,34 +416,48 @@ include("assets/function.php");
                 $seourl = seo($gelen['ilan_Adi']);
               }
               ?>
-                <div class="col-md-4 ">
-                  <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
-                    <div class="card">
-                      <div class="embed-responsive embed-responsive-16by9">
-                        <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
-                      </div>
-                      <div class="card-body">
-                        <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+                 <div class="col-md-4 d-flex">
+        
+        <div class="card  flex-fill">
+        <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
 
-                        <div class="yayin-bilgi mt-2">
-                          <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-                          <span class="float-right text-muted text-danger"><strong><?php
-                                                                                    echo number_format(
-                                                                                      $gelen['ilan_Fiyat'],
-                                                                                      0,
-                                                                                      ',',
-                                                                                      '.'
-                                                                                    );
-                                                                                    ?> TL</strong></span>
-                        </div>
-                        <div class="mt-5">
-                          <span class="h6 text-muted float-left "><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+          <div class="embed-responsive embed-responsive-16by9 ">
+            <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
+          </div>
 
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
+          <div class="card-body">
+
+            <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+            <div class="yayin-bilgi mt-2">
+              <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
+              <span class="float-right text-muted text-danger"><strong><?php
+                                                                        echo number_format(
+                                                                          $gelen['ilan_Fiyat'],
+                                                                          0,
+                                                                          ',',
+                                                                          '.'
+                                                                        );
+                                                                        ?> TL</strong></span>
+            </div>
+
+          </div>
+          <div class="card-footer ">
+            <div class="row">
+              <span class="col-12 h6 text-muted text-left"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+
+            </div>
+            <div class="row ">
+              <span class="col-12 h6 text-muted text-left"><i class="fas fa-calendar ml-1 mr-1"> </i><?php echo $gelen['ilan_YayinTarihi']; ?></span>
+
+            </div>
+          </div>
+        </a>
+        </div>
+     
+
+
+
+    </div>
               <?php
             }
           } else {
@@ -430,34 +472,48 @@ include("assets/function.php");
                 $seourl = seo($gelen['ilan_Adi']);
               }
               ?>
-                <div class="col-md-4 ">
-                  <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
-                    <div class="card">
-                      <div class="embed-responsive embed-responsive-16by9">
-                        <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
-                      </div>
-                      <div class="card-body">
-                        <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+               <div class="col-md-4 d-flex">
+        
+        <div class="card  flex-fill">
+        <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
 
-                        <div class="yayin-bilgi mt-2">
-                          <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-                          <span class="float-right text-muted text-danger"><strong><?php
-                                                                                    echo number_format(
-                                                                                      $gelen['ilan_Fiyat'],
-                                                                                      0,
-                                                                                      ',',
-                                                                                      '.'
-                                                                                    );
-                                                                                    ?> TL</strong></span>
-                        </div>
-                        <div class="mt-5">
-                          <span class="h6 text-muted float-left "><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+          <div class="embed-responsive embed-responsive-16by9 ">
+            <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
+          </div>
 
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
+          <div class="card-body">
+
+            <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+            <div class="yayin-bilgi mt-2">
+              <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
+              <span class="float-right text-muted text-danger"><strong><?php
+                                                                        echo number_format(
+                                                                          $gelen['ilan_Fiyat'],
+                                                                          0,
+                                                                          ',',
+                                                                          '.'
+                                                                        );
+                                                                        ?> TL</strong></span>
+            </div>
+
+          </div>
+          <div class="card-footer ">
+            <div class="row">
+              <span class="col-12 h6 text-muted text-left"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+
+            </div>
+            <div class="row ">
+              <span class="col-12 h6 text-muted text-left"><i class="fas fa-calendar ml-1 mr-1"> </i><?php echo $gelen['ilan_YayinTarihi']; ?></span>
+
+            </div>
+          </div>
+        </a>
+        </div>
+     
+
+
+
+    </div>
 
 
 
@@ -486,34 +542,48 @@ include("assets/function.php");
                 $seourl = seo($gelen['ilan_Adi']);
               }
               ?>
-                <div class="col-md-4 ">
-                  <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
-                    <div class="card">
-                      <div class="embed-responsive embed-responsive-16by9">
-                        <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
-                      </div>
-                      <div class="card-body">
-                        <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+               <div class="col-md-4 d-flex">
+        
+        <div class="card  flex-fill">
+        <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
 
-                        <div class="yayin-bilgi mt-2">
-                          <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-                          <span class="float-right text-muted text-danger"><strong><?php
-                                                                                    echo number_format(
-                                                                                      $gelen['ilan_Fiyat'],
-                                                                                      0,
-                                                                                      ',',
-                                                                                      '.'
-                                                                                    );
-                                                                                    ?> TL</strong></span>
-                        </div>
-                        <div class="mt-5">
-                          <span class="h6 text-muted float-left "><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+          <div class="embed-responsive embed-responsive-16by9 ">
+            <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
+          </div>
 
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
+          <div class="card-body">
+
+            <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+            <div class="yayin-bilgi mt-2">
+              <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
+              <span class="float-right text-muted text-danger"><strong><?php
+                                                                        echo number_format(
+                                                                          $gelen['ilan_Fiyat'],
+                                                                          0,
+                                                                          ',',
+                                                                          '.'
+                                                                        );
+                                                                        ?> TL</strong></span>
+            </div>
+
+          </div>
+          <div class="card-footer ">
+            <div class="row">
+              <span class="col-12 h6 text-muted text-left"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+
+            </div>
+            <div class="row ">
+              <span class="col-12 h6 text-muted text-left"><i class="fas fa-calendar ml-1 mr-1"> </i><?php echo $gelen['ilan_YayinTarihi']; ?></span>
+
+            </div>
+          </div>
+        </a>
+        </div>
+     
+
+
+
+    </div>
               <?php
             }
           } elseif ($_GET['sirala'] == "pahali-ucuz") {
@@ -528,34 +598,48 @@ include("assets/function.php");
                 $seourl = seo($gelen['ilan_Adi']);
               }
               ?>
-                <div class="col-md-4 ">
-                  <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
-                    <div class="card">
-                      <div class="embed-responsive embed-responsive-16by9">
-                        <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
-                      </div>
-                      <div class="card-body">
-                        <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+                <div class="col-md-4 d-flex">
+        
+        <div class="card  flex-fill">
+        <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
 
-                        <div class="yayin-bilgi mt-2">
-                          <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-                          <span class="float-right text-muted text-danger"><strong><?php
-                                                                                    echo number_format(
-                                                                                      $gelen['ilan_Fiyat'],
-                                                                                      0,
-                                                                                      ',',
-                                                                                      '.'
-                                                                                    );
-                                                                                    ?> TL</strong></span>
-                        </div>
-                        <div class="mt-5">
-                          <span class="h6 text-muted float-left "><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+          <div class="embed-responsive embed-responsive-16by9 ">
+            <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
+          </div>
 
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
+          <div class="card-body">
+
+            <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+            <div class="yayin-bilgi mt-2">
+              <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
+              <span class="float-right text-muted text-danger"><strong><?php
+                                                                        echo number_format(
+                                                                          $gelen['ilan_Fiyat'],
+                                                                          0,
+                                                                          ',',
+                                                                          '.'
+                                                                        );
+                                                                        ?> TL</strong></span>
+            </div>
+
+          </div>
+          <div class="card-footer ">
+            <div class="row">
+              <span class="col-12 h6 text-muted text-left"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+
+            </div>
+            <div class="row ">
+              <span class="col-12 h6 text-muted text-left"><i class="fas fa-calendar ml-1 mr-1"> </i><?php echo $gelen['ilan_YayinTarihi']; ?></span>
+
+            </div>
+          </div>
+        </a>
+        </div>
+     
+
+
+
+    </div>
               <?php
             }
           } elseif ($_GET['sirala'] == "tarih") {
@@ -570,34 +654,48 @@ ilan_Durum='kiralik' order by ilan_YayinTarihi desc LIMIT  $limit, $listelenen "
                 $seourl = seo($gelen['ilan_Adi']);
               }
               ?>
-                <div class="col-md-4 ">
-                  <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
-                    <div class="card">
-                      <div class="embed-responsive embed-responsive-16by9">
-                        <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
-                      </div>
-                      <div class="card-body">
-                        <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+            <div class="col-md-4 d-flex">
+        
+        <div class="card  flex-fill">
+        <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
 
-                        <div class="yayin-bilgi mt-2">
-                          <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-                          <span class="float-right text-muted text-danger"><strong><?php
-                                                                                    echo number_format(
-                                                                                      $gelen['ilan_Fiyat'],
-                                                                                      0,
-                                                                                      ',',
-                                                                                      '.'
-                                                                                    );
-                                                                                    ?> TL</strong></span>
-                        </div>
-                        <div class="mt-5">
-                          <span class="h6 text-muted float-left "><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+          <div class="embed-responsive embed-responsive-16by9 ">
+            <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
+          </div>
 
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
+          <div class="card-body">
+
+            <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+            <div class="yayin-bilgi mt-2">
+              <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
+              <span class="float-right text-muted text-danger"><strong><?php
+                                                                        echo number_format(
+                                                                          $gelen['ilan_Fiyat'],
+                                                                          0,
+                                                                          ',',
+                                                                          '.'
+                                                                        );
+                                                                        ?> TL</strong></span>
+            </div>
+
+          </div>
+          <div class="card-footer ">
+            <div class="row">
+              <span class="col-12 h6 text-muted text-left"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+
+            </div>
+            <div class="row ">
+              <span class="col-12 h6 text-muted text-left"><i class="fas fa-calendar ml-1 mr-1"> </i><?php echo $gelen['ilan_YayinTarihi']; ?></span>
+
+            </div>
+          </div>
+        </a>
+        </div>
+     
+
+
+
+    </div>
               <?php
             }
           } else {
@@ -612,34 +710,48 @@ ilan_Durum='kiralik' order by ilan_YayinTarihi desc LIMIT  $limit, $listelenen "
                 $seourl = seo($gelen['ilan_Adi']);
               }
               ?>
-                <div class="col-md-4 ">
-                  <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
-                    <div class="card">
-                      <div class="embed-responsive embed-responsive-16by9">
-                        <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
-                      </div>
-                      <div class="card-body">
-                        <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+            <div class="col-md-4 d-flex">
+        
+        <div class="card  flex-fill">
+        <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
 
-                        <div class="yayin-bilgi mt-2">
-                          <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-                          <span class="float-right text-muted text-danger"><strong><?php
-                                                                                    echo number_format(
-                                                                                      $gelen['ilan_Fiyat'],
-                                                                                      0,
-                                                                                      ',',
-                                                                                      '.'
-                                                                                    );
-                                                                                    ?> TL</strong></span>
-                        </div>
-                        <div class="mt-5">
-                          <span class="h6 text-muted float-left "><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+          <div class="embed-responsive embed-responsive-16by9 ">
+            <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
+          </div>
 
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
+          <div class="card-body">
+
+            <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+            <div class="yayin-bilgi mt-2">
+              <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
+              <span class="float-right text-muted text-danger"><strong><?php
+                                                                        echo number_format(
+                                                                          $gelen['ilan_Fiyat'],
+                                                                          0,
+                                                                          ',',
+                                                                          '.'
+                                                                        );
+                                                                        ?> TL</strong></span>
+            </div>
+
+          </div>
+          <div class="card-footer ">
+            <div class="row">
+              <span class="col-12 h6 text-muted text-left"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+
+            </div>
+            <div class="row ">
+              <span class="col-12 h6 text-muted text-left"><i class="fas fa-calendar ml-1 mr-1"> </i><?php echo $gelen['ilan_YayinTarihi']; ?></span>
+
+            </div>
+          </div>
+        </a>
+        </div>
+     
+
+
+
+    </div>
 
 
 
@@ -675,34 +787,48 @@ ilan_Durum='kiralik' order by ilan_YayinTarihi desc LIMIT  $limit, $listelenen "
                   $seourl = seo($gelen['ilan_Adi']);
                 }
                 ?>
-                <div class="col-md-4 ">
-                  <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
-                    <div class="card">
-                      <div class="embed-responsive embed-responsive-16by9">
-                        <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
-                      </div>
-                      <div class="card-body">
-                        <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+        <div class="col-md-4 d-flex">
+        
+        <div class="card  flex-fill">
+        <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
 
-                        <div class="yayin-bilgi mt-2">
-                          <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-                          <span class="float-right text-muted text-danger"><strong><?php
-                                                                                    echo number_format(
-                                                                                      $gelen['ilan_Fiyat'],
-                                                                                      0,
-                                                                                      ',',
-                                                                                      '.'
-                                                                                    );
-                                                                                    ?> TL</strong></span>
-                        </div>
-                        <div class="mt-5">
-                          <span class="h6 text-muted float-left "><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+          <div class="embed-responsive embed-responsive-16by9 ">
+            <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
+          </div>
 
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
+          <div class="card-body">
+
+            <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+            <div class="yayin-bilgi mt-2">
+              <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
+              <span class="float-right text-muted text-danger"><strong><?php
+                                                                        echo number_format(
+                                                                          $gelen['ilan_Fiyat'],
+                                                                          0,
+                                                                          ',',
+                                                                          '.'
+                                                                        );
+                                                                        ?> TL</strong></span>
+            </div>
+
+          </div>
+          <div class="card-footer ">
+            <div class="row">
+              <span class="col-12 h6 text-muted text-left"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+
+            </div>
+            <div class="row ">
+              <span class="col-12 h6 text-muted text-left"><i class="fas fa-calendar ml-1 mr-1"> </i><?php echo $gelen['ilan_YayinTarihi']; ?></span>
+
+            </div>
+          </div>
+        </a>
+        </div>
+     
+
+
+
+    </div>
               <?php
             }
           } elseif ($_GET['sirala'] == "ucuz-pahali") {
@@ -717,34 +843,48 @@ ilan_Durum='kiralik' order by ilan_YayinTarihi desc LIMIT  $limit, $listelenen "
                 $seourl = seo($gelen['ilan_Adi']);
               }
               ?>
-                <div class="col-md-4 ">
-                  <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
-                    <div class="card">
-                      <div class="embed-responsive embed-responsive-16by9">
-                        <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
-                      </div>
-                      <div class="card-body">
-                        <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+                <div class="col-md-4 d-flex">
+        
+        <div class="card  flex-fill">
+        <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
 
-                        <div class="yayin-bilgi mt-2">
-                          <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-                          <span class="float-right text-muted text-danger"><strong><?php
-                                                                                    echo number_format(
-                                                                                      $gelen['ilan_Fiyat'],
-                                                                                      0,
-                                                                                      ',',
-                                                                                      '.'
-                                                                                    );
-                                                                                    ?> TL</strong></span>
-                        </div>
-                        <div class="mt-5">
-                          <span class="h6 text-muted float-left "><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+          <div class="embed-responsive embed-responsive-16by9 ">
+            <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
+          </div>
 
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
+          <div class="card-body">
+
+            <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+            <div class="yayin-bilgi mt-2">
+              <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
+              <span class="float-right text-muted text-danger"><strong><?php
+                                                                        echo number_format(
+                                                                          $gelen['ilan_Fiyat'],
+                                                                          0,
+                                                                          ',',
+                                                                          '.'
+                                                                        );
+                                                                        ?> TL</strong></span>
+            </div>
+
+          </div>
+          <div class="card-footer ">
+            <div class="row">
+              <span class="col-12 h6 text-muted text-left"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+
+            </div>
+            <div class="row ">
+              <span class="col-12 h6 text-muted text-left"><i class="fas fa-calendar ml-1 mr-1"> </i><?php echo $gelen['ilan_YayinTarihi']; ?></span>
+
+            </div>
+          </div>
+        </a>
+        </div>
+     
+
+
+
+    </div>
               <?php
             }
           } elseif ($_GET['sirala'] == "tarih") {
@@ -759,34 +899,48 @@ ilan_Durum='kiralik' order by ilan_YayinTarihi desc LIMIT  $limit, $listelenen "
                 $seourl = seo($gelen['ilan_Adi']);
               }
               ?>
-                <div class="col-md-4 ">
-                  <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
-                    <div class="card">
-                      <div class="embed-responsive embed-responsive-16by9">
-                        <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
-                      </div>
-                      <div class="card-body">
-                        <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+               <div class="col-md-4 d-flex">
+        
+        <div class="card  flex-fill">
+        <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
 
-                        <div class="yayin-bilgi mt-2">
-                          <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-                          <span class="float-right text-muted text-danger"><strong><?php
-                                                                                    echo number_format(
-                                                                                      $gelen['ilan_Fiyat'],
-                                                                                      0,
-                                                                                      ',',
-                                                                                      '.'
-                                                                                    );
-                                                                                    ?> TL</strong></span>
-                        </div>
-                        <div class="mt-5">
-                          <span class="h6 text-muted float-left "><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+          <div class="embed-responsive embed-responsive-16by9 ">
+            <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
+          </div>
 
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
+          <div class="card-body">
+
+            <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+            <div class="yayin-bilgi mt-2">
+              <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
+              <span class="float-right text-muted text-danger"><strong><?php
+                                                                        echo number_format(
+                                                                          $gelen['ilan_Fiyat'],
+                                                                          0,
+                                                                          ',',
+                                                                          '.'
+                                                                        );
+                                                                        ?> TL</strong></span>
+            </div>
+
+          </div>
+          <div class="card-footer ">
+            <div class="row">
+              <span class="col-12 h6 text-muted text-left"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+
+            </div>
+            <div class="row ">
+              <span class="col-12 h6 text-muted text-left"><i class="fas fa-calendar ml-1 mr-1"> </i><?php echo $gelen['ilan_YayinTarihi']; ?></span>
+
+            </div>
+          </div>
+        </a>
+        </div>
+     
+
+
+
+    </div>
               <?php
             }
           } else {
@@ -799,34 +953,48 @@ ilan_Durum='kiralik' order by ilan_YayinTarihi desc LIMIT  $limit, $listelenen "
                 $seourl = seo($gelen['ilan_Adi']);
               }
               ?>
-                <div class="col-md-4 ">
-                  <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
-                    <div class="card">
-                      <div class="embed-responsive embed-responsive-16by9">
-                        <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
-                      </div>
-                      <div class="card-body">
-                        <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+               <div class="col-md-4 d-flex">
+        
+        <div class="card  flex-fill">
+        <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
 
-                        <div class="yayin-bilgi mt-2">
-                          <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-                          <span class="float-right text-muted text-danger"><strong><?php
-                                                                                    echo number_format(
-                                                                                      $gelen['ilan_Fiyat'],
-                                                                                      0,
-                                                                                      ',',
-                                                                                      '.'
-                                                                                    );
-                                                                                    ?> TL</strong></span>
-                        </div>
-                        <div class="mt-5">
-                          <span class="h6 text-muted float-left "><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+          <div class="embed-responsive embed-responsive-16by9 ">
+            <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
+          </div>
 
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
+          <div class="card-body">
+
+            <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+            <div class="yayin-bilgi mt-2">
+              <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
+              <span class="float-right text-muted text-danger"><strong><?php
+                                                                        echo number_format(
+                                                                          $gelen['ilan_Fiyat'],
+                                                                          0,
+                                                                          ',',
+                                                                          '.'
+                                                                        );
+                                                                        ?> TL</strong></span>
+            </div>
+
+          </div>
+          <div class="card-footer ">
+            <div class="row">
+              <span class="col-12 h6 text-muted text-left"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+
+            </div>
+            <div class="row ">
+              <span class="col-12 h6 text-muted text-left"><i class="fas fa-calendar ml-1 mr-1"> </i><?php echo $gelen['ilan_YayinTarihi']; ?></span>
+
+            </div>
+          </div>
+        </a>
+        </div>
+     
+
+
+
+    </div>
               <?php
             }
           }

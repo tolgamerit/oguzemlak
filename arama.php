@@ -22,19 +22,23 @@ include("assets/function.php");
     .breadcrumb {
       background-color: #ffffff !important;
     }
+
     .ilan {
       margin-left: auto;
       margin-right: auto;
     }
+
     .embed-responsive .card-img-top {
       object-fit: cover;
     }
+
     .map-responsive {
       overflow: hidden;
       padding-bottom: 56.25%;
       position: relative;
       height: 0;
     }
+
     .map-responsive iframe {
       left: 0;
       top: 0;
@@ -42,15 +46,19 @@ include("assets/function.php");
       width: 100%;
       position: absolute;
     }
+
     .dropdown-item:hover {
       background-color: #6ec7e0 !important;
     }
+
     .dropdown-item:active {
       background-color: #86d9ab !important;
     }
+
     .ck {
       max-width: 70px !important;
     }
+
     .cll {
       color: #6c757d !important;
       border: 2px solid #17a2b8 !important;
@@ -127,27 +135,27 @@ include("assets/function.php");
 
         <li class="breadcrumb-item"><a href="anasayfa"> <strong>Anasayfa </strong></a></li>
         <li class="breadcrumb-item active" aria-current="page"><strong>
-          <?php if($_SESSION['durum'] == 'satilik')
-          
-            echo 'Satılık'; else  
-            {
-              
-              echo 'Kiralık';
-              $_SESSION['durum']="kiralik";
-               } ?>
-        </strong></li>
+            <?php if ($_SESSION['durum'] == 'satilik')
+
+              echo 'Satılık';
+            else {
+
+                echo 'Kiralık';
+                $_SESSION['durum'] = "kiralik";
+              } ?>
+          </strong></li>
         <?php
-        if ($_SESSION['kategori'] == 'arsa' and $_SESSION['durum']=='kiralik')
+        if ($_SESSION['kategori'] == 'arsa' and $_SESSION['durum'] == 'kiralik')
           echo ' <li class="breadcrumb-item "><a href="kiralik-arsa"><strong>Kiralık Arsa</strong></a></li>';
-          elseif($_SESSION['kategori'] == 'arsa' and $_SESSION['durum']=='satilik')
+        elseif ($_SESSION['kategori'] == 'arsa' and $_SESSION['durum'] == 'satilik')
           echo ' <li class="breadcrumb-item "><a href="satilik-arsa"><strong>Satılık Arsa</strong></a></li>';
-        if ($_SESSION['kategori'] == 'konut' and $_SESSION['durum']=='kiralik')
+        if ($_SESSION['kategori'] == 'konut' and $_SESSION['durum'] == 'kiralik')
           echo ' <li class="breadcrumb-item "><a href="kiralik-konut"><strong>Kiralık Konut</strong></a></li>';
-          elseif($_SESSION['kategori'] == 'konut' and $_SESSION['durum']=='satilik')
+        elseif ($_SESSION['kategori'] == 'konut' and $_SESSION['durum'] == 'satilik')
           echo ' <li class="breadcrumb-item "><a href="satilik-konut"><strong>Satılık Konut</strong></a></li>';
-          if ($_SESSION['kategori'] == 'isyeri' and $_SESSION['durum']=='kiralik')
+        if ($_SESSION['kategori'] == 'isyeri' and $_SESSION['durum'] == 'kiralik')
           echo ' <li class="breadcrumb-item "><a href="kiralik-isyeri"><strong>Kiralık İşyeri</strong></a></li>';
-          elseif($_SESSION['kategori'] == 'isyeri' and $_SESSION['durum']=='satilik')
+        elseif ($_SESSION['kategori'] == 'isyeri' and $_SESSION['durum'] == 'satilik')
           echo ' <li class="breadcrumb-item "><a href="satilik-isyeri"><strong>Satılık İşyeri</strong></a></li>';
         ?>
 
@@ -166,44 +174,42 @@ include("assets/function.php");
       </div>
     </div>
     <div class="row">
-    
+
 
       <div class="col-lg-12">
         <div class="row">
           <?php
-          if($_POST['kategori']!="")
-          {
-           
-         
-          }
-      
-         $listelenen = 15;
-         $sayi = $db->query("SELECT * FROM tbl_ilan ")->rowCount(); 
- 
-         $toplamsayfa     = ceil($sayi / $listelenen);
-         $sayfa = isset($_GET['sayfa']) ? (int)$_GET['sayfa'] : 1;
-         if ($sayfa < 1) $sayfa = 1;
-         if ($sayfa > $toplamsayfa) $sayfa = $toplamsayfa;
-         $limit = ($sayfa - 1) * $listelenen;
-$kategori=$_SESSION['kategori'];
-$durum=$_SESSION['durum'];
-$ilanad=$_SESSION['ilanad'];
-if ($_GET['sirala'] == "tarih")
-{
-  foreach ($db->query("select * from tbl_ilan where ilan_numarasi like '%$ilanad%' or ilan_Konum like '%$ilanad%'  and ilan_Kategori='$kategori' and ilan_Durum='$durum' order by ilan_YayinTarihi desc LIMIT $limit,$listelenen") as $gelen)  {
-              
-    $seourl = seo($gelen['ilan_Adi']);
-    ?>
-    <!-- İLAN -->
-    <div class="col-md-4 ">
-      <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
-        <div class="card">
-          <div class="embed-responsive embed-responsive-16by9">
+          if ($_POST['kategori'] != "") { }
+
+          $listelenen = 15;
+          $sayi = $db->query("SELECT * FROM tbl_ilan ")->rowCount();
+
+          $toplamsayfa     = ceil($sayi / $listelenen);
+          $sayfa = isset($_GET['sayfa']) ? (int)$_GET['sayfa'] : 1;
+          if ($sayfa < 1) $sayfa = 1;
+          if ($sayfa > $toplamsayfa) $sayfa = $toplamsayfa;
+          $limit = ($sayfa - 1) * $listelenen;
+          $kategori = $_SESSION['kategori'];
+          $durum = $_SESSION['durum'];
+          $ilanad = $_SESSION['ilanad'];
+          if ($_GET['sirala'] == "tarih") {
+              foreach ($db->query("select * from tbl_ilan where ilan_numarasi like '%$ilanad%' or ilan_Konum like '%$ilanad%'  and ilan_Kategori='$kategori' and ilan_Durum='$durum' order by ilan_YayinTarihi desc LIMIT $limit,$listelenen") as $gelen) {
+
+                $seourl = seo($gelen['ilan_Adi']);
+                ?>
+              <!-- İLAN -->
+              <div class="col-md-4 d-flex">
+        
+        <div class="card  flex-fill">
+        <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
+
+          <div class="embed-responsive embed-responsive-16by9 ">
             <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
           </div>
-          <div class="card-body">
-            <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
 
+          <div class="card-body">
+
+            <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
             <div class="yayin-bilgi mt-2">
               <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
               <span class="float-right text-muted text-danger"><strong><?php
@@ -215,132 +221,180 @@ if ($_GET['sirala'] == "tarih")
                                                                         );
                                                                         ?> TL</strong></span>
             </div>
-            <div class="mt-5">
-              <span class="h6 text-muted float-left "><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+
+          </div>
+          <div class="card-footer ">
+            <div class="row">
+              <span class="col-12 h6 text-muted text-left"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+
+            </div>
+            <div class="row ">
+              <span class="col-12 h6 text-muted text-left"><i class="fas fa-calendar ml-1 mr-1"> </i><?php echo $gelen['ilan_YayinTarihi']; ?></span>
 
             </div>
           </div>
+        </a>
         </div>
-      </a>
-    </div><?php 
-    }
-  }
-  elseif($_GET['sirala'] == "ucuz-pahali")
-  {
-    foreach ($db->query("select * from tbl_ilan where ilan_numarasi like '%$ilanad%' or ilan_Konum like '%$ilanad%'  and ilan_Kategori='$kategori' and ilan_Durum='$durum' order by ilan_Fiyat asc LIMIT $limit,$listelenen") as $gelen)  {
-                
-  
-      $seourl = seo($gelen['ilan_Adi']);
-      ?>
-      <!-- İLAN -->
-      <div class="col-md-4 ">
-        <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
-          <div class="card">
-            <div class="embed-responsive embed-responsive-16by9">
-              <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
-            </div>
-            <div class="card-body">
-              <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
-  
-              <div class="yayin-bilgi mt-2">
-                <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-                <span class="float-right text-muted text-danger"><strong><?php
-                                                                          echo number_format(
-                                                                            $gelen['ilan_Fiyat'],
-                                                                            0,
-                                                                            ',',
-                                                                            '.'
-                                                                          );
-                                                                          ?> TL</strong></span>
-              </div>
-              <div class="mt-5">
-                <span class="h6 text-muted float-left "><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
-  
-              </div>
-            </div>
-          </div>
-        </a>
-      </div><?php 
-      }
-    }elseif($_GET['sirala'] == "pahali-ucuz")
-    {
-      foreach ($db->query("select * from tbl_ilan where ilan_numarasi like '%$ilanad%' or ilan_Konum like '%$ilanad%'  and ilan_Kategori='$kategori' and ilan_Durum='$durum' order by ilan_Fiyat desc LIMIT $limit,$listelenen") as $gelen)  {
-                  
-    
-        $seourl = seo($gelen['ilan_Adi']);
-        ?>
-        <!-- İLAN -->
-        <div class="col-md-4 ">
-          <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
-            <div class="card">
-              <div class="embed-responsive embed-responsive-16by9">
-                <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
-              </div>
-              <div class="card-body">
-                <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
-    
-                <div class="yayin-bilgi mt-2">
-                  <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-                  <span class="float-right text-muted text-danger"><strong><?php
-                                                                            echo number_format(
-                                                                              $gelen['ilan_Fiyat'],
-                                                                              0,
-                                                                              ',',
-                                                                              '.'
-                                                                            );
-                                                                            ?> TL</strong></span>
-                </div>
-                <div class="mt-5">
-                  <span class="h6 text-muted float-left "><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
-    
-                </div>
-              </div>
-            </div>
-          </a>
-        </div><?php 
-        }
-      }
-      else
-  {
-    foreach ($db->query("SELECT * from tbl_ilan where (ilan_numarasi like '%$ilanad%' and ilan_Kategori='$kategori' and ilan_Durum='$durum') or (ilan_Konum like '%$ilanad%' and ilan_Kategori='$kategori' and ilan_Durum='$durum') LIMIT $limit,$listelenen") as $gelen)  {
-                
-  
-      $seourl = seo($gelen['ilan_Adi']);
-      ?>
-      <!-- İLAN -->
-      <div class="col-md-4 ">
-        <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
-          <div class="card">
-            <div class="embed-responsive embed-responsive-16by9">
-              <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
-            </div>
-            <div class="card-body">
-              <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
-  
-              <div class="yayin-bilgi mt-2">
-                <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-                <span class="float-right text-muted text-danger"><strong><?php
-                                                                          echo number_format(
-                                                                            $gelen['ilan_Fiyat'],
-                                                                            0,
-                                                                            ',',
-                                                                            '.'
-                                                                          );
-                                                                          ?> TL</strong></span>
-              </div>
-              <div class="mt-5">
-                <span class="h6 text-muted float-left "><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
-  
-              </div>
-            </div>
-          </div>
-        </a>
-      </div><?php 
-      }
-    }
-   ?>
+     
 
-         
+
+
+    </div><?php
+                }
+              } elseif ($_GET['sirala'] == "ucuz-pahali") {
+                foreach ($db->query("select * from tbl_ilan where ilan_numarasi like '%$ilanad%' or ilan_Konum like '%$ilanad%'  and ilan_Kategori='$kategori' and ilan_Durum='$durum' order by ilan_Fiyat asc LIMIT $limit,$listelenen") as $gelen) {
+
+
+                  $seourl = seo($gelen['ilan_Adi']);
+                  ?>
+              <!-- İLAN -->
+              <div class="col-md-4 d-flex">
+        
+        <div class="card  flex-fill">
+        <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
+
+          <div class="embed-responsive embed-responsive-16by9 ">
+            <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
+          </div>
+
+          <div class="card-body">
+
+            <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+            <div class="yayin-bilgi mt-2">
+              <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
+              <span class="float-right text-muted text-danger"><strong><?php
+                                                                        echo number_format(
+                                                                          $gelen['ilan_Fiyat'],
+                                                                          0,
+                                                                          ',',
+                                                                          '.'
+                                                                        );
+                                                                        ?> TL</strong></span>
+            </div>
+
+          </div>
+          <div class="card-footer ">
+            <div class="row">
+              <span class="col-12 h6 text-muted text-left"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+
+            </div>
+            <div class="row ">
+              <span class="col-12 h6 text-muted text-left"><i class="fas fa-calendar ml-1 mr-1"> </i><?php echo $gelen['ilan_YayinTarihi']; ?></span>
+
+            </div>
+          </div>
+        </a>
+        </div>
+     
+
+
+
+    </div><?php
+                }
+              } elseif ($_GET['sirala'] == "pahali-ucuz") {
+                foreach ($db->query("select * from tbl_ilan where ilan_numarasi like '%$ilanad%' or ilan_Konum like '%$ilanad%'  and ilan_Kategori='$kategori' and ilan_Durum='$durum' order by ilan_Fiyat desc LIMIT $limit,$listelenen") as $gelen) {
+
+
+                  $seourl = seo($gelen['ilan_Adi']);
+                  ?>
+              <!-- İLAN -->
+              <div class="col-md-4 d-flex">
+        
+        <div class="card  flex-fill">
+        <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
+
+          <div class="embed-responsive embed-responsive-16by9 ">
+            <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
+          </div>
+
+          <div class="card-body">
+
+            <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+            <div class="yayin-bilgi mt-2">
+              <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
+              <span class="float-right text-muted text-danger"><strong><?php
+                                                                        echo number_format(
+                                                                          $gelen['ilan_Fiyat'],
+                                                                          0,
+                                                                          ',',
+                                                                          '.'
+                                                                        );
+                                                                        ?> TL</strong></span>
+            </div>
+
+          </div>
+          <div class="card-footer ">
+            <div class="row">
+              <span class="col-12 h6 text-muted text-left"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+
+            </div>
+            <div class="row ">
+              <span class="col-12 h6 text-muted text-left"><i class="fas fa-calendar ml-1 mr-1"> </i><?php echo $gelen['ilan_YayinTarihi']; ?></span>
+
+            </div>
+          </div>
+        </a>
+        </div>
+     
+
+
+
+    </div><?php
+                }
+              } else {
+                foreach ($db->query("SELECT * from tbl_ilan where (ilan_numarasi like '%$ilanad%' and ilan_Kategori='$kategori' and ilan_Durum='$durum') or (ilan_Konum like '%$ilanad%' and ilan_Kategori='$kategori' and ilan_Durum='$durum') LIMIT $limit,$listelenen") as $gelen) {
+
+
+                  $seourl = seo($gelen['ilan_Adi']);
+                  ?>
+              <!-- İLAN -->
+              <div class="col-md-4 d-flex">
+        
+        <div class="card  flex-fill">
+        <a href="<?php echo $seourl . '-' . $gelen['ilan_numarasi']; ?>">
+
+          <div class="embed-responsive embed-responsive-16by9 ">
+            <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
+          </div>
+
+          <div class="card-body">
+
+            <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+            <div class="yayin-bilgi mt-2">
+              <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
+              <span class="float-right text-muted text-danger"><strong><?php
+                                                                        echo number_format(
+                                                                          $gelen['ilan_Fiyat'],
+                                                                          0,
+                                                                          ',',
+                                                                          '.'
+                                                                        );
+                                                                        ?> TL</strong></span>
+            </div>
+
+          </div>
+          <div class="card-footer ">
+            <div class="row">
+              <span class="col-12 h6 text-muted text-left"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+
+            </div>
+            <div class="row ">
+              <span class="col-12 h6 text-muted text-left"><i class="fas fa-calendar ml-1 mr-1"> </i><?php echo $gelen['ilan_YayinTarihi']; ?></span>
+
+            </div>
+          </div>
+        </a>
+        </div>
+     
+
+
+
+    </div><?php
+                }
+              }
+            ?>
+
+
 
 
 
