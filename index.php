@@ -184,10 +184,13 @@ include("assets/function.php");
 
         <!-- İLAN -->
         <div class="col-md-4 d-flex">
-              <div class="card card-body flex-fill">
-              <div class="embed-responsive embed-responsive-16by9 ">
+          <div class="card  flex-fill">
+          <div class="embed-responsive embed-responsive-16by9 ">
                   <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
                 </div>
+         
+              <div class="card-body">
+              
                 <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
                 <div class="yayin-bilgi mt-2">
                     <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
@@ -200,17 +203,22 @@ include("assets/function.php");
                                                                               );
                                                                               ?> TL</strong></span>
                   </div>
-                  <div class="card-footer mt-2">
+                 
+              </div>
+              <div class="card-footer ">
                   <div class="row">
                   <span class="col-12 h6 text-muted text-left"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
 
                   </div>
-<div class="row mt-2"> 
+<div class="row"> 
 <span class="col-12 h6 text-muted text-left"><i class="fas fa-calendar ml-1 mr-1"> </i><?php echo $gelen['ilan_YayinTarihi']; ?></span>
 
 </div>
                 </div>
               </div>
+
+
+
             </div>
  
         
