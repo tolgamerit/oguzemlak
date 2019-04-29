@@ -11,7 +11,8 @@ include("assets/function.php");
 
 <head>
   <title>Oğuz Emlak</title>
-  <base href="127.0.0.1" />
+  <base href="emlak.navisit.tk" />
+  <meta name="theme-color" content="#6ec7e0">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
