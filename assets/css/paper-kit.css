@@ -4350,7 +4350,7 @@ License - nucleoapp.com/license/
 }
 
 .nav-tabs .dropdown-menu :after {
-  border-bottom: 11px solid #FFFCF5;
+  border-bottom: 11px solid #FFFFFF;
   border-left: 11px solid transparent;
   border-right: 11px solid transparent;
   content: "";
@@ -5231,7 +5231,7 @@ License - nucleoapp.com/license/
 }
 
 .popover-header {
-  background-color: #FFFCF5;
+  background-color: #FFFFFF;
   border-bottom: 0 none;
   font-size: 15px;
   font-weight: normal;
@@ -6914,7 +6914,7 @@ License - nucleoapp.com/license/
 }
 
 .section-nude {
-  background-color: #FFFCF5;
+  background-color: #FFFFFF;
 }
 
 .section-gold {
@@ -7712,7 +7712,7 @@ License - nucleoapp.com/license/
     height: 100%;
     width: 100%;
     position: absolute;
-    background-color: #FFFCF5;
+    background-color: #FFFFFF;
     background-image: linear-gradient(to bottom, transparent 0%, rgba(112, 112, 112, 0) 60%, rgba(186, 186, 186, 0.15) 100%);
     display: block;
     content: "";
@@ -7922,7 +7922,7 @@ License - nucleoapp.com/license/
     height: 100%;
     width: 100%;
     position: absolute;
-    background-color: #FFFCF5;
+    background-color: #FFFFFF;
     background-image: linear-gradient(to bottom, transparent 0%, rgba(112, 112, 112, 0) 60%, rgba(186, 186, 186, 0.15) 100%);
     display: block;
     content: "";
