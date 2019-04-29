@@ -125,9 +125,14 @@ include("assets/function.php");
 
         <li class="breadcrumb-item"><a href="anasayfa"> <strong>Anasayfa </strong></a></li>
         <li class="breadcrumb-item active" aria-current="page"><strong>
-          <?php if($_SESSION['durum'] == 'kiralik')
+          <?php if($_SESSION['durum'] == 'satilik')
           
-            echo 'Kiralık'; elseif($_SESSION['durum'] == 'satilik') echo 'Satılık';  ?>
+            echo 'Satılık'; else  
+            {
+              
+              echo 'Kiralık';
+              $_SESSION['durum']="kiralik";
+               } ?>
         </strong></li>
         <?php
         if ($_SESSION['kategori'] == 'arsa' and $_SESSION['durum']=='kiralik')
