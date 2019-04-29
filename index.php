@@ -17,6 +17,8 @@ include("assets/function.php");
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="assets/css/paper-kit.css" rel="stylesheet" />
+  <link href="assets/css/bootstrap-toggle.min.css" rel="stylesheet">
+
   <!--     Fonts and icons     -->
 
   <style>
@@ -113,17 +115,16 @@ include("assets/function.php");
         if (isset($_POST['submit']))
           header("Location: arama");
         ?>
+
         <form method="POST">
           <div class="row d-flex justify-content-center">
-            <div class="col-md-2 col-lg-2">
-              <div class="form-group mb-1">
+            <div class="form-group float-left mb-2">
+            <input class="form-control" type="checkbox" name="durum" value="satilik" checked data-toggle="toggle" data-onstyle="info" data-offstyle="info" data-on="Satılık" data-off="Kiralık">
 
-                <select name="durum" class="form-control" id="durum">
-                <option value="kiralik">Kiralık</option>  
-                <option value="satilik">Satılık</option>
-                 
-                </select>
-              </div>
+            </div>
+        
+            <div class="col-md-2 col-lg-2">
+             
               <div class="form-group mb-1">
 
                 <select name="kategori" class="form-control" id="kategori">
@@ -358,7 +359,12 @@ include("assets/function.php");
     </div>
   </div>
   <!-- FOOTER -->
+<script>
+if($("[data-toggle='switch']").length != 0){
+  $("[data-toggle='switch']").bootstrapSwitch();
+}
 
+</script>
 
 </body>
 <!-- PAPER-UI VE EKLENTILER -->
@@ -370,7 +376,7 @@ include("assets/function.php");
 <script src="assets/js/moment.min.js"></script>
 <script src="assets/js/bootstrap-datepicker.js"></script>
 <script src="assets/js/paper-kit.js"></script>
-
+<script src="assets/js/bootstrap-toggle.min.js"></script>
 <!-- PAPER-UI VE EKLENTILER -->
 
 </html>
