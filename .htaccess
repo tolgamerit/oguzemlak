@@ -10,7 +10,7 @@ RewriteRule ^anasayfa$ index.php [N,L]
 RewriteRule ^hakkimizda$ hakkimizda.php [N,L]
 RewriteRule ^satilik$ satilik.php [N,L]
 RewriteRule ^arama$ arama.php [N,L]
-RewriteRule ^qrkod$ yonetim/qrkod.php [N,L]
+RewriteRule ^yonetim/qrkod$ yonetim/qrkod.php [N,L]
 
 
 RewriteRule ^satilik-konut$ satilik.php?ilan=konut [L,QSA]
