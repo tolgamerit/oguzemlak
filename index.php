@@ -150,7 +150,7 @@ include("assets/function.php");
           </div>
 
           <div class="col-md-2 col-lg-2">
-              <button  type="submit" class="dgn btn btn-sm btn-success rounded " name="submit" value="submit">ARA</button>
+              <button  type="submit" class="dgn btn btn-sm btn-success " name="submit" value="submit">ARA</button>
 
             </div>
           </div>
