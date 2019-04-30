@@ -10,7 +10,7 @@ include("../assets/function.php");
 <html lang="tr">
 
 <head>
-  <title>QR KOD OLUŞTURUCU</title>
+  <title>Oğuz Emlak |QR Kod Sistemi</title>
 
   <meta name="theme-color" content="#6ec7e0">
   <meta charset="utf-8">
