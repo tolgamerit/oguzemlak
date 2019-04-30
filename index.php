@@ -23,6 +23,12 @@ include("assets/function.php");
   <!--     Fonts and icons     -->
 
   <style>
+    .dgn{
+
+      height:33px !important; 
+      width:86px !important;
+     
+    }
     .navbar .navbar-collapse:after {
       background-color: #FFFFFF !important;
     }
@@ -128,7 +134,7 @@ include("assets/function.php");
           <div class="row d-flex justify-content-center">
             <div class="col-md-2 col-lg-2">
             <div class="form-group">
-              <input class="form-control" type="checkbox" name="durum" value="satilik" checked data-toggle="toggle" data-onstyle="success" data-offstyle="info" data-on="Satılık" data-off="Kiralık">
+              <input class="form-control" type="checkbox" data-size="small" name="durum" value="satilik" checked data-toggle="toggle" data-onstyle="success" data-offstyle="info" data-on="Satılık" data-off="Kiralık">
             </div>
             </div>
          
@@ -144,7 +150,7 @@ include("assets/function.php");
           </div>
 
           <div class="col-md-2 col-lg-2">
-              <button style="width:106px;" type="submit" class="btn btn-success rounded " name="submit" value="submit">ARA</button>
+              <button  type="submit" class="dgn btn btn-sm btn-success rounded " name="submit" value="submit">ARA</button>
 
             </div>
           </div>
@@ -194,12 +200,12 @@ include("assets/function.php");
                 <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/sample.jpg" />
               </div>
 
-              <div class="card-body">
+              <div class="card-body mb-5">
 
-                <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
-                <div class="yayin-bilgi mt-2">
+                <h4 class="card-title mb-2"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
+                <div class="yayin-bilgi ">
                   <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-                  <span class="float-right text-muted text-danger"><strong><?php
+                  <span class="float-right text-muted text-danger "><strong><?php
                                                                             echo number_format(
                                                                               $gelen['ilan_Fiyat'],
                                                                               0,
@@ -211,12 +217,12 @@ include("assets/function.php");
 
               </div>
               <div class="card-footer ">
-                <div class="row">
-                  <span class="col-12 h6 text-muted text-left"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+                <div class="row ">
+                  <span class="col-md-12 h6 text-muted text-left"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
 
                 </div>
                 <div class="row ">
-                  <span class="col-12 h6 text-muted text-left"><i class="fas fa-calendar ml-1 mr-1"> </i><?php echo $gelen['ilan_YayinTarihi']; ?></span>
+                  <span class="col-md-12 h6 text-muted text-left"><i class="fas fa-calendar ml-1 mr-1"> </i><?php echo $gelen['ilan_YayinTarihi']; ?></span>
 
                 </div>
               </div>

@@ -142,7 +142,7 @@ include("assets/config.php");
     <!--İLAN-->
 
 <?php
-$sef  ="SULTAN DAN HAYALPRK CV. 4+1+KİLER+G.ODALI Ç.BANYO LUX DAİRE";
+
 $id =$_GET['id']; 
 $query = $db->prepare("SELECT * FROM tbl_ilan WHERE ilan_numarasi = :id");
  
