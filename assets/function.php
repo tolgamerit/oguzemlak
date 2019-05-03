@@ -1,16 +1,12 @@
 <?php 
-function seo($s) {
-	$tr = array('ş','Ş','ı','I','İ','ğ','Ğ','ü','Ü','ö','Ö','Ç','ç','(',')','/',' ',',','?');
-	$eng = array('s','s','i','i','i','g','g','u','u','o','o','c','c','','','-','-','','');
-	$s = str_replace($tr,$eng,$s);
-	$s = strtolower($s);
-	$s = preg_replace('/&amp;amp;amp;amp;amp;amp;amp;amp;amp;.+?;/', '', $s);
-	$s = preg_replace('/\s+/', '-', $s);
-	$s = preg_replace('|-+|', '-', $s);
-	$s = preg_replace('/#/', '', $s);
-	$s = str_replace('.', '', $s);
-	$s = trim($s, '-');
-	return $s;
+ function seo($str){
+	$preg = array('Ç', 'Ş', 'Ğ', 'Ü', 'İ', 'Ö', 'ç', 'ş', 'ğ', 'ü', 'ö', 'ı', '+', '#', '.');
+	$match = array('c', 's', 'g', 'u', 'i', 'o', 'c', 's', 'g', 'u', 'o', 'i', 'plus', 'sharp', '');
+	$perma = strtolower(str_replace($preg, $match, $str));
+	$perma = preg_replace("@[^A-Za-z0-9\-_\.\+]@i", ' ', $perma);
+	$perma = trim(preg_replace('/\s+/', ' ', $perma));
+	$perma = str_replace(' ', '-', $perma);
+	return $perma;
 }
 
  ?>
