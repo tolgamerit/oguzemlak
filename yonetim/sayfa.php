@@ -33,8 +33,8 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
 
     <script src="assets/js/jquery-3.2.1.slim.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
-    <script src="https://cdn.ckeditor.com/4.11.4/standard/ckeditor.js"></script>
-   
+    <script src="https://cdn.ckeditor.com/ckeditor5/12.0.0/classic/ckeditor.js"></script>
+
     <style>
         .bg {
             background: linear-gradient(to bottom, #6ec7e0 0%, #6ec7e0 100%) !important;
@@ -153,8 +153,15 @@ if(isset($_POST['editor']))
 
 </body>
 <script>
-    CKEDITOR.replace('editor');
-</script>
+                        ClassicEditor
+                                .create( document.querySelector( '#editor' ) )
+                                .then( editor => {
+                                        console.log( editor );
+                                } )
+                                .catch( error => {
+                                        console.error( error );
+                                } );
+                </script>
 
 
 <script src="../assets/js/bootstrap-yonetim.min.js" type="text/javascript"></script>
