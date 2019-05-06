@@ -131,7 +131,7 @@ if(isset($_POST['editor']))
  
   <div class="row">
       <div class="col-md-12 text-right">
-      <button type="submit" class="btn btn-success float-right">KAYDET</button>
+      <button type="submit" class="btn btn-info float-right">KAYDET</button>
 
       </div>
   </div>
