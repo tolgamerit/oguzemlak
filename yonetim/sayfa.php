@@ -100,11 +100,14 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                             <div class="card-body ">
                                 <div class="content">
     <?php 
+if(isset($_POST['editor']))
+{
+    $duzenle = $db->prepare("UPDATE tbl_sayfa set SayfaIcerik=? where SayfaAd ='Hakkımızda'");
+    $duzenle->execute(array(
+        $_POST['editor']
+    ));
+}
 
-$sil = $db->prepare("UPDATE tbl_sayfa set SayfaIcerik=? where SayfaAd ='Hakkımızda'");
-$sil->execute(array(
-    $_POST['editor']
-));
     
     
     ?>
