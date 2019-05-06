@@ -27,11 +27,15 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="../assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
     <link rel="stylesheet" href="../assets/css/sweetalert2.min.css">
-
+    <link rel="stylesheet" href="assets/css/richtext.min.css">
+   
+    
 
 
 
     <script src="assets/js/jquery-3.2.1.slim.min.js"></script>
+    <script src="assets/js/jquery.richtext.min.js"></script>
+
     <script src="assets/js/popper.min.js"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/12.0.0/classic/ckeditor.js"></script>
 
@@ -113,7 +117,7 @@ if(isset($_POST['editor']))
     ?>
                                 <form method="POST">
                                     <div class="form-group" >
-                                    <textarea name="editor" class="form-control" id="editor" rows="10" cols="80">  <?php echo $sayfagetir['SayfaIcerik']; ?>
+                                    <textarea name="editor"  class="editor form-control" id="editor" rows="10" cols="80">  <?php echo $sayfagetir['SayfaIcerik']; ?>
 </textarea>
 
                                   
@@ -153,14 +157,8 @@ if(isset($_POST['editor']))
 
 </body>
 <script>
-                        ClassicEditor
-                                .create( document.querySelector( '#editor' ) )
-                                .then( editor => {
-                                        console.log( editor );
-                                } )
-                                .catch( error => {
-                                        console.error( error );
-                                } );
+                        $('.editor').richText();
+
                 </script>
 
 
