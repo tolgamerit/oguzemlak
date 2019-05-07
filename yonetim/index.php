@@ -281,36 +281,27 @@ break;
 
 
 
-<a onclick=" Swal.fire({
-          title: 'QR KOD OLUŞTURMA',
-          text: 'İlan Baskı Önizleme Sayfası Açılsın Mı?',
-          type: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          cancelButtonText: 'Hayır',
-          confirmButtonText: 'Evet'
-        }).then((result) => {
+<a
+onclick=" Swal.fire({
+      title: 'QR Kod Baskı Önizleme Sayfası Açılsın Mı?',
+  
+      type: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Hayır',
+      confirmButtonText: 'Evet'
+    }).then((result) => {
     
-          if (result.value) {
-    
-            Swal.fire(
-                {
-                   title: 'Silindi!',
-            text:  'İlan Başarıyla Silindi.',
-              type: 'success',
-              confirmButtonColor: '#3085d6',
-          confirmButtonText: 'Kapat'
-   
-                }
-        
-      
-            ).then(function() {
+        if (result.value) {
             window.location = '../islemler/qrkod.php?ilanid=<?php echo $gelen[0];  ?>';
-        });
-   
-          }
-        })" rel="tooltip" title="QR Kod Oluştur" class="btn btn-dark sweet-3 btn-simple" data-toggle="confirmation"><i class="fa fa-qrcode"></i></a>
+            }
+             });
+    "
+
+
+
+ rel="tooltip" title="QR Kod Oluştur" class="btn btn-dark sweet-3 btn-simple" data-toggle="confirmation"><i class="fa fa-qrcode"></i></a>
 
 
 
