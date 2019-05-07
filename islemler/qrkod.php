@@ -86,7 +86,7 @@ $ilandurum='Satılık';
 
     <div class="row mt-5">
       <div class="col-lg-12 d-flex justify-content-center">
-        <div id="qrcode"></div>
+        <div class="mb-5" id="qrcode"></div>
 
       </div>
 
