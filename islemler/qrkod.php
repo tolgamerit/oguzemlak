@@ -4,6 +4,17 @@ session_start();
 define("include", true);
 include("../assets/config.php");
 include("../assets/function.php");
+if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
+  echo '<script language="javascript">location.href="../giris.php";</script>';
+}
+if (isset($_GET['ilanid'])) {
+
+  $id = $_GET['ilanid'];
+  $sql = $db->prepare("SELECT * FROM tbl_ilan WHERE ilan_numarasi= ?");
+  $sql->execute(array($id));
+  $ilangetir = $sql->fetch(PDO::FETCH_ASSOC);
+  $seourl = seo($ilangetir['ilan_Adi']);
+}
 ?>
 <!doctype html>
 
@@ -22,9 +33,13 @@ include("../assets/function.php");
 
   <style>
     #qrcode {
-      width: 160px;
-      height: 160px;
-      margin-top: 15px;
+      width: 256px;
+      height: 256px;
+    
+    }
+
+    #text {
+      visibility: hidden;
     }
   </style>
 
@@ -35,34 +50,41 @@ include("../assets/function.php");
 
 
 <body class="bg-light">
+<input id="text" type="text" value="<?php echo $_SERVER['HTTP_HOST'].'/'.$seourl. '-' . $ilangetir['ilan_numarasi']; ?>" style="width:100%" /><br />
+  
   <div class="container">
-    <div class="row">
-      <div class="col-md-12 mt-5">
-        <input id="text" type="text" value="https://emlak.navisit.tk/sultan-dan-hayalprk-cv-4plus1pluskilerplusgodali-cbanyo-lux-daire-1005" style="width:100%" /><br />
+    <div class="row mt-5 d-flex text-right">
+<div class="col-md-12">
+<button id="displayId" onclick="
+ toggleVisibility('displayId') " class="btn1 btn btn-lg btn-info">YAZDIR</button>
 
-      </div>
+
+</div>
+<div class="row">
+  <p class="lead h4"><?php echo  $ilangetir['ilan_Adi']; ?> </p>
+</div>
+     
+      
     </div>
-    <div class="row mt-5 d-flex justify-content-center">
+
+    <div class="row mt-5">
+      <div class="col-lg-12 d-flex justify-content-center">
       <div id="qrcode"></div>
 
-    </div>
-  
-    <div class="row">
-      <div class="col-md-2 mx-auto">
-      <button  id="displayId" onclick="
- toggleVisibility('displayId') "  class="btn1 btn btn-sm btn-info">YAZDIR</button>
-
       </div>
+
     </div>
+
+
     <script>
-function toggleVisibility(id) {
-            var element = document.getElementById(id);
-           
-                element.style.visibility = 'hidden';
-                window.print();
-                element.style.visibility = 'visible';
-        }
-</script>
+      function toggleVisibility(id) {
+        var element = document.getElementById(id);
+
+        element.style.visibility = 'hidden';
+        window.print();
+        element.style.visibility = 'visible';
+      }
+    </script>
 
 
 
