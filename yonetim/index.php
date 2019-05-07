@@ -138,7 +138,7 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                                 echo '<th scope="col">' . $sutun[$i] . '</th>';
                                                 $i++;
                                             }
-                                            echo '<th scope="col">Seçenekler</th>';
+                                            echo '<th class="text-center" scope="col">Seçenekler</th>';
                                             echo '</tr>
                                 </thead>
                                 <tbody>';
@@ -173,7 +173,7 @@ break;
                                             
                                                 foreach ($db->query($sorgu) as $gelen)
                                                 {
-                                                echo '<tr>';
+                                                echo '<tr >';
                                                 echo  '<td>' . $gelen[0] . '</td>';
                                                 echo  '<td>' . $gelen[1] . '</td>';
                                                 echo  '<td>' . $gelen[2] . '</td>';
@@ -219,7 +219,7 @@ break;
 });
    
   }
-})" title="Değiştir" rel="tooltip" class="btn btn-sm btn-warning btn-simple sweet-3 text-dark" data-toggle="confirmation"><i class="fa fa-exchange "></i></a><?php echo $gelen[6] ?> </td>
+})" title="Değiştir" rel="tooltip" class="btn  btn-warning btn-simple sweet-3 text-dark" data-toggle="confirmation"><i class="fa fa-exchange "></i></a><?php echo $gelen[6] ?> </td>
 
 
                                                 <td class="td-actions">
@@ -238,7 +238,7 @@ break;
         window.location = 'detaylar.php?detaylar=<?php echo $gelen[0];  ?>';
             }
              });
-    " rel="tooltip" title="İlan Düzenle" class="btn btn-info btn-simple btn-sm"> <i class="fa fa-edit"></i></a>
+    " rel="tooltip" title="İlan Düzenle" class="btn btn-info btn-simple "> <i class="fa fa-edit"></i></a>
 
 
 
@@ -276,7 +276,47 @@ break;
         });
    
           }
-        })" rel="tooltip" title="İlan Sil" class="btn btn-danger sweet-3 btn-simple btn-sm" data-toggle="confirmation"> <i class="fa fa-times"></i></a>
+        })" rel="tooltip" title="İlan Sil" class="btn btn-danger sweet-3 btn-simple " data-toggle="confirmation"> <i class="fa fa-times"></i></a>
+
+
+
+
+<a onclick=" Swal.fire({
+          title: 'QR KOD OLUŞTURMA',
+          text: 'İlan Baskı Önizleme Sayfası Açılsın Mı?',
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          cancelButtonText: 'Hayır',
+          confirmButtonText: 'Evet'
+        }).then((result) => {
+    
+          if (result.value) {
+    
+            Swal.fire(
+                {
+                   title: 'Silindi!',
+            text:  'İlan Başarıyla Silindi.',
+              type: 'success',
+              confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Kapat'
+   
+                }
+        
+      
+            ).then(function() {
+            window.location = '../islemler/qrkod.php?ilanid=<?php echo $gelen[0];  ?>';
+        });
+   
+          }
+        })" rel="tooltip" title="QR Kod Oluştur" class="btn btn-dark sweet-3 btn-simple" data-toggle="confirmation"><i class="fa fa-qrcode"></i></a>
+
+
+
+
+
+
 
                                                 </td>
                                                 </tr>
