@@ -21,40 +21,59 @@ include("../assets/function.php");
   <link href="../assets/css/bootstrap-toggle.min.css" rel="stylesheet">
 
   <style>
-#qrcode {
-  width:160px;
-  height:160px;
-  margin-top:15px;
-}
-      </style>
+    #qrcode {
+      width: 160px;
+      height: 160px;
+      margin-top: 15px;
+    }
+  </style>
 
   <!--     Fonts and icons     -->
 
- </head>
+</head>
+
+
 
 <body class="bg-light">
-<div class="container">
-<div class="row">
-    <div class="col-md-12 mt-5">
-    <input id="text" type="text" value="https://emlak.navisit.tk/sultan-dan-hayalprk-cv-4plus1pluskilerplusgodali-cbanyo-lux-daire-1005" style="width:100%" /><br />
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mt-5">
+        <input id="text" type="text" value="https://emlak.navisit.tk/sultan-dan-hayalprk-cv-4plus1pluskilerplusgodali-cbanyo-lux-daire-1005" style="width:100%" /><br />
+
+      </div>
+    </div>
+    <div class="row mt-5 d-flex justify-content-center">
+      <div id="qrcode"></div>
 
     </div>
-</div>
-<div class="row mt-5 d-flex justify-content-center">
-<div id="qrcode"></div>
+  
+    <div class="row">
+      <div class="col-md-2 mx-auto">
+      <button  id="displayId" onclick="
+ toggleVisibility('displayId') "  class="btn1 btn btn-sm btn-info">YAZDIR</button>
 
-</div>
+      </div>
+    </div>
+    <script>
+function toggleVisibility(id) {
+            var element = document.getElementById(id);
+           
+                element.style.visibility = 'hidden';
+                window.print();
+                element.style.visibility = 'visible';
+        }
+</script>
 
 
 
 
-
-</div>
+  </div>
 
 
 
 
 </body>
+
 <!-- PAPER-UI VE EKLENTILER -->
 <script src="../assets/js/jquery.min.js" type="text/javascript"></script>
 <script src="../assets/js/popper.min.js" type="text/javascript"></script>
