@@ -110,7 +110,7 @@ include("assets/config.php");
  $sql->execute(array($link));
  $sayfagetir=$sql->fetch(PDO::FETCH_ASSOC);
 
-echo $sayfagetir['SayfaIcerik'];
+echo '<h4>'.$sayfagetir['SayfaIcerik'].'</h4>';
 
   ?>
 </div>
