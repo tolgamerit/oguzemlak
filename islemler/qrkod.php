@@ -15,6 +15,12 @@ if (isset($_GET['ilanid'])) {
   $ilangetir = $sql->fetch(PDO::FETCH_ASSOC);
   $seourl = seo($ilangetir['ilan_Adi']);
 }
+if($ilangetir['ilan_Durum']=='kiralik')
+$ilandurum='Kiralık';
+else
+$ilandurum='Satılık';
+
+
 ?>
 <!doctype html>
 
@@ -35,7 +41,7 @@ if (isset($_GET['ilanid'])) {
     #qrcode {
       width: 256px;
       height: 256px;
-    
+
     }
 
     #text {
@@ -50,26 +56,31 @@ if (isset($_GET['ilanid'])) {
 
 
 <body class="bg-light">
-<input id="text" type="text" value="<?php echo $_SERVER['HTTP_HOST'].'/'.$seourl. '-' . $ilangetir['ilan_numarasi']; ?>" style="width:100%" /><br />
-  
+  <input id="text" type="text" value="<?php echo $_SERVER['HTTP_HOST'] . '/' . $seourl . '-' . $ilangetir['ilan_numarasi']; ?>" style="width:100%" /><br />
+
   <div class="container">
-    <div class="row mt-5 d-flex text-right">
-<div class="col-md-12">
-<button id="displayId" onclick="
+    <div class="row mt-5 d-flex text-center">
+      <div class="col-md-12">
+        <button id="displayId" onclick="
  toggleVisibility('displayId') " class="btn1 btn btn-lg btn-info">YAZDIR</button>
+        <p class="lead mt-5 h3"><?php echo  $ilangetir['ilan_Adi']; ?> </p>
 
+        <p class="lead mt-5 h3 mark"><?php echo   $ilangetir['ilan_OdaSayisi'].'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$ilangetir['ilan_Metrekare'].' Metrekare'; ?> </p>
+        <p class="lead mt-5 h3 mark"><?php echo   $ilandurum.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$ilangetir['ilan_Kategori'];?> </p>
 
-</div>
-<div class="row">
-  <p class="lead h4"><?php echo  $ilangetir['ilan_Adi']; ?> </p>
-</div>
-     
       
+        <p class="lead mt-5 h3"><?php echo  $ilangetir['ilan_Konum']; ?> </p>
+        
+     
+      </div>
     </div>
+
+
+
 
     <div class="row mt-5">
       <div class="col-lg-12 d-flex justify-content-center">
-      <div id="qrcode"></div>
+        <div id="qrcode"></div>
 
       </div>
 
