@@ -65,6 +65,8 @@ $ilandurum='Satılık';
 
         <button id="displayId" onclick="
  toggleVisibility('displayId') " class="btn1 btn btn-lg btn-info">YAZDIR</button>
+ 
+ <button id="dk" onclick="window.location = '../yonetim/';" class="btn1 btn btn-lg btn-info">GERİ DÖN</button>
     <p class="mt-5 h3">Oğuz Emlak</p>
     <img src="https://via.placeholder.com/250" class=" mt-5rounded mx-auto d-block" alt="...">
 
@@ -94,10 +96,13 @@ $ilandurum='Satılık';
     <script>
       function toggleVisibility(id) {
         var element = document.getElementById(id);
+        var element1 = document.getElementById('dk');
 
         element.style.visibility = 'hidden';
+        element1.style.visibility = 'hidden';
         window.print();
         element.style.visibility = 'visible';
+        element1.style.visibility = 'visible';
       }
     </script>
 
