@@ -6,12 +6,9 @@ include("assets/config.php");
 include("assets/function.php");
 ?>
 <!doctype html>
-
 <html lang="tr">
-
 <head>
   <title>Oğuz Emlak</title>
-
   <meta name="theme-color" content="#6ec7e0">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
@@ -388,10 +385,8 @@ include("assets/function.php");
 <script src="assets/js/jquery.min.js" type="text/javascript"></script>
 <script src="assets/js/popper.min.js" type="text/javascript"></script>
 <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="assets/js/bootstrap-switch.js"></script>
-<script src="assets/js/nouislider.min.js"></script>
+
 <script src="assets/js/moment.min.js"></script>
-<script src="assets/js/bootstrap-datepicker.js"></script>
 <script src="assets/js/paper-kit.js"></script>
 <script src="assets/js/bootstrap-toggle.min.js"></script>
 <!-- PAPER-UI VE EKLENTILER -->

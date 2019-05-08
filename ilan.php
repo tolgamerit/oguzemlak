@@ -503,10 +503,10 @@ if( $query->rowCount() ){
 <script src="assets/js/jquery.min.js" type="text/javascript"></script>
 <script src="assets/js/popper.min.js" type="text/javascript"></script>
 <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="assets/js/bootstrap-switch.js"></script>
-<script src="assets/js/nouislider.min.js"></script>
+
+
 <script src="assets/js/moment.min.js"></script>
-<script src="assets/js/bootstrap-datepicker.js"></script>
+
 <script src="assets/js/paper-kit.js"></script>
 <script src="assets/js/ekko-lightbox.js"></script>
 <script src="assets/js/ekko-lightbox.min.js"></script>
