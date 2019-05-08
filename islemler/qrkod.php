@@ -100,7 +100,8 @@ $ilandurum='Satılık';
 
         element.style.visibility = 'hidden';
         element1.style.visibility = 'hidden';
-        window.print();
+        window.print(0);
+        
         element.style.visibility = 'visible';
         element1.style.visibility = 'visible';
       }
