@@ -100,10 +100,12 @@ $ilandurum='Satılık';
 
         element.style.visibility = 'hidden';
         element1.style.visibility = 'hidden';
-        window.print(0);
-        
-        element.style.visibility = 'visible';
+        window.print();
+        setTimeout(function() {
+ element.style.visibility = 'visible';
         element1.style.visibility = 'visible';
+ }, 1500);
+       
       }
     </script>
 
