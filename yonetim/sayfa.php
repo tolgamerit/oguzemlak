@@ -35,10 +35,8 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
 
     <script src="assets/js/jquery-3.2.1.slim.min.js"></script>
     <script src="assets/js/jquery.richtext.min.js"></script>
-
     <script src="assets/js/popper.min.js"></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/12.0.0/classic/ckeditor.js"></script>
-
+ 
     <style>
         .bg {
             background: linear-gradient(to bottom, #6ec7e0 0%, #6ec7e0 100%) !important;
@@ -164,7 +162,8 @@ if(isset($_POST['editor']))
 
 <script src="../assets/js/bootstrap-yonetim.min.js" type="text/javascript"></script>
 <script src="../assets/js/chartist.min.js"></script>
-
+<script src="../assets/js/bootstrap-notify.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 <script src="../assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
 <script src="../assets/js/sweetalert2.all.min.js"></script>
 <script src="../assets/js/sweetalert2.min.js"></script>
