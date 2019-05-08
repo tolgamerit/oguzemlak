@@ -38,7 +38,7 @@
                 <li class="<?php if ($filename == 'linkler.php') echo 'active'; ?>">
                     <a href="linkler.php">
 
-                        <p>Sosyal Medya Linkleri</p>
+                        <p>Site Ayarları</p>
                     </a>
                 </li>
             
