@@ -100,10 +100,10 @@ include("assets/config.php");
 <div class="row rounded p-3" style="box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)">
   <div class="col-md-12">
   
-<p class="lead p-3 ml-5 h2">
+<p class="ml-5 h2">
 <strong>Hakkımızda</strong>
 </p>
-<div class="p-3 mb-5">
+<div class="mb-5">
   <?php 
   $link='Hakkımızda';
  $sql = $db->prepare("SELECT * FROM tbl_sayfa WHERE sayfaAd= ?");
