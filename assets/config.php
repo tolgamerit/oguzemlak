@@ -13,9 +13,12 @@ date_default_timezone_set('Europe/Istanbul');
      {
           try {
                $db = new PDO("mysql:host=localhost;dbname=oguzemlak;charset=utf8", "root", "123456789");
+
           } catch ( PDOException $e ){
                print $e->getMessage();
           }
+          $query = $db->query("SELECT * FROM tbl_sistem")->fetch(PDO::FETCH_ASSOC);
+             
                
      }
 

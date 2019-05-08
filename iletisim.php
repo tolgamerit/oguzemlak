@@ -98,13 +98,13 @@ include("assets/config.php");
             <a class="nav-link text-dark" href="iletisim">İletişim</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-dark" href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+            <a class="nav-link text-dark" target="_blank" href="//<?php echo $query['sosyal_Facebook']; ?>"><i class="fab fa-facebook" aria-hidden="true"></i></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-dark" href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+            <a class="nav-link text-dark" target="_blank" href="//<?php echo $query['sosyal_Twitter']; ?>"><i class="fab fa-twitter" aria-hidden="true"></i></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-dark" href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            <a class="nav-link text-dark" target="_blank" href="//<?php echo $query['sosyal_Instagram']; ?>"><i class="fab fa-instagram" aria-hidden="true"></i></a>
           </li>
         </ul>
       </div>
@@ -176,7 +176,9 @@ else
 
          
               }
-              
+            
+            
+            
        ?>
 
 
@@ -218,7 +220,7 @@ else
               <tr>
                 <td class="border-0  h5 " style="width:15px;"> <em class="fa fa-phone"></em>
                 </td>
-                <td class="border-0 h5"><span>(322) 222 22 22</span></td>
+                <td class="border-0 h5"><span><?php echo $query['telefon1']; ?></span></td>
               </tr>
 
               <tr>
@@ -227,7 +229,7 @@ else
                   <em class="fas fa-paper-plane "></em>
                 </td>
                 <td class="border-0  h5">
-                  <span>iletisim@mail.com</span>
+                  <span><?php echo $query['Mail']; ?></span>
                 </td>
               </tr>
               <tr>
@@ -235,7 +237,7 @@ else
                   <em class="fa fa-map-marker"></em>
                 </td>
                 <td class="border-0  h5">
-                  <span>Buraya Adres gelecek</span>
+                  <span><?php echo $query['Adres']; ?></span>
                 </td>
               </tr>
             </table>
@@ -372,10 +374,10 @@ else
           <div class="col-md-6">
             <div class="float-right">
 
-              <a target="_blank" href="#"><em class="fab fa-facebook fa-2x text-white ml-3"></em></a>
-              <a target="_blank" href="#"><em class="fab fa-twitter fa-2x text-white ml-3" aria-hidden="true"></em></a>
-              <a target="_blank" href="#"><em class="fab fa-instagram fa-2x text-white ml-3" aria-hidden="true"></em></a>
-              <p class="text-white h5 mt-4"><em class="fa fa-phone mr-3 mt-2"></em>(322) 222 22 22</p>
+              <a target="_blank" href="//<?php echo $query['sosyal_Facebook']; ?>"><em class="fab fa-facebook fa-2x text-white ml-3"></em></a>
+              <a target="_blank" href="//<?php echo $query['sosyal_Twitter']; ?>"><em class="fab fa-twitter fa-2x text-white ml-3" aria-hidden="true"></em></a>
+              <a target="_blank" href="//<?php echo $query['sosyal_Instagram']; ?>"><em class="fab fa-instagram fa-2x text-white ml-3" aria-hidden="true"></em></a>
+              <p class="text-white h5 mt-4"><em class="fa fa-phone mr-3 mt-2"></em><?php echo $query['telefon1']; ?></p>
             </div>
 
           </div>
