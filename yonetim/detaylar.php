@@ -35,6 +35,8 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
     <script src="assets/js/jquery.richtext.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
     <link rel="stylesheet" href="../assets/css/sweetalert2.min.css">
+    <link href="../assets/css/ekko-lightbox.css" rel="stylesheet" />
+
 
 
     <style>
@@ -82,6 +84,30 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
         }
 
         }
+
+         .modal-header
+
+        {
+            display: none !important;
+        }
+        .modal-content {
+            box-shadow: none !important;
+            background-color: transparent !important;
+        }
+      
+      
+        .rsm1 {
+            box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22) !important;
+        }
+        .ekko-lightbox-nav-overlay a {
+            color: #101010 !important;
+        }
+        .carousel-cell {
+            counter-increment: gallery-cell;
+        }
+        .modal-body {
+            padding: 0px 0px 0px 0px !important;
+        }
     </style>
 
 </head>
@@ -128,7 +154,7 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                     </div>
                 </div>
             </nav>
-           
+
 
             <div class="content">
                 <div class="container-fluid">
@@ -140,14 +166,14 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                     <h4 class="title">İlan Güncelleme</h4>
                                 </div>
                                 <div class="content">
-                            
+
                                     <?php
-                             include("../islemler/ilanguncelle.php");
-                                   
-                                    $id=$_GET['detaylar'];
+                                    include("../islemler/ilanguncelle.php");
+
+                                    $id = $_GET['detaylar'];
                                     $ilangetir = $db->query("SELECT * FROM tbl_ilan where ilan_numarasi='$id'")->fetch(PDO::FETCH_ASSOC);
                                     ?>
-                                    <form id="contact-form"  class="form" enctype="multipart/form-data" method="POST">
+                                    <form id="contact-form" class="form" enctype="multipart/form-data" method="POST">
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
@@ -157,7 +183,7 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                             </div>
                                         </div>
                                         <div class="row ">
-                                         
+
                                             <?php
                                             require_once("mysql.php");
                                             ?>
@@ -206,36 +232,36 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                             </div>
                                         </div>
                                         <div class="row">
-                                        
+
                                             <div class="col-md-4">
                                                 <div class=" form-group ">
                                                     <label>Kategori</label>
                                                     <select name="kategori" class="form-control" id="kategori">
-                                                        <option value="arsa" <?php if($ilangetir['ilan_Kategori']=="arsa") echo 'selected' ?>>Arsa</option>
-                                                        <option value="isyeri" <?php if($ilangetir['ilan_Kategori']=="isyeri") echo 'selected' ?>>İşyeri</option>
-                                                        <option value="konut" <?php if($ilangetir['ilan_Kategori']=="konut") echo 'selected' ?>>Konut</option>
+                                                        <option value="arsa" <?php if ($ilangetir['ilan_Kategori'] == "arsa") echo 'selected' ?>>Arsa</option>
+                                                        <option value="isyeri" <?php if ($ilangetir['ilan_Kategori'] == "isyeri") echo 'selected' ?>>İşyeri</option>
+                                                        <option value="konut" <?php if ($ilangetir['ilan_Kategori'] == "konut") echo 'selected' ?>>Konut</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label>İlan Fiyat</label>
-                                                    <input type="text" class="form-control" placeholder="İlan Fiyatını Girin..." name="fiyat" value="<?php  echo 
-                                                                              $ilangetir['ilan_Fiyat'];  ?>">
+                                                    <input type="text" class="form-control" placeholder="İlan Fiyatını Girin..." name="fiyat" value="<?php echo
+                                                                                                                                                            $ilangetir['ilan_Fiyat'];  ?>">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
-                                            <label>Durum</label>
-                                                    <select name="durum" class="form-control" id="durum">
-                                                        <option value="kiralik" <?php if($ilangetir['ilan_Durum']=="kiralik") echo 'selected' ?>>Kiralık</option>
-                                                        <option value="satilik" <?php if($ilangetir['ilan_Durum']=="satilık") echo 'selected' ?>>Satılık</option>
-                                                     
-                                                    </select>
+                                                <label>Durum</label>
+                                                <select name="durum" class="form-control" id="durum">
+                                                    <option value="kiralik" <?php if ($ilangetir['ilan_Durum'] == "kiralik") echo 'selected' ?>>Kiralık</option>
+                                                    <option value="satilik" <?php if ($ilangetir['ilan_Durum'] == "satilık") echo 'selected' ?>>Satılık</option>
+
+                                                </select>
                                             </div>
                                         </div>
 
                                         <div class="row">
-                                        <div class="col-md-2">
+                                            <div class="col-md-2">
                                                 <div class=" form-group ">
                                                     <label>Metrekare M²</label>
                                                     <input type="text" class="form-control" placeholder="Metrekare M²" name="metrekare" value="<?php echo $ilangetir['ilan_Metrekare'];  ?>">
@@ -246,12 +272,12 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                                 <div class=" form-group ">
                                                     <label>Oda Sayısı</label>
                                                     <select name="odasayisi" class="form-control" id="odasayisi">
-                                                        <option value="1+0" <?php if($ilangetir['ilan_OdaSayisi']=="1+0") echo 'selected' ?>>1+0</option>
-                                                        <option value="1+1" <?php if($ilangetir['ilan_OdaSayisi']=="1+1") echo 'selected' ?>>1+1</option>
-                                                        <option value="2+1" <?php if($ilangetir['ilan_OdaSayisi']=="2+1") echo 'selected' ?>>2+1</option>
-                                                        <option value="3+1" <?php if($ilangetir['ilan_OdaSayisi']=="3+1") echo 'selected' ?>>3+1</option>
-                                                        <option value="4+1" <?php if($ilangetir['ilan_OdaSayisi']=="4+1") echo 'selected' ?>>4+1</option>
-                                                        <option value="5+1" <?php if($ilangetir['ilan_OdaSayisi']=="5+1") echo 'selected' ?>>5+1</option>
+                                                        <option value="1+0" <?php if ($ilangetir['ilan_OdaSayisi'] == "1+0") echo 'selected' ?>>1+0</option>
+                                                        <option value="1+1" <?php if ($ilangetir['ilan_OdaSayisi'] == "1+1") echo 'selected' ?>>1+1</option>
+                                                        <option value="2+1" <?php if ($ilangetir['ilan_OdaSayisi'] == "2+1") echo 'selected' ?>>2+1</option>
+                                                        <option value="3+1" <?php if ($ilangetir['ilan_OdaSayisi'] == "3+1") echo 'selected' ?>>3+1</option>
+                                                        <option value="4+1" <?php if ($ilangetir['ilan_OdaSayisi'] == "4+1") echo 'selected' ?>>4+1</option>
+                                                        <option value="5+1" <?php if ($ilangetir['ilan_OdaSayisi'] == "5+1") echo 'selected' ?>>5+1</option>
 
                                                     </select>
                                                 </div>
@@ -260,34 +286,34 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                                 <div class=" form-group ">
                                                     <label>Bulunduğu Kat</label>
                                                     <select name="bulundugukat" class="form-control" id="bulundugukat">
-                                                        <option value="bodrum" <?php if($ilangetir['ilan_BulunduguKat']=="Bodrum Katı") echo 'selected' ?>>Bodrum Katı</option>
-                                                        <option value="zemin" <?php if($ilangetir['ilan_BulunduguKat']=="Zemin Katı") echo 'selected' ?>>Zemin Katı</option>
-                                                        <option value="bahce" <?php if($ilangetir['ilan_BulunduguKat']=="Bahçe Katı") echo 'selected' ?>>Bahçe Katı</option>
-                                                        <option value="giris" <?php if($ilangetir['ilan_BulunduguKat']=="Giriş Katı") echo 'selected' ?>>Giriş Katı</option>
-                                                        <option value="yuksekgiris" <?php if($ilangetir['ilan_BulunduguKat']=="Yüksek Giriş") echo 'selected' ?>>Yüksek Giriş</option>
-                                                    <?php for ($i=1; $i <=29 ; $i++) { 
-                                                        ?>
+                                                        <option value="bodrum" <?php if ($ilangetir['ilan_BulunduguKat'] == "Bodrum Katı") echo 'selected' ?>>Bodrum Katı</option>
+                                                        <option value="zemin" <?php if ($ilangetir['ilan_BulunduguKat'] == "Zemin Katı") echo 'selected' ?>>Zemin Katı</option>
+                                                        <option value="bahce" <?php if ($ilangetir['ilan_BulunduguKat'] == "Bahçe Katı") echo 'selected' ?>>Bahçe Katı</option>
+                                                        <option value="giris" <?php if ($ilangetir['ilan_BulunduguKat'] == "Giriş Katı") echo 'selected' ?>>Giriş Katı</option>
+                                                        <option value="yuksekgiris" <?php if ($ilangetir['ilan_BulunduguKat'] == "Yüksek Giriş") echo 'selected' ?>>Yüksek Giriş</option>
+                                                        <?php for ($i = 1; $i <= 29; $i++) {
+                                                            ?>
 
-                                                   <option value=<?php echo $i; ?> <?php if($ilangetir['ilan_BulunduguKat']==$i) echo 'selected' ?>><?php echo $i; ?></option>
-                                                       echo "<option value='$i'>$i</option>";
-                                                   <?php } ?>
-                                                        <option value="30+" <?php if($ilangetir['ilan_BulunduguKat']=="30+") echo 'selected' ?>>30 ve üzeri</option>
+                                                            <option value=<?php echo $i; ?> <?php if ($ilangetir['ilan_BulunduguKat'] == $i) echo 'selected' ?>><?php echo $i; ?></option>
+                                                            echo "<option value='$i'>$i</option>";
+                                                        <?php } ?>
+                                                        <option value="30+" <?php if ($ilangetir['ilan_BulunduguKat'] == "30+") echo 'selected' ?>>30 ve üzeri</option>
 
                                                     </select>
-                                                </div>	
+                                                </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class=" form-group ">
                                                     <label>Kat Sayısı</label>
                                                     <select name="katsayisi" class="form-control" id="katsayisi">
-                                                    <?php for ($i=1; $i <=29 ; $i++) { 
-                                                        ?>
-                                                   
-                                                   <option value=<?php echo $i; ?> <?php if($ilangetir['ilan_KatSayisi']==$i) echo 'selected' ?>><?php echo $i; ?></option>
-                                                   
+                                                        <?php for ($i = 1; $i <= 29; $i++) {
+                                                            ?>
 
-                                                   <?php } ?>
-                                                        <option value="30+" <?php if($ilangetir['ilan_KatSayisi']=="30+") echo 'selected' ?>>30 ve üzeri</option>
+                                                            <option value=<?php echo $i; ?> <?php if ($ilangetir['ilan_KatSayisi'] == $i) echo 'selected' ?>><?php echo $i; ?></option>
+
+
+                                                        <?php } ?>
+                                                        <option value="30+" <?php if ($ilangetir['ilan_KatSayisi'] == "30+") echo 'selected' ?>>30 ve üzeri</option>
 
                                                     </select>
                                                 </div>
@@ -296,17 +322,17 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                                 <div class=" form-group ">
                                                     <label>Bina Yaşı</label>
                                                     <select name="binayas" class="form-control" id="binayas">
-                                                    <?php for ($i=0; $i <=4 ; $i++) { 
+                                                        <?php for ($i = 0; $i <= 4; $i++) {
 
-                                                        ?>
-                                                     <option value=<?php echo $i; ?> <?php if($ilangetir['ilan_BinaYasi']==$i) echo 'selected' ?>><?php echo $i; ?></option>
-                                                   <?php } ?>
-                                                        <option value="5-10" <?php if($ilangetir['ilan_BinaYasi']=="5-10") echo 'selected' ?>>5-10 arası</option>
-                                                        <option value="11-15" <?php if($ilangetir['ilan_BinaYasi']=="11-15") echo 'selected' ?>>11-15 arası</option>
-                                                        <option value="16-20" <?php if($ilangetir['ilan_BinaYasi']=="16-20") echo 'selected' ?>>16-20 arası</option>
-                                                        <option value="21-25" <?php if($ilangetir['ilan_BinaYasi']=="21-25") echo 'selected' ?>>21-25 arası</option>
-                                                        <option value="26-30" <?php if($ilangetir['ilan_BinaYasi']=="26-30") echo 'selected' ?>>26-30 arası</option>
-                                                        <option value="31+" <?php if($ilangetir['ilan_BinaYasi']=="31+") echo 'selected' ?>>31 ve üzeri</option>
+                                                            ?>
+                                                            <option value=<?php echo $i; ?> <?php if ($ilangetir['ilan_BinaYasi'] == $i) echo 'selected' ?>><?php echo $i; ?></option>
+                                                        <?php } ?>
+                                                        <option value="5-10" <?php if ($ilangetir['ilan_BinaYasi'] == "5-10") echo 'selected' ?>>5-10 arası</option>
+                                                        <option value="11-15" <?php if ($ilangetir['ilan_BinaYasi'] == "11-15") echo 'selected' ?>>11-15 arası</option>
+                                                        <option value="16-20" <?php if ($ilangetir['ilan_BinaYasi'] == "16-20") echo 'selected' ?>>16-20 arası</option>
+                                                        <option value="21-25" <?php if ($ilangetir['ilan_BinaYasi'] == "21-25") echo 'selected' ?>>21-25 arası</option>
+                                                        <option value="26-30" <?php if ($ilangetir['ilan_BinaYasi'] == "26-30") echo 'selected' ?>>26-30 arası</option>
+                                                        <option value="31+" <?php if ($ilangetir['ilan_BinaYasi'] == "31+") echo 'selected' ?>>31 ve üzeri</option>
 
                                                     </select>
                                                 </div>
@@ -315,21 +341,21 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                                 <div class=" form-group ">
                                                     <label>Kullanım</label>
                                                     <select name="kullanim" class="form-control" id="kullanim">
-                                                        <option value="bos" <?php if($ilangetir['ilan_KullanimDurumu']=="Boş") echo 'selected' ?>>Boş</option>
-                                                        <option value="dolu" <?php if($ilangetir['ilan_KullanimDurumu']=="Dolu") echo 'selected' ?>>Dolu</option>
-                                                  
+                                                        <option value="bos" <?php if ($ilangetir['ilan_KullanimDurumu'] == "Boş") echo 'selected' ?>>Boş</option>
+                                                        <option value="dolu" <?php if ($ilangetir['ilan_KullanimDurumu'] == "Dolu") echo 'selected' ?>>Dolu</option>
+
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
-                                        <div class="col-md-2">
+                                            <div class="col-md-2">
                                                 <div class=" form-group ">
                                                     <label>Kredi Uygunluk</label>
                                                     <select name="kredi" class="form-control" id="kredi">
-                                                        <option value="evet" <?php if($ilangetir['ilan_KrediUygunluk']=="Evet") echo 'selected' ?>>Evet</option>
-                                                        <option value="hayir" <?php if($ilangetir['ilan_KrediUygunluk']=="Hayır") echo 'selected' ?>>Hayır</option>
-                                                  
+                                                        <option value="evet" <?php if ($ilangetir['ilan_KrediUygunluk'] == "Evet") echo 'selected' ?>>Evet</option>
+                                                        <option value="hayir" <?php if ($ilangetir['ilan_KrediUygunluk'] == "Hayır") echo 'selected' ?>>Hayır</option>
+
                                                     </select>
                                                 </div>
                                             </div>
@@ -337,9 +363,9 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                                 <div class=" form-group ">
                                                     <label>Eşyalı</label>
                                                     <select name="esyali" class="form-control" id="esyali">
-                                                        <option value="evet" <?php if($ilangetir['ilan_Esyali']=="Evet") echo 'selected' ?>>Evet</option>
-                                                        <option value="hayir" <?php if($ilangetir['ilan_Esyali']=="Hayır") echo 'selected' ?>>Hayır</option>
-                                                  
+                                                        <option value="evet" <?php if ($ilangetir['ilan_Esyali'] == "Evet") echo 'selected' ?>>Evet</option>
+                                                        <option value="hayir" <?php if ($ilangetir['ilan_Esyali'] == "Hayır") echo 'selected' ?>>Hayır</option>
+
                                                     </select>
                                                 </div>
                                             </div>
@@ -347,9 +373,9 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                                 <div class=" form-group ">
                                                     <label>Site İçerisinde</label>
                                                     <select name="siteicerisi" class="form-control" id="siteicerisi">
-                                                        <option value="evet" <?php if($ilangetir['ilan_SiteIcerisinde']=="Evet") echo 'selected' ?>>Evet</option>
-                                                        <option value="hayir" <?php if($ilangetir['ilan_SiteIcerisinde']=="Hayır") echo 'selected' ?>>Hayır</option>
-                                                  
+                                                        <option value="evet" <?php if ($ilangetir['ilan_SiteIcerisinde'] == "Evet") echo 'selected' ?>>Evet</option>
+                                                        <option value="hayir" <?php if ($ilangetir['ilan_SiteIcerisinde'] == "Hayır") echo 'selected' ?>>Hayır</option>
+
                                                     </select>
                                                 </div>
                                             </div>
@@ -357,11 +383,11 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                                 <div class=" form-group ">
                                                     <label>Cephe</label>
                                                     <select name="cephe" class="form-control" id="cephe">
-                                                        <option value="dogu" <?php if($ilangetir['ilan_Cephe']=="Doğu") echo 'selected' ?>>Doğu</option>
-                                                        <option value="bati" <?php if($ilangetir['ilan_Cephe']=="Batı") echo 'selected' ?>>Batı</option>
-                                                        <option value="kuzey" <?php if($ilangetir['ilan_Cephe']=="Kuzey") echo 'selected' ?>>Kuzey</option>
-                                                        <option value="guney" <?php if($ilangetir['ilan_Cephe']=="Güney") echo 'selected' ?>>Güney</option>
-                                                  
+                                                        <option value="dogu" <?php if ($ilangetir['ilan_Cephe'] == "Doğu") echo 'selected' ?>>Doğu</option>
+                                                        <option value="bati" <?php if ($ilangetir['ilan_Cephe'] == "Batı") echo 'selected' ?>>Batı</option>
+                                                        <option value="kuzey" <?php if ($ilangetir['ilan_Cephe'] == "Kuzey") echo 'selected' ?>>Kuzey</option>
+                                                        <option value="guney" <?php if ($ilangetir['ilan_Cephe'] == "Güney") echo 'selected' ?>>Güney</option>
+
                                                     </select>
                                                 </div>
                                             </div>
@@ -369,12 +395,12 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                                 <div class=" form-group ">
                                                     <label>Isıtma</label>
                                                     <select name="isitma" class="form-control" id="isitma">
-                                                    <option value="Soba" <?php if($ilangetir['ilan_Isitma']=="Soba") echo 'selected' ?>>Soba</option>
-                                                        <option value="Klima" <?php if($ilangetir['ilan_Isitma']=="Klima") echo 'selected' ?>>Klima</option>
-                                                       
-                                                        <option value="Merkezi" <?php if($ilangetir['ilan_Isitma']=="Merkezi") echo 'selected' ?>>Merkezi</option>
-                                                        <option value="Dogalgaz" <?php if($ilangetir['ilan_Isitma']=="Doğalgaz") echo 'selected' ?>>Doğalgaz</option>
-                                                  
+                                                        <option value="Soba" <?php if ($ilangetir['ilan_Isitma'] == "Soba") echo 'selected' ?>>Soba</option>
+                                                        <option value="Klima" <?php if ($ilangetir['ilan_Isitma'] == "Klima") echo 'selected' ?>>Klima</option>
+
+                                                        <option value="Merkezi" <?php if ($ilangetir['ilan_Isitma'] == "Merkezi") echo 'selected' ?>>Merkezi</option>
+                                                        <option value="Dogalgaz" <?php if ($ilangetir['ilan_Isitma'] == "Doğalgaz") echo 'selected' ?>>Doğalgaz</option>
+
                                                     </select>
                                                 </div>
                                             </div>
@@ -382,23 +408,54 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                                 <div class=" form-group ">
                                                     <label>Aidat</label>
                                                     <input type="text" class="form-control" placeholder="Aidat" name="aidat" value="<?php
-                                                                            echo 
-                                                                              $ilangetir['ilan_Aidat'];
-                                                                            ?>">
+                                                                                                                                    echo
+                                                                                                                                        $ilangetir['ilan_Aidat'];
+                                                                                                                                    ?>">
 
                                                 </div>
                                             </div>
-                                           
+
+                                        </div>
+                                        <div class="row">
+                                            <?php
+
+                                            $b = 1;
+                                                for ($i = 21; $i <= 30; $i++) {
+                                            if ($ilangetir['ilan_resim' . $b] != "") {
+
+
+                                                ?>
+                                                 <div class="col-md-1">
+                                                 <div class="carousel mb-3" data-flickity='{ "autoPlay": true }'>
+                                                 <img style="box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)"  data-toggle="lightbox" data-gallery="example-gallery" href="<?php echo '../' . $ilangetir['ilan_resim' . $b] ?>" src="<?php echo '../' . $ilangetir['ilan_resim' . $b] ?>" class="img-responsive rounded carousel-cell-image rounded">
+
+</div></div>
+<?php
+                                            }
+                                                  
+
+
+                                            $b++;
+                                            
+                                                }
+                                               
+                                                    ?>
+                                               
+
+
+                                            
+
+
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                <label class="custom-file-label" for="upload[]" >Ürün Resimleri(Max 10 Adet)</label>
+                                                    <label class="custom-file-label" for="upload[]">Ürün Resimleri(Max 10 Adet)</label>
 
-<input class="form-control" name="upload[]" class="custom-file-input" type="file" multiple="multiple" />
-</div>
-                                            </div> 
+                                                    <input class="form-control" name="upload[]" class="custom-file-input" type="file" multiple="multiple" />
+                                                </div>
                                             </div>
+                                        </div>
                                         <script src="assets/js/selectchained.js" type="text/javascript"></script>
                                         <script>
                                             $("#ilce").remoteChained("#il", "smtr.php?ilce=83");
@@ -445,7 +502,7 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
 
 
                                         <div class="clearfix"></div>
-                                  
+
                                     </form>
                                 </div>
                             </div>
@@ -474,9 +531,11 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
         }
         $('.editor').richText();
     </script>
-    <script>
-
-
+   <script>
+    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox();
+    });
 </script>
 
 </body>
@@ -490,5 +549,7 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
     <script src="../assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
     <script src="../assets/js/sweetalert2.all.min.js"></script>
     <script src="../assets/js/sweetalert2.min.js"></script>
+    <script src="../assets/js/ekko-lightbox.js"></script>
+<script src="../assets/js/ekko-lightbox.min.js"></script>
 
 </html>

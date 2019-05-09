@@ -17,7 +17,9 @@
                                    
                                        </script>
 <?php
-
+if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
+  echo '<script language="javascript">location.href="../giris.php";</script>';
+}
 if(isset($_POST['ilanad']))
 {
     $ilannumarasi=$_GET['detaylar'];
