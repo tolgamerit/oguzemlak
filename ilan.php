@@ -144,12 +144,12 @@ include("assets/config.php");
 <?php
 
 $id =$_GET['id']; 
-$query = $db->prepare("SELECT * FROM tbl_ilan WHERE ilan_numarasi = :id");
+$query1 = $db->prepare("SELECT * FROM tbl_ilan WHERE ilan_numarasi = :id");
  
-$query->execute(array( ":id" => $id ));
+$query1->execute(array( ":id" => $id ));
  
-if( $query->rowCount() ){
-    foreach( $query as $cek ){
+if( $query1->rowCount() ){
+    foreach( $query1 as $cek ){
      $link= strtolower(str_replace('ı','i',$cek['ilan_Durum']."-".$cek['ilan_Kategori']));
 ?>
     <div class="container">
