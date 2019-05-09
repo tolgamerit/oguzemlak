@@ -35,7 +35,7 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
     <script src="assets/js/jquery.richtext.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
     <link rel="stylesheet" href="../assets/css/sweetalert2.min.css">
-   
+
     <style>
         .bg {
             background: linear-gradient(to bottom, #6ec7e0 0%, #6ec7e0 100%) !important;
@@ -152,32 +152,11 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                             </div>
                                         </div>
                                         <div class="row ">
-                                            <div class="col-md-1">
-                                                <label>Durum</label>
-                                                <div class="form-group">
-                                                    <input class="form-control" type="checkbox" data-size="normal" name="durum" value="satilik" checked data-toggle="toggle" data-onstyle="success" data-offstyle="info" data-on="Satılık" data-off="Kiralık">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class=" form-group ">
-                                                    <label>Kategori</label>
-                                                    <select name="kategori" class="form-control" id="kategori">
-                                                        <option value="arsa">Arsa</option>
-                                                        <option value="isyeri">İşyeri</option>
-                                                        <option value="konut">Konut</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-1">
-                                                <div class="form-group">
-                                                    <label>İlan Fiyat</label>
-                                                    <input type="text" class="form-control" placeholder="İlan Fiyatını Girin..." name="fiyat" value="<?php   ?>">
-                                                </div>
-                                            </div>
+                                         
                                             <?php
                                             require_once("mysql.php");
                                             ?>
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label>İl</label>
                                                     <select class="form-control" id="il" name="il">
@@ -192,44 +171,220 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                                     ?>
                                                     </select>
                                                 </div>
-                                
+
                                             </div>
-                                            <div class="col-md-2">
-                                                    <div class="form-group">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
                                                     <label>İlçe</label>
-                                                        <select class="form-control" name="ilce" id="ilce">
-                                                            <option value="0">İlçe Seçiniz</option>
-                                                        </select>
-                                                    </div>
+                                                    <select class="form-control" name="ilce" id="ilce">
+                                                        <option value="0">İlçe Seçiniz</option>
+                                                    </select>
                                                 </div>
+                                            </div>
 
-                                                <div class="col-md-2">
-                                                    <div class="form-group">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
                                                     <label>Semt</label>
-                                                        <select class="form-control" name="semt" id="semt">
-                                                            <option value="0">Semt Seçiniz</option>
-                                                        </select>
-                                                    </div>
+                                                    <select class="form-control" name="semt" id="semt">
+                                                        <option value="0">Semt Seçiniz</option>
+                                                    </select>
                                                 </div>
+                                            </div>
 
-                                                <div class="col-md-2">
-                                                    <div class="form-group">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
                                                     <label>Mahalle</label>
-                                                        <select class="form-control" name="mahalle" id="mahalle">
-                                                            <option value="0">Mahalle Seçiniz</option>
-                                                        </select>
-                                                    </div>
+                                                    <select class="form-control" name="mahalle" id="mahalle">
+                                                        <option value="0">Mahalle Seçiniz</option>
+                                                    </select>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                        
+                                            <div class="col-md-4">
+                                                <div class=" form-group ">
+                                                    <label>Kategori</label>
+                                                    <select name="kategori" class="form-control" id="kategori">
+                                                        <option value="arsa">Arsa</option>
+                                                        <option value="isyeri">İşyeri</option>
+                                                        <option value="konut">Konut</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>İlan Fiyat</label>
+                                                    <input type="text" class="form-control" placeholder="İlan Fiyatını Girin..." name="fiyat" value="<?php   ?>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>Durum</label>
+                                                <div class="form-group">
+                                                    <input class="form-control" type="checkbox" data-size="normal" name="durum" value="satilik" checked data-toggle="toggle" data-onstyle="success" data-offstyle="info" data-on="Satılık" data-off="Kiralık">
+                                                </div>
+                                            </div>
                                         </div>
 
-                                        <script src="assets/js/selectchained.js" type="text/javascript"></script>
-                                            <script>
-                                                $("#ilce").remoteChained("#il", "smtr.php?ilce=83");
-                                                $("#semt").remoteChained("#ilce", "smtr.php?semt=440");
-                                                $("#mahalle").remoteChained("#semt", "smtr.php?mahalle=4833");
-                                            </script>
+                                        <div class="row">
+                                        <div class="col-md-2">
+                                                <div class=" form-group ">
+                                                    <label>Metrekare M²</label>
+                                                    <input type="text" class="form-control" placeholder="Metrekare M²" name="metrekare" value="<?php   ?>">
 
-                                            <?php $db->close(); ?>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class=" form-group ">
+                                                    <label>Oda Sayısı</label>
+                                                    <select name="odasayisi" class="form-control" id="odasayisi">
+                                                        <option value="1+0">1+0</option>
+                                                        <option value="1+1">1+1</option>
+                                                        <option value="2+1">2+1</option>
+                                                        <option value="3+1">3+1</option>
+                                                        <option value="4+1">4+1</option>
+                                                        <option value="5+1">5+1</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class=" form-group ">
+                                                    <label>Bulunduğu Kat</label>
+                                                    <select name="bulundugukat" class="form-control" id="bulundugukat">
+                                                        <option value="bodrum">Bodrum Katı</option>
+                                                        <option value="zemin">Zemin Katı</option>
+                                                        <option value="bahce">Bahçe Katı</option>
+                                                        <option value="giris">Giriş Katı</option>
+                                                        <option value="yuksekgiris">Yüksek Giriş</option>
+                                                    <?php for ($i=1; $i <=29 ; $i++) { 
+                                                       echo "<option value='$i'>$i</option>";
+                                                    } ?>
+                                                        <option value="30+">30 ve üzeri</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class=" form-group ">
+                                                    <label>Kat Sayısı</label>
+                                                    <select name="katsayisi" class="form-control" id="katsayisi">
+                                                    <?php for ($i=1; $i <=29 ; $i++) { 
+                                                       echo "<option value='$i'>$i</option>";
+                                                    } ?>
+                                                        <option value="30+">30 ve üzeri</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class=" form-group ">
+                                                    <label>Bina Yaşı</label>
+                                                    <select name="binayas" class="form-control" id="binayas">
+                                                    <?php for ($i=0; $i <=4 ; $i++) { 
+                                                       echo "<option value='$i'>$i</option>";
+                                                    } ?>
+                                                        <option value="5-10">5-10 arası</option>
+                                                        <option value="11-15">11-15 arası</option>
+                                                        <option value="16-20">16-20 arası</option>
+                                                        <option value="21-25">21-25 arası</option>
+                                                        <option value="26-30">26-30 arası</option>
+                                                        <option value="31+">31 ve üzeri</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class=" form-group ">
+                                                    <label>Kullanım</label>
+                                                    <select name="kullanim" class="form-control" id="kullanim">
+                                                        <option value="bos">Boş</option>
+                                                        <option value="dolu">Dolu</option>
+                                                  
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                        <div class="col-md-2">
+                                                <div class=" form-group ">
+                                                    <label>Kredi Uygunluk</label>
+                                                    <select name="kredi" class="form-control" id="kredi">
+                                                        <option value="evet">Evet</option>
+                                                        <option value="hayir">Hayır</option>
+                                                  
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class=" form-group ">
+                                                    <label>Eşyalı</label>
+                                                    <select name="esyali" class="form-control" id="esyali">
+                                                        <option value="evet">Evet</option>
+                                                        <option value="hayir">Hayır</option>
+                                                  
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class=" form-group ">
+                                                    <label>Site İçerisinde</label>
+                                                    <select name="siteicerisi" class="form-control" id="siteicerisi">
+                                                        <option value="evet">Evet</option>
+                                                        <option value="hayir">Hayır</option>
+                                                  
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class=" form-group ">
+                                                    <label>Cephe</label>
+                                                    <select name="cephe" class="form-control" id="cephe">
+                                                        <option value="dogu">Doğu</option>
+                                                        <option value="bati">Batı</option>
+                                                        <option value="kuzey">Kuzey</option>
+                                                        <option value="guney">Güney</option>
+                                                  
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class=" form-group ">
+                                                    <label>Isıtma</label>
+                                                    <select name="isitma" class="form-control" id="isitma">
+                                                        <option value="klima">Klima</option>
+                                                        <option value="soba">Soba</option>
+                                                        <option value="merkezi">Merkezi</option>
+                                                        <option value="dogalgaz">Doğalgaz</option>
+                                                  
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class=" form-group ">
+                                                    <label>Aidat</label>
+                                                    <input type="text" class="form-control" placeholder="Aidat" name="aidat" value="<?php   ?>">
+
+                                                </div>
+                                            </div>
+                                           
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>İlan Adı</label>
+                                                    <input type="text" class="form-control" placeholder="İlan Adını Girin..." name="ilanad" value="<?php  ?>">
+                                                </div>
+                                            </div> 
+                                            </div>
+                                        <script src="assets/js/selectchained.js" type="text/javascript"></script>
+                                        <script>
+                                            $("#ilce").remoteChained("#il", "smtr.php?ilce=83");
+                                            $("#semt").remoteChained("#ilce", "smtr.php?semt=440");
+                                            $("#mahalle").remoteChained("#semt", "smtr.php?mahalle=4833");
+                                        </script>
+
+                                        <?php $db->close(); ?>
 
 
 
@@ -255,7 +410,7 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                                 </div>
                                             </div>
                                         </div>
-                                   
+
 
 
 

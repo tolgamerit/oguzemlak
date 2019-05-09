@@ -229,7 +229,7 @@ if( $query1->rowCount() ){
                         </tr>
                         <tr>
                             <td>
-                                <div><strong>Metre kare M²:</strong></div>
+                                <div><strong>Metrekare M²:</strong></div>
                                 <div><?php echo $cek['ilan_Metrekare']; ?></div>
 
                             </td>
