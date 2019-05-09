@@ -158,6 +158,16 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                             </div>
                                         </div>
                                         <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Ofis Google Map Link</label>
+                                                    <textarea rows="5" class="form-control" placeholder="Adres Detayları..." name="map"><?php echo $query['map'];  ?></textarea>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
 
                                             <div class="col-md-4">
                                                 <div class="form-group">

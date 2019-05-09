@@ -11,8 +11,9 @@ if(isset($_POST['submit']))
     $facebok=$_POST['facebook'];
     $twitter=$_POST['twitter'];
     $instagram=$_POST['instagram'];
+    $map=$_POST['map'];
     
-    $query = $db->prepare("UPDATE tbl_sistem SET telefon1= :telefon1,telefon2=:telefon2,Adres=:adres,Mail=:mail,sosyal_Facebook=:facebook,sosyal_Twitter=:twitter,sosyal_Instagram=:instagram");
+    $query = $db->prepare("UPDATE tbl_sistem SET telefon1= :telefon1,telefon2=:telefon2,Adres=:adres,Mail=:mail,sosyal_Facebook=:facebook,sosyal_Twitter=:twitter,sosyal_Instagram=:instagram,map=:map");
     $update = $query->execute(array(
          "telefon1" => $telefon1,
          "telefon2" => $telefon2,
@@ -20,7 +21,8 @@ if(isset($_POST['submit']))
          "mail" => $email,
          "facebook" => $facebok,
          "twitter" => $twitter,
-         "instagram" => $instagram
+         "instagram" => $instagram,
+         "map" => $map
     ));
     if ( $update ){
      ?>
