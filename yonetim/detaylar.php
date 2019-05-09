@@ -37,8 +37,6 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
     <link rel="stylesheet" href="../assets/css/sweetalert2.min.css">
 
 
-    <link href="assets/css/bootstrap-fileinput/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
-    <link href="assets/css/bootstrap-fileinput/theme.css" media="all" rel="stylesheet" type="text/css"/>
     <style>
         .bg {
             background: linear-gradient(to bottom, #6ec7e0 0%, #6ec7e0 100%) !important;
@@ -130,7 +128,7 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                     </div>
                 </div>
             </nav>
-
+           
 
             <div class="content">
                 <div class="container-fluid">
@@ -142,7 +140,10 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                     <h4 class="title">İlan Güncelleme</h4>
                                 </div>
                                 <div class="content">
+                            
                                     <?php
+                             include("../islemler/ilanguncelle.php");
+                                   
                                     $id=$_GET['detaylar'];
                                     $ilangetir = $db->query("SELECT * FROM tbl_ilan where ilan_numarasi='$id'")->fetch(PDO::FETCH_ASSOC);
                                     ?>
@@ -438,12 +439,13 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
 
 
 
-                                        <button id="submit" name="submit" type="submit" class="btn btn-info btn-fill pull-right">Güncelle</button>
+                                        <button onclick="vericek()" id="submit" name="submit" type="submit" class="btn btn-info btn-fill pull-right">Güncelle</button>
 
 
 
 
                                         <div class="clearfix"></div>
+                                  
                                     </form>
                                 </div>
                             </div>
@@ -474,17 +476,7 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
     </script>
     <script>
 
-$("#file-1").fileinput({
-    uploadUrl: '#', // you must set a valid URL here else you will get an error
-    allowedFileExtensions: ['jpg', 'png', 'gif'],
-    overwriteInitial: false,
-    maxFileSize: 1000,
-    maxFilesNum: 10,
-    //allowedFileTypes: ['image', 'video', 'flash'],
-    slugCallback: function (filename) {
-        return filename.replace('(', '_').replace(']', '_');
-    }
-});
+
 </script>
 
 </body>

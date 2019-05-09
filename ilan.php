@@ -266,35 +266,52 @@ if( $query1->rowCount() ){
                         <tr>
                             <td>
                                 <div><strong>Kullanım Durumu:</strong></div>
-                                <div><?php echo $cek['ilan_KullanimDurumu']; ?></div>
+                                <div><?php if($cek['ilan_KullanimDurumu']=="bos") echo 'Boş'; else echo 'Dolu'; ?></div>
 
                             </td>
                             <td>
                                 <div><strong>Eşyalı:</strong></div>
-                                <div><?php echo $cek['ilan_Esyali']; ?></div>
+                                <div><?php if($cek['ilan_Esyali']=="evet") echo 'Evet'; else echo 'Hayır'; ?></div>
 
                             </td>
                         </tr>
                         <tr>
                             <td>
                             <div><strong>Cephe: </strong></div>
-                                <div><?php echo $cek['ilan_Cephe']; ?></div>
+                                <div><?php 
+                                switch ($cek['ilan_Cephe']) {
+                                    case 'dogu':
+                                        echo 'Doğu';
+                                        break;
+                                        case 'bati':
+                                        echo 'Batı';
+                                        break;
+                                        case 'kuzey':
+                                        echo 'Kuzey';
+                                        break;
+                                        case 'guney':
+                                        echo 'Güney';
+                                        break;
+                                    
+                                    
+                                }
+                                ?></div>
                             </td>
                             <td>
                                 <div><strong>Kredi Uygunluk:</strong></div>
-                                <div><?php echo $cek['ilan_KrediUygunluk']; ?></div>
+                                <div><?php if($cek['ilan_KrediUygunluk']=="evet") echo 'Evet'; else echo 'Hayır'; ?></div>
 
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <div><strong>Site İçerisinde:</strong></div>
-                                <div><?php echo $cek['ilan_SiteIcerisinde']; ?></div>
+                                <div><?php if($cek['ilan_SiteIcerisinde']=="evet") echo 'Evet'; else echo 'Hayır'; ?></div>
 
                             </td>
                             <td>
                                 <div><strong>Aidat:</strong></div>
-                                <div><?php echo $cek['ilan_Aidat']; ?></div>
+                                <div><?php echo $cek['ilan_Aidat'] ?> <span class=" text-secondary fas fa-lira-sign fa-xs"></span></div>
 
                             </td>
                         </tr>
