@@ -210,23 +210,26 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                                 <div class=" form-group ">
                                                     <label>Kategori</label>
                                                     <select name="kategori" class="form-control" id="kategori">
-                                                        <option value="arsa">Arsa</option>
-                                                        <option value="isyeri">İşyeri</option>
-                                                        <option value="konut">Konut</option>
+                                                        <option value="arsa" <?php if($ilangetir['ilan_Kategori']=="arsa") echo 'selected' ?>>Arsa</option>
+                                                        <option value="isyeri" <?php if($ilangetir['ilan_Kategori']=="isyeri") echo 'selected' ?>>İşyeri</option>
+                                                        <option value="konut" <?php if($ilangetir['ilan_Kategori']=="konut") echo 'selected' ?>>Konut</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label>İlan Fiyat</label>
-                                                    <input type="text" class="form-control" placeholder="İlan Fiyatını Girin..." name="fiyat" value="<?php   ?>">
+                                                    <input type="text" class="form-control" placeholder="İlan Fiyatını Girin..." name="fiyat" value="<?php  echo 
+                                                                              $ilangetir['ilan_Fiyat'];  ?>">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
-                                                <label>Durum</label>
-                                                <div class="form-group">
-                                                    <input class="form-control" type="checkbox" data-size="normal" name="durum" value="satilik" checked data-toggle="toggle" data-onstyle="success" data-offstyle="info" data-on="Satılık" data-off="Kiralık">
-                                                </div>
+                                            <label>Durum</label>
+                                                    <select name="durum" class="form-control" id="durum">
+                                                        <option value="kiralik" <?php if($ilangetir['ilan_Durum']=="kiralik") echo 'selected' ?>>Kiralık</option>
+                                                        <option value="satilik" <?php if($ilangetir['ilan_Durum']=="satilık") echo 'selected' ?>>Satılık</option>
+                                                     
+                                                    </select>
                                             </div>
                                         </div>
 
@@ -234,7 +237,7 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                         <div class="col-md-2">
                                                 <div class=" form-group ">
                                                     <label>Metrekare M²</label>
-                                                    <input type="text" class="form-control" placeholder="Metrekare M²" name="metrekare" value="<?php   ?>">
+                                                    <input type="text" class="form-control" placeholder="Metrekare M²" name="metrekare" value="<?php echo $ilangetir['ilan_Metrekare'];  ?>">
 
                                                 </div>
                                             </div>
@@ -379,7 +382,7 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                                     <label>Aidat</label>
                                                     <input type="text" class="form-control" placeholder="Aidat" name="aidat" value="<?php
                                                                             echo 
-                                                                              $ilangetir['ilan_Fiyat'];
+                                                                              $ilangetir['ilan_Aidat'];
                                                                             ?>">
 
                                                 </div>
@@ -411,7 +414,9 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label>İlan Açıklaması</label>
-                                                    <textarea name="editor" class="editor form-control" id="editor" rows="10" cols="80">  <?php echo $sayfagetir['SayfaIcerik']; ?>
+                                                    <textarea name="editor" class="editor form-control" id="editor" rows="10" cols="80">  <?php echo $ilangetir['ilan_Aciklama']; ?>
+
+
 </textarea>
 
 
@@ -422,7 +427,7 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label>İlan Google Map Link</label>
-                                                    <textarea rows="5" class="form-control" placeholder="Adres Detayları..." name="ilanHarita"><?php echo $query['map'];  ?></textarea>
+                                                    <textarea rows="5" class="form-control" placeholder="Adres Detayları..." name="ilanHarita"><?php echo $ilangetir['ilan_Harita']; ?></textarea>
 
 
                                                 </div>

@@ -277,9 +277,8 @@ if( $query1->rowCount() ){
                         </tr>
                         <tr>
                             <td>
-                                <div><strong>Tapu Durumu:</strong></div>
-                                <div><?php echo $cek['ilan_TapuDurumu']; ?></div>
-
+                            <div><strong>Cephe: </strong></div>
+                                <div><?php echo $cek['ilan_Cephe']; ?></div>
                             </td>
                             <td>
                                 <div><strong>Kredi Uygunluk:</strong></div>
@@ -299,13 +298,7 @@ if( $query1->rowCount() ){
 
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                <div><strong>Cephe: </strong></div>
-                                <div><?php echo $cek['ilan_Cephe']; ?></div>
-                            </td>
-                            <td></td>
-                        </tr>
+                       
                      
 
                     </tbody>
@@ -354,8 +347,7 @@ if( $query1->rowCount() ){
 
 
           <div class="map-responsive rounded" >
-       
-       <iframe class="" src="<?php echo $cek['ilan_Harita']; ?>" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+       <?php echo $cek['ilan_Harita']; ?>
    </div>
           </div>
     <!-- İLAN KONUM -->
