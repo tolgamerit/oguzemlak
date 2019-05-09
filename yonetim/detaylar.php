@@ -393,7 +393,7 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                <label class="custom-file-label" for="upload[]" >Ürün Resimleri(Max 3 Adet)</label>
+                                                <label class="custom-file-label" for="upload[]" >Ürün Resimleri(Max 10 Adet)</label>
 
 <input class="form-control" name="upload[]" class="custom-file-input" type="file" multiple="multiple" />
 </div>
