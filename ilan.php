@@ -16,67 +16,16 @@ include("assets/config.php");
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="assets/css/paper-kit.css" rel="stylesheet" />
     <link href="assets/css/ekko-lightbox.css" rel="stylesheet" />
+    <link href="assets/css/site.css" rel="stylesheet" />
 
 
     <!--     Fonts and icons     -->
     <style>
-        .modal-header
-
-        {
-            display: none !important;
-        }
-        .modal-content {
-            box-shadow: none !important;
-            background-color: transparent !important;
-        }
-        .breadcrumb {
-            background-color: #ffffff !important;
-        }
-        .ilan {
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .embed-responsive .card-img-top {
-            object-fit: cover;
-        }
-        .map-responsive {
-      overflow: hidden;
-      padding-bottom: 56.25%;
-      position: relative;
-      height: 0;
-    }
-    .map-responsive iframe {
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 100%;
-      position: absolute;
-    }
-        .dropdown-item:hover {
-            background-color: #6ec7e0 !important;
-        }
-        .dropdown-item:active {
-            background-color: #86d9ab !important;
-        }
-        .ck {
-            max-width: 70px !important;
-        }
-        .cll {
-            color: #6c757d !important;
-            border: 2px solid #17a2b8 !important;
-        }
-        .rsm1 {
-            box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22) !important;
-        }
-        .ekko-lightbox-nav-overlay a {
-            color: #101010 !important;
-        }
-        .carousel-cell {
-            counter-increment: gallery-cell;
-        }
-        .modal-body {
-            padding: 0px 0px 0px 0px !important;
-        }
+   
+       
+  
+    
+   
     </style>
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 

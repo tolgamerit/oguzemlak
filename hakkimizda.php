@@ -15,26 +15,11 @@ include("assets/config.php");
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="assets/css/paper-kit.css" rel="stylesheet" />
+  <link href="assets/css/site.css" rel="stylesheet" />
+ 
   <!--     Fonts and icons     -->
   <style>
-    .ilan {
-
-      margin-left: auto;
-      margin-right: auto;
-
-    }
-
-    .embed-responsive .card-img-top {
-      object-fit: cover;
-    }
-    .dropdown-item:hover
-    {
-      background-color: #6ec7e0 !important;
-    }
-    .dropdown-item:active
-    {
-      background-color: #86d9ab !important;
-    }
+  
   </style>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">

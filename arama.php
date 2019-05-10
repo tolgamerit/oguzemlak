@@ -17,53 +17,10 @@ include("assets/function.php");
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="assets/css/paper-kit.css" rel="stylesheet" />
+  <link href="assets/css/site.css" rel="stylesheet" />
+  
   <!--     Fonts and icons     -->
-  <style>
-    .breadcrumb {
-      background-color: #ffffff !important;
-    }
-
-    .ilan {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .embed-responsive .card-img-top {
-      object-fit: cover;
-    }
-
-    .map-responsive {
-      overflow: hidden;
-      padding-bottom: 56.25%;
-      position: relative;
-      height: 0;
-    }
-
-    .map-responsive iframe {
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 100%;
-      position: absolute;
-    }
-
-    .dropdown-item:hover {
-      background-color: #6ec7e0 !important;
-    }
-
-    .dropdown-item:active {
-      background-color: #86d9ab !important;
-    }
-
-    .ck {
-      max-width: 70px !important;
-    }
-
-    .cll {
-      color: #6c757d !important;
-      border: 2px solid #17a2b8 !important;
-    }
-  </style>
+  
 
 
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
