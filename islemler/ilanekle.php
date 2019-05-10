@@ -1,6 +1,4 @@
 <?php
- $kayit = $db->prepare("insert into tbl_product SET product_name=?,product_brand=?,product_compatible_car=?,product_stock=?,product_enabled=?");
- $kayit->execute(array($urunad, $cihazmarka, $uyumluaraba, $stokadet, $satisdurum));
 
 ?>
 
@@ -79,7 +77,8 @@ try
      } 
      
 
-  $degis = $db->prepare("UPDATE `tbl_ilan` SET 
+    
+  $katit = $db->prepare("INSERT INTO `tbl_ilan` SET 
   `ilan_Adi`=:ilanadi,
   `ilan_Aciklama`=:editor,
   `ilan_Harita`=:ilanharita,
@@ -108,9 +107,8 @@ try
   `ilan_resim10`=:resim10,
   `ilan_Kategori`=:kategori,
   `ilan_Durum`=:durum,
-  `ilan_Konum`=:konum 
-  WHERE ilan_numarasi=:id "); 
-  $degis->execute(array('id' => $ilannumarasi,'ilanadi' => $ilanadi,'editor' => $editor,'ilanharita' => $ilanharita,'metrekare' => $metrekare,'odasayisi' => $odasayisi,'bulundugukat' => $bulundugukat,'katsayisi' => $katsayisi,
+  `ilan_Konum`=:konum"); 
+  $kayit->execute(array('id' => $ilannumarasi,'ilanadi' => $ilanadi,'editor' => $editor,'ilanharita' => $ilanharita,'metrekare' => $metrekare,'odasayisi' => $odasayisi,'bulundugukat' => $bulundugukat,'katsayisi' => $katsayisi,
   'binayasi' => $binayas,'isitma' => $isitma,'kullanimdurumu' => $kullanim,'esyali' => $esyali,'kredi' => $kredi,'siteicerisi' => $siteicerisi,'aidat' => $aidat,'cephe' => $cephe,'fiyat' => $fiyat,
   'resim1' => $resim[0],'resim2' => $resim[1],'resim3' => $resim[2],'resim4' => $resim[3],'resim5' => $resim[4],'resim6' => $resim[5],'resim7' => $resim[6],'resim8' => $resim[7],'resim9' => $resim[8],'resim10' => $resim[9],'kategori' => $kategori,'durum' => $durum,
   'konum' => $konum));

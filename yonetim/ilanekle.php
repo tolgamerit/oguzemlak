@@ -172,7 +172,7 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                 <div class="content">
 
                                     <?php
-                                    include("../islemler/ilanguncelle.php");
+                                    include("../islemler/ilanekle.php");
 
                                     $id = $_GET['detaylar'];
                                     $ilangetir = $db->query("SELECT * FROM tbl_ilan where ilan_numarasi='$id'")->fetch(PDO::FETCH_ASSOC);
@@ -299,7 +299,7 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                                             ?>
 
                                                             <option value=<?php echo $i; ?> <?php if ($ilangetir['ilan_BulunduguKat'] == $i) echo 'selected' ?>><?php echo $i; ?></option>
-                                                            echo "<option value='$i'>$i</option>";
+                                                          
                                                         <?php } ?>
                                                         <option value="30+" <?php if ($ilangetir['ilan_BulunduguKat'] == "30+") echo 'selected' ?>>30 ve üzeri</option>
 
@@ -500,7 +500,7 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
 
 
 
-                                        <button onclick="vericek()" id="submit" name="submit" type="submit" class="btn btn-info btn-fill pull-right">Güncelle</button>
+                                        <button onclick="vericek()" id="submit" name="submit" type="submit" class="btn btn-info btn-fill pull-right">Ekle</button>
 
 
 

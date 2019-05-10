@@ -299,7 +299,7 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                                             ?>
 
                                                             <option value=<?php echo $i; ?> <?php if ($ilangetir['ilan_BulunduguKat'] == $i) echo 'selected' ?>><?php echo $i; ?></option>
-                                                            echo "<option value='$i'>$i</option>";
+                                                           
                                                         <?php } ?>
                                                         <option value="30+" <?php if ($ilangetir['ilan_BulunduguKat'] == "30+") echo 'selected' ?>>30 ve üzeri</option>
 
