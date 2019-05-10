@@ -50,11 +50,14 @@
     background-color: #FFFFFF !important;
   }
 
-  .dropdown-item:active .dropdown-menu .dropdown-item:focus 
+  .dropdown-item:active 
   {
   background-color: #6bd098 !important;
 
   }
+  .dropdown-menu .dropdown-item:focus {
+    background-color: #6bd098 !important;
+}
   .ck {
     max-width: 70px !important;
   }
