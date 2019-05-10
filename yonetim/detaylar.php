@@ -387,10 +387,10 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                                 <div class=" form-group ">
                                                     <label>Cephe</label>
                                                     <select name="cephe" class="form-control" id="cephe">
-                                                        <option value="dogu" <?php if ($ilangetir['ilan_Cephe'] == "Doğu") echo 'selected' ?>>Doğu</option>
-                                                        <option value="bati" <?php if ($ilangetir['ilan_Cephe'] == "Batı") echo 'selected' ?>>Batı</option>
-                                                        <option value="kuzey" <?php if ($ilangetir['ilan_Cephe'] == "Kuzey") echo 'selected' ?>>Kuzey</option>
-                                                        <option value="guney" <?php if ($ilangetir['ilan_Cephe'] == "Güney") echo 'selected' ?>>Güney</option>
+                                                        <option value="dogu" <?php if ($ilangetir['ilan_Cephe'] == "dogu") echo 'selected' ?>>Doğu</option>
+                                                        <option value="bati" <?php if ($ilangetir['ilan_Cephe'] == "bati") echo 'selected' ?>>Batı</option>
+                                                        <option value="kuzey" <?php if ($ilangetir['ilan_Cephe'] == "kuzey") echo 'selected' ?>>Kuzey</option>
+                                                        <option value="guney" <?php if ($ilangetir['ilan_Cephe'] == "guney") echo 'selected' ?>>Güney</option>
 
                                                     </select>
                                                 </div>
