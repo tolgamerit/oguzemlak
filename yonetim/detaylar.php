@@ -84,7 +84,6 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
         }
 
         }
-
          .modal-header
 
         {
@@ -472,7 +471,7 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label>İlan Açıklaması</label>
-                                                    <textarea name="editor" class="editor form-control" id="editor" rows="10" cols="80">  <?php echo $ilangetir['ilan_Aciklama']; ?>
+                                                    <textarea name="editor" class="editor form-control" id="editor" rows="150" cols="150">  <?php echo $ilangetir['ilan_Aciklama']; ?>
 
 
 </textarea>
