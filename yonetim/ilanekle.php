@@ -446,7 +446,15 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
 
 
                                         </div>
-                                  
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="custom-file-label" for="upload[]">Ürün Resimleri(Max 10 Adet)</label>
+
+                                                    <input class="form-control" name="upload[]" class="custom-file-input" type="file" multiple="multiple" />
+                                                </div>
+                                            </div>
+                                        </div>
                                         <script src="assets/js/selectchained.js" type="text/javascript"></script>
                                         <script>
                                             $("#ilce").remoteChained("#il", "smtr.php?ilce=83");
