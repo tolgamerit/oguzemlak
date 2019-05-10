@@ -242,7 +242,31 @@ if( $query1->rowCount() ){
                         <tr>
                             <td>
                                 <div><strong>Bulunduğu Kat:</strong></div>
-                                <div><?php echo $cek['ilan_BulunduguKat']; ?></div>
+                            
+                                <div><?php 
+                            
+                                switch ($cek['ilan_BulunduguKat']) {
+                                    case 'yuksekgiris':
+                                      echo 'Yüksek Giriş';
+                                        break;
+                                        case 'giris':
+                                        echo 'Giriş Katı';
+                                        break;
+                                        case 'bahce':
+                                        echo 'Bahçe Katı';
+                                        break;
+                                        case 'zemin':
+                                        echo 'Zemin Katı';
+                                        break;
+                                        case 'bodrum':
+                                        echo 'Bodrum Katı';
+                                        break;
+                                    
+                                    default:
+                                    echo $cek['ilan_BulunduguKat'];
+                                        break;
+                                }
+                                 ?></div>
 
                             </td>
                             <td>

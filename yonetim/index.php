@@ -176,8 +176,9 @@ break;
 
                                                 }
                                             
-                                                foreach ($db->query($sorgu) as $gelen)
+                                               foreach ($db->query($sorgu) as $gelen)
                                                 {
+                                                   
                                                 echo '<tr >';
                                                 echo  '<td>' . $gelen[0] . '</td>';
                                                 echo  '<td>' . $gelen[1] . '</td>';
