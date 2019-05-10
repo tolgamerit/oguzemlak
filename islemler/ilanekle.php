@@ -119,7 +119,7 @@ try
   <div class='container'>
   <div class='row'> 
   <div class='col-md-12'>   <div style='box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)' class=' alert success text-center rounded' role='alert'>
-  Düzenleme Başarılı!
+  İlan Eklendi!
   </div></div>
    </div>
    </div>
