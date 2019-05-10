@@ -167,7 +167,7 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
 
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">İlan Güncelleme</h4>
+                                    <h4 class="title">İlan Ekleme</h4>
                                 </div>
                                 <div class="content">
 
