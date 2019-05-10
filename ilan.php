@@ -355,7 +355,7 @@ if( $query1->rowCount() ){
             <div class="row">
             <div class="col-md-12 mx-auto">
             <p class="p-3 h5 text-center"> <strong>İlan Açıklaması</strong> </p>
-                <div class="p-3"><?php echo $cek['ilan_Aciklama']; ?></div>
+                <div class="p-3"><h3><?php echo $cek['ilan_Aciklama']; ?></h3></div>
           
        
             </div>

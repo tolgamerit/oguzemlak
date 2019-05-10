@@ -99,12 +99,12 @@ if($kayit)
   ";
 }
  
-//echo"   <meta http-equiv='refresh' content='0.85;URL=../yonetim'>  ";
+echo"   <meta http-equiv='refresh' content='0.85;URL=../yonetim'>  ";
  
 }
 catch (PDOException $e)
 {
-//echo"   <meta http-equiv='refresh' content='0.85;URL=home.php'>  ";
+echo"   <meta http-equiv='refresh' content='0.85;URL=home.php'>  ";
 
 }
 
