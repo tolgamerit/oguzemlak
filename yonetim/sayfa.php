@@ -87,6 +87,11 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                     <p>Çıkış</p>
                                 </a>
                             </li>
+                            <li>
+                                <a href="../anasayfa">
+                                    <p>Siteye Dön</p>
+                                </a>
+                            </li>
                             <li class="separator hidden-lg"></li>
                         </ul>
                     </div>
