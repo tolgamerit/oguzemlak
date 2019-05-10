@@ -4,10 +4,16 @@
 
 
     <ul class="nav">
-        <li class="<?php if ($filename == 'index.php') echo 'active'; ?>">
+    <li class="<?php if ($filename == 'index.php') echo 'active'; ?>">
             <a href="index.php">
 
                 <p>İlanlar</p>
+            </a>
+        </li>
+        <li class="<?php if ($filename == 'ilanekle.php') echo 'active'; ?>">
+            <a href="ilanekle.php">
+
+                <p>İlan Ekle</p>
             </a>
         </li>
         <li class="<?php if ($filename == 'mesaj.php') echo 'active'; ?>">
@@ -16,12 +22,17 @@
                 <p>Mesajlar</p>
             </a>
         </li>
+        <li class="<?php if ($filename == 'linkler.php') echo 'active'; ?>">
+                    <a href="linkler.php">
 
+                        <p>Site Ayarları</p>
+                    </a>
+                </li>
 
         <li>
             <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
                 <p>
-                    AYARLAR
+                    Sayfalar
                 </p>
             </a>
         </li>
@@ -35,12 +46,7 @@
                     </a>
                 </li>
 
-                <li class="<?php if ($filename == 'linkler.php') echo 'active'; ?>">
-                    <a href="linkler.php">
-
-                        <p>Site Ayarları</p>
-                    </a>
-                </li>
+               
             
         </div>
 
