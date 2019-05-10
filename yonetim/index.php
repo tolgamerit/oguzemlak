@@ -155,6 +155,7 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                             if ($sayfa > $toplamsayfa) $sayfa = $toplamsayfa;
                                             $limit = ($sayfa - 1) * $listelenen;
                                             $arama = "";
+                                           
                                             if (isset($_POST['ara'])) {
                                                 $arama = $_POST['ara'];
                                             }
@@ -175,7 +176,8 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
 break;
 
                                                 }
-                                            
+                                                if( $sayi >0)
+                                                   {
                                                foreach ($db->query($sorgu) as $gelen)
                                                 {
                                                    
@@ -318,7 +320,7 @@ onclick=" Swal.fire({
                                                 </td>
                                                 </tr>
 
-                                            <?php } ?>
+                                            <?php } }?>
 
                                             </tbody>
                                     </table>

@@ -200,7 +200,7 @@ if( $query1->rowCount() ){
                     <button class="btn  btn-info btn-round col-xl-6 mt-2"><?php ECHO number_format($cek['ilan_Fiyat'], 0
                 
                 , ',', '.'); ?><em class="fas fa-lira-sign ml-1"></em></button>
-            <a  class="btn btn-info btn-round col-xl-6 mt-2"  href="tel:05055555555"><em class="fa fa-phone mr-2"></em>0505 555 55 55</a>
+            <a  class="btn btn-info btn-round col-xl-6 mt-2"  href="tel:05055555555"><em class="fa fa-phone mr-2"></em><?php echo $query['telefon2']; ?></a>
                     </div>
                 </div>
 
