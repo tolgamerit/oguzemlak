@@ -45,7 +45,9 @@
   .dropdown-item:hover {
     background-color: #6ec7e0 !important;
   }
-
+  .nav-link,.dropdown-item,.ab{
+    font-size: 17px !important;
+}
   .navbar .navbar-collapse:after {
     background-color: #FFFFFF !important;
   }

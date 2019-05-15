@@ -18,9 +18,9 @@ include("assets/function.php");
   
   <link href="assets/css/bootstrap-toggle.min.css" rel="stylesheet">
   <link href="assets/css/site.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-</head>
+  
+  <link rel="stylesheet" href="assets/css/all.css">
+    <script src="assets/js/all.js" type="text/javascript"></script></head>
 
 <body>
 
@@ -111,11 +111,11 @@ include("assets/function.php");
          
 
             <div class="col-md-2 col-lg-2">
-<div class=" form-group ">
-  <select name="kategori" class="form-control" id="kategori">
-    <option value="arsa">Arsa</option>
-    <option value="isyeri">İşyeri</option>
-    <option value="konut">Konut</option>
+<div class=" form-group">
+  <select name="kategori" class="form-control secenek" id="kategori">
+    <option value="arsa" class="secenek">Arsa</option>
+    <option value="isyeri" class="secenek">İşyeri</option>
+    <option value="konut" class="secenek">Konut</option>
   </select>
 </div>
           </div>
@@ -292,7 +292,7 @@ include("assets/function.php");
   <!-- KATEGORİLER -->
 
 
-  <!-- FOOTER -->
+     <!-- FOOTER -->
   <div class="container-fluid fixed-row-bottom mt-3">
     <div class="row p-5 bg-info">
       <div class="col-md-12 ">

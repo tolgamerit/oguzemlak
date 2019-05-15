@@ -16,13 +16,8 @@ include("assets/config.php");
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="assets/css/paper-kit.css" rel="stylesheet" />
   <link href="assets/css/site.css" rel="stylesheet" />
- 
-  <!--     Fonts and icons     -->
-  <style>
-  
-  </style>
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/all.css">
+    <script src="assets/js/all.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -129,10 +124,10 @@ echo '<h4>'.$sayfagetir['SayfaIcerik'].'</h4>';
               <h4 class="card-title text-center"><strong>ARSA</strong></h4>
               <p class="card-text">
                 <div class="yayin-bilgi text-center">
-                  <span><button class="btn btn-outline-success btn-round">Kiralık</button>
-                  </span>
-                  <span><button class="btn btn-outline-success btn-round">Satılık</button>
-                  </span>
+                  <a class="btn btn-outline-success btn-round" href="kiralik-arsa">Kiralık</a>
+                  <a class="btn btn-outline-success btn-round" href="satilik-arsa">Satılık</a>
+
+
                 </div>
               </p>
             </div>
@@ -150,10 +145,9 @@ echo '<h4>'.$sayfagetir['SayfaIcerik'].'</h4>';
               <h4 class="card-title text-center"><strong>İŞYERİ</strong></h4>
               <p class="card-text">
                 <div class="yayin-bilgi text-center">
-                  <span><button class="btn btn-outline-success btn-round">Kiralık</button>
-                  </span>
-                  <span><button class="btn btn-outline-success btn-round">Satılık</button>
-                  </span>
+                  <a class="btn btn-outline-success btn-round" href="kiralik-isyeri">Kiralık</a>
+                  <a class="btn btn-outline-success btn-round" href="satilik-isyeri">Satılık</a>
+
                 </div>
               </p>
             </div>
@@ -173,10 +167,9 @@ echo '<h4>'.$sayfagetir['SayfaIcerik'].'</h4>';
               <h4 class="card-title text-center"><strong>KONUT</strong></h4>
               <p class="card-text">
                 <div class="yayin-bilgi text-center">
-                  <span><button class="btn btn-outline-success btn-round">Kiralık</button>
-                  </span>
-                  <span><button class="btn btn-outline-success btn-round">Satılık</button>
-                  </span>
+                  <a class="btn btn-outline-success btn-round" href="kiralik-konut">Kiralık</a>
+                  <a class="btn btn-outline-success btn-round" href="satilik-konut">Satılık</a>
+
                 </div>
               </p>
             </div>

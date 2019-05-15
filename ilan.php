@@ -1,6 +1,6 @@
 <?php
-define("include",true); 
-include("assets/config.php"); 
+define("include", true);
+include("assets/config.php");
 ?>
 <!doctype html>
 <html lang="tr">
@@ -9,28 +9,22 @@ include("assets/config.php");
     <title>Oğuz Emlak</title>
     <meta charset="utf-8">
 
-  <meta name="theme-color" content="#6ec7e0">
+    <meta name="theme-color" content="#6ec7e0">
 
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="assets/css/paper-kit.css" rel="stylesheet" />
-    <link href="assets/css/ekko-lightbox.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/flickity.css">
     <link href="assets/css/site.css" rel="stylesheet" />
+    <script src="assets/js/smartphoto.min.js"></script>
+    <link rel="stylesheet" href="assets/css/smartphoto.min.css">
+    <link rel="stylesheet" href="assets/css/all.css">
+    <script src="assets/js/all.js" type="text/javascript"></script>
 
+<style>
 
-    <!--     Fonts and icons     -->
-    <style>
-   
-       
-  
-    
-   
-    </style>
-    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</style>
 </head>
 
 <body>
@@ -73,15 +67,16 @@ include("assets/config.php");
                     <li class="nav-item">
                         <a class="nav-link text-dark" href="iletisim">İletişim</a>
                     </li>
+                   
                     <li class="nav-item">
-            <a class="nav-link text-dark" target="_blank" href="//<?php echo $query['sosyal_Facebook']; ?>"><i class="fab fa-facebook" aria-hidden="true"></i></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-dark" target="_blank" href="//<?php echo $query['sosyal_Twitter']; ?>"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-dark" target="_blank" href="//<?php echo $query['sosyal_Instagram']; ?>"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-          </li>
+                        <a class="nav-link text-dark" target="_blank" href="//<?php echo $query['sosyal_Facebook']; ?>"><em class="fab fa-facebook  text-dark ml-1"></em></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" target="_blank" href="//<?php echo $query['sosyal_Twitter']; ?>"><em class="fab fa-twitter text-dark ml-1" aria-hidden="true"></em></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" target="_blank" href="//<?php echo $query['sosyal_Instagram']; ?>"><em class="fab fa-instagram text-dark ml-1"></em></a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -90,47 +85,49 @@ include("assets/config.php");
 
     <!--İLAN-->
 
-<?php
+    <?php
 
-$id =$_GET['id']; 
-$query1 = $db->prepare("SELECT * FROM tbl_ilan WHERE ilan_numarasi = :id");
- 
-$query1->execute(array( ":id" => $id ));
- 
-if( $query1->rowCount() ){
-    foreach( $query1 as $cek ){
-     $link= strtolower(str_replace('ı','i',$cek['ilan_Durum']."-".$cek['ilan_Kategori']));
-?>
-    <div class="container">
-        <h3 class="p-3"> <strong><?php echo $cek['ilan_Adi']; ?></strong> </h3>
-        <nav id="hrt" aria-label="breadcrumb " role="navigation">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="anasayfa"> <strong>Anasayfa </strong></a></li>
-                <li class="breadcrumb-item active" aria-current="page"><strong><?php  if($cek['ilan_Durum']=="satilik")echo "Satılık"; else echo "Kiralık"; ?></strong></li>
-               
-                   <li class="breadcrumb-item "><a href="<?php echo $link;?>
-                   "><strong>
-                       <?php 
-                   if($cek['ilan_Kategori']=="konut")
-                   echo "Konut";
-                   elseif($cek['ilan_Kategori']=="isyeri")
-                   echo "İşyeri"; 
-                   elseif($cek['ilan_Kategori']=="arsa")
-                    echo "Arsa"; 
-                    ?>
-                    </strong></a></li>
-              
-              
-            </ol>
-        </nav>
+    $id = $_GET['id'];
+    $query1 = $db->prepare("SELECT * FROM tbl_ilan WHERE ilan_numarasi = :id");
 
-        <div class="row">
+    $query1->execute(array(":id" => $id));
 
-            <div class="col-lg-6 col-md-6 col-sm-6">
+    if ($query1->rowCount()) {
+        foreach ($query1 as $cek) {
+            $link = strtolower(str_replace('ı', 'i', $cek['ilan_Durum'] . "-" . $cek['ilan_Kategori']));
+            ?>
+            <div class="container">
+                <h3 class="p-3"> <strong><?php echo $cek['ilan_Adi']; ?></strong> </h3>
+                <nav id="hrt" aria-label="breadcrumb " role="navigation">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="anasayfa"> <strong>Anasayfa </strong></a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><strong><?php if ($cek['ilan_Durum'] == "satilik") echo "Satılık";
+                                                                                        else echo "Kiralık"; ?></strong></li>
 
-                <div class="card rsm1 rounded">
+                        <li class="breadcrumb-item "><a href="<?php echo $link; ?>
+                           "><strong>
+                                    <?php
+                                    if ($cek['ilan_Kategori'] == "konut")
+                                        echo "Konut";
+                                    elseif ($cek['ilan_Kategori'] == "isyeri")
+                                        echo "İşyeri";
+                                    elseif ($cek['ilan_Kategori'] == "arsa")
+                                        echo "Arsa";
+                                    ?>
+                                </strong></a></li>
 
-                    <div class="card-body">
+
+                    </ol>
+                </nav>
+
+                <div class="row">
+
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+
+                        <div class="card rsm1 rounded">
+
+                            <div class="card-body">
+                            
                         <div class="carousel mb-3" data-flickity='{ "autoPlay": true }'>
 
                           <?php
@@ -145,281 +142,291 @@ if( $query1->rowCount() ){
                          
                         </div>
                     </div>
-                    <div class="card-footer row p-4">
-                    <button class="btn  btn-info btn-round col-xl-6 mt-2"><?php ECHO number_format($cek['ilan_Fiyat'], 0
-                
-                , ',', '.'); ?><em class="fas fa-lira-sign ml-1"></em></button>
-            <a  class="btn btn-info btn-round col-xl-6 mt-2"  href="tel:05055555555"><em class="fa fa-phone mr-2"></em><?php echo $query['telefon2']; ?></a>
+                            <div class="card-footer row p-4">
+                                <button class="btn  btn-info btn-round col-xl-6 mt-2"><span class="ab"><?php echo number_format(
+                                                                                            $cek['ilan_Fiyat'],
+                                                                                            0,
+                                                                                            ',',
+                                                                                            '.'
+                                                                                        ); ?></span><em class="fas fa-lira-sign ml-1"></em></button>
+                                <a class="btn btn-info btn-round col-xl-6 mt-2" href="tel:05055555555"><em class="fa fa-phone mr-2"></em><span class="ab"><?php echo $query['telefon2']; ?></span></a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 ">
+
+                        <p class="h5"> <strong>İlan Özellikleri</strong> </p>
+                        <div class="table-responsive border-0 text-left" style="overflow: hidden;">
+
+                            <table class="table border-0">
+
+                                <tbody class="lead">
+
+                                    <tr>
+                                        <td>
+                                            <div><strong>İlan Numarası:</strong></div>
+                                            <div><?php echo $cek['ilan_numarasi']; ?></div>
+
+                                        </td>
+
+                                        <td>
+                                            <div><strong>Yayın Tarihi:</strong></div>
+                                            <div><?php echo $cek['ilan_YayinTarihi']; ?></div>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div><strong>Metrekare M²:</strong></div>
+                                            <div><?php echo $cek['ilan_Metrekare']; ?></div>
+
+                                        </td>
+                                        <td>
+                                            <div><strong>Oda Sayısı:</strong></div>
+                                            <div><?php echo $cek['ilan_OdaSayisi']; ?></div>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div><strong>Bulunduğu Kat:</strong></div>
+
+                                            <div><?php
+
+                                                    switch ($cek['ilan_BulunduguKat']) {
+                                                        case 'yuksekgiris':
+                                                            echo 'Yüksek Giriş';
+                                                            break;
+                                                        case 'giris':
+                                                            echo 'Giriş Katı';
+                                                            break;
+                                                        case 'bahce':
+                                                            echo 'Bahçe Katı';
+                                                            break;
+                                                        case 'zemin':
+                                                            echo 'Zemin Katı';
+                                                            break;
+                                                        case 'bodrum':
+                                                            echo 'Bodrum Katı';
+                                                            break;
+
+                                                        default:
+                                                            echo $cek['ilan_BulunduguKat'];
+                                                            break;
+                                                    }
+                                                    ?></div>
+
+                                        </td>
+                                        <td>
+                                            <div><strong>Kat Sayısı:</strong></div>
+                                            <div><?php echo $cek['ilan_KatSayisi']; ?></div>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div><strong>Bina Yaşı:</strong></div>
+                                            <div><?php echo $cek['ilan_BinaYasi']; ?></div>
+
+                                        </td>
+                                        <td>
+                                            <div><strong>Isıtma:</strong></div>
+                                            <div><?php echo $cek['ilan_Isitma']; ?></div>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div><strong>Kullanım Durumu:</strong></div>
+                                            <div><?php if ($cek['ilan_KullanimDurumu'] == "bos") echo 'Boş';
+                                                    else echo 'Dolu'; ?></div>
+
+                                        </td>
+                                        <td>
+                                            <div><strong>Eşyalı:</strong></div>
+                                            <div><?php if ($cek['ilan_Esyali'] == "evet") echo 'Evet';
+                                                    else echo 'Hayır'; ?></div>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div><strong>Cephe: </strong></div>
+                                            <div><?php
+                                                    switch ($cek['ilan_Cephe']) {
+                                                        case 'dogu':
+                                                            echo 'Doğu';
+                                                            break;
+                                                        case 'bati':
+                                                            echo 'Batı';
+                                                            break;
+                                                        case 'kuzey':
+                                                            echo 'Kuzey';
+                                                            break;
+                                                        case 'guney':
+                                                            echo 'Güney';
+                                                            break;
+                                                    }
+                                                    ?></div>
+                                        </td>
+                                        <td>
+                                            <div><strong>Kredi Uygunluk:</strong></div>
+                                            <div><?php if ($cek['ilan_KrediUygunluk'] == "evet") echo 'Evet';
+                                                    else echo 'Hayır'; ?></div>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div><strong>Site İçerisinde:</strong></div>
+                                            <div><?php if ($cek['ilan_SiteIcerisinde'] == "evet") echo 'Evet';
+                                                    else echo 'Hayır'; ?></div>
+
+                                        </td>
+                                        <td>
+                                            <div><strong>Aidat:</strong></div>
+                                            <div><?php echo $cek['ilan_Aidat'] ?> <span class=" text-secondary fas fa-lira-sign fa-xs"></span></div>
+
+                                        </td>
+                                    </tr>
+
+
+
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
 
+
+
+                <!-- İLAN ÖZELLİK -->
+
+                <div class="container-fluid mt-5">
+                <div class="row d-flex justify-content-center">
+                <!-- İLAN KONUM -->
+                <div class="col-md-8">
+                    <p class="text-center h5 "> <strong>İlan Konumu</strong> </p>
+
+
+
+                    <div class="map-responsive rounded">
+                        <?php echo $cek['ilan_Harita']; ?>
+                    </div>
+                </div>
+                <!-- İLAN KONUM -->
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 ">
+                    <div class="row mt-5">
+                        <div class="col-md-12 mx-auto">
+                            <p class="p-3 h5 text-center"> <strong>İlan Açıklaması</strong> </p>
+                            <div class="p-3">
+                                <h3><?php echo $cek['ilan_Aciklama']; ?></h3>
+                            </div>
+
+
+                        </div>
+
+
+
+
+
+
+
+
+
+
+                    </div>
+
+
+                </div>
+                <!-- İLAN ÖZELLİK -->
+
+
+
+            </div>
+
+            <!-- İLAN-->
            
-                <p class="h5"> <strong>İlan Özellikleri</strong> </p>
-                <div class="table-responsive border-0 text-left" style="overflow: hidden;">
-         
-                <table class="table border-0">
 
-                    <tbody class="lead">
 
-                        <tr>
-                            <td>
-                                <div><strong>İlan Numarası:</strong></div>
-                                <div><?php echo $cek['ilan_numarasi']; ?></div>
+        <?php }
+} ?>
 
-                            </td>
 
-                            <td>
-                                <div><strong>Yayın Tarihi:</strong></div>
-                                <div><?php echo $cek['ilan_YayinTarihi']; ?></div>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div><strong>Metrekare M²:</strong></div>
-                                <div><?php echo $cek['ilan_Metrekare']; ?></div>
-
-                            </td>
-                            <td>
-                                <div><strong>Oda Sayısı:</strong></div>
-                                <div><?php echo $cek['ilan_OdaSayisi']; ?></div>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div><strong>Bulunduğu Kat:</strong></div>
-                            
-                                <div><?php 
-                            
-                                switch ($cek['ilan_BulunduguKat']) {
-                                    case 'yuksekgiris':
-                                      echo 'Yüksek Giriş';
-                                        break;
-                                        case 'giris':
-                                        echo 'Giriş Katı';
-                                        break;
-                                        case 'bahce':
-                                        echo 'Bahçe Katı';
-                                        break;
-                                        case 'zemin':
-                                        echo 'Zemin Katı';
-                                        break;
-                                        case 'bodrum':
-                                        echo 'Bodrum Katı';
-                                        break;
-                                    
-                                    default:
-                                    echo $cek['ilan_BulunduguKat'];
-                                        break;
-                                }
-                                 ?></div>
-
-                            </td>
-                            <td>
-                                <div><strong>Kat Sayısı:</strong></div>
-                                <div><?php echo $cek['ilan_KatSayisi']; ?></div>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div><strong>Bina Yaşı:</strong></div>
-                                <div><?php echo $cek['ilan_BinaYasi']; ?></div>
-
-                            </td>
-                            <td>
-                                <div><strong>Isıtma:</strong></div>
-                                <div><?php echo $cek['ilan_Isitma']; ?></div>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div><strong>Kullanım Durumu:</strong></div>
-                                <div><?php if($cek['ilan_KullanimDurumu']=="bos") echo 'Boş'; else echo 'Dolu'; ?></div>
-
-                            </td>
-                            <td>
-                                <div><strong>Eşyalı:</strong></div>
-                                <div><?php if($cek['ilan_Esyali']=="evet") echo 'Evet'; else echo 'Hayır'; ?></div>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            <div><strong>Cephe: </strong></div>
-                                <div><?php 
-                                switch ($cek['ilan_Cephe']) {
-                                    case 'dogu':
-                                        echo 'Doğu';
-                                        break;
-                                        case 'bati':
-                                        echo 'Batı';
-                                        break;
-                                        case 'kuzey':
-                                        echo 'Kuzey';
-                                        break;
-                                        case 'guney':
-                                        echo 'Güney';
-                                        break;
-                                    
-                                    
-                                }
-                                ?></div>
-                            </td>
-                            <td>
-                                <div><strong>Kredi Uygunluk:</strong></div>
-                                <div><?php if($cek['ilan_KrediUygunluk']=="evet") echo 'Evet'; else echo 'Hayır'; ?></div>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div><strong>Site İçerisinde:</strong></div>
-                                <div><?php if($cek['ilan_SiteIcerisinde']=="evet") echo 'Evet'; else echo 'Hayır'; ?></div>
-
-                            </td>
-                            <td>
-                                <div><strong>Aidat:</strong></div>
-                                <div><?php echo $cek['ilan_Aidat'] ?> <span class=" text-secondary fas fa-lira-sign fa-xs"></span></div>
-
-                            </td>
-                        </tr>
-                       
-                     
-
-                    </tbody>
-                </table>
-            </div>
-            </div>
+    <!-- KATEGORİLER -->
+    <div class="container-fluid">
+        <div class="border-bottom mb-3">
+            <p class="h3"><strong>Kategoriler</strong></p>
         </div>
-
-    
-
-        <!-- İLAN ÖZELLİK -->
-        <div class="container-fluid mt-5">
+        <div style="background-color: rgba(233, 234, 234, 0.22);">
             <div class="row">
-            <div class="col-md-12 mx-auto">
-            <p class="p-3 h5 text-center"> <strong>İlan Açıklaması</strong> </p>
-                <div class="p-3"><h3><?php echo $cek['ilan_Aciklama']; ?></h3></div>
-          
-       
-            </div>
-
-              
-
-
-
-           
-       
-
+                <!-- ARSA -->
+                <div class="col-md-4 ">
+                    <div class="card">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/arsa.jpg" />
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title text-center"><strong>ARSA</strong></h4>
+                            <p class="card-text">
+                                <div class="yayin-bilgi text-center">
+                                    <a class="btn btn-outline-success btn-round" href="kiralik-arsa">Kiralık</a>
+                                    <a class="btn btn-outline-success btn-round" href="satilik-arsa">Satılık</a>
 
 
-            </div>
-           
-           
-        </div>
-        <!-- İLAN ÖZELLİK -->
+                                </div>
+                            </p>
+                        </div>
+                    </div>
 
-      
-      
-    </div>
-
-    <!-- İLAN-->
-    <div class="row d-flex justify-content-center mt-2">
-            <!-- İLAN KONUM -->
-          <div class="col-md-6">
-          <p class="text-center h5 mb-5"> <strong>İlan Konumu</strong> </p>
-       
-
-
-          <div class="map-responsive rounded" >
-       <?php echo $cek['ilan_Harita']; ?>
-   </div>
-          </div>
-    <!-- İLAN KONUM -->
-        </div>
-
-
-       <?php }}?>
-
-
-  <!-- KATEGORİLER -->
-  <div class="container-fluid">
-    <div class="border-bottom mb-3">
-      <p class="h3"><strong>Kategoriler</strong></p>
-    </div>
-    <div style="background-color: rgba(233, 234, 234, 0.22);">
-      <div class="row">
-        <!-- ARSA -->
-        <div class="col-md-4 ">
-          <div class="card">
-            <div class="embed-responsive embed-responsive-16by9">
-              <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/arsa.jpg" />
-            </div>
-            <div class="card-body">
-              <h4 class="card-title text-center"><strong>ARSA</strong></h4>
-              <p class="card-text">
-                <div class="yayin-bilgi text-center">
-                  <a class="btn btn-outline-success btn-round" href="kiralik-arsa">Kiralık</a>
-                  <a class="btn btn-outline-success btn-round" href="satilik-arsa">Satılık</a>
-                  
-                 
                 </div>
-              </p>
-            </div>
-          </div>
+                <!-- ARSA -->
+                <!-- İŞ YERİ -->
+                <div class="col-md-4 ">
+                    <div class="card">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/ofis.jpg" />
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title text-center"><strong>İŞYERİ</strong></h4>
+                            <p class="card-text">
+                                <div class="yayin-bilgi text-center">
+                                    <a class="btn btn-outline-success btn-round" href="kiralik-isyeri">Kiralık</a>
+                                    <a class="btn btn-outline-success btn-round" href="satilik-isyeri">Satılık</a>
 
-        </div>
-        <!-- ARSA -->
-        <!-- İŞ YERİ -->
-        <div class="col-md-4 ">
-          <div class="card">
-            <div class="embed-responsive embed-responsive-16by9">
-              <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/ofis.jpg" />
-            </div>
-            <div class="card-body">
-              <h4 class="card-title text-center"><strong>İŞYERİ</strong></h4>
-              <p class="card-text">
-                <div class="yayin-bilgi text-center">
-                <a class="btn btn-outline-success btn-round" href="kiralik-isyeri">Kiralık</a>
-                  <a class="btn btn-outline-success btn-round" href="satilik-isyeri">Satılık</a>
-                  
+                                </div>
+                            </p>
+                        </div>
+                    </div>
+
                 </div>
-              </p>
-            </div>
-          </div>
+                <!-- İŞ YERİ -->
+                <!-- KONUT -->
+                <div class="col-md-4 ">
+                    <div class="card">
 
-        </div>
-        <!-- İŞ YERİ -->
-        <!-- KONUT -->
-        <div class="col-md-4 ">
-          <div class="card">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/konut.jpg" />
+                        </div>
 
-            <div class="embed-responsive embed-responsive-16by9">
-              <img alt="Card image cap" class="card-img-top embed-responsive-item" src="assets/img/konut.jpg" />
-            </div>
+                        <div class="card-body">
+                            <h4 class="card-title text-center"><strong>KONUT</strong></h4>
+                            <p class="card-text">
+                                <div class="yayin-bilgi text-center">
+                                    <a class="btn btn-outline-success btn-round" href="kiralik-konut">Kiralık</a>
+                                    <a class="btn btn-outline-success btn-round" href="satilik-konut">Satılık</a>
 
-            <div class="card-body">
-              <h4 class="card-title text-center"><strong>KONUT</strong></h4>
-              <p class="card-text">
-                <div class="yayin-bilgi text-center">
-                <a class="btn btn-outline-success btn-round" href="kiralik-konut">Kiralık</a>
-                  <a class="btn btn-outline-success btn-round" href="satilik-konut">Satılık</a>
-                  
+                                </div>
+                            </p>
+                        </div>
+                    </div>
                 </div>
-              </p>
+                <!-- KONUT -->
             </div>
-          </div>
         </div>
-        <!-- KONUT -->
-      </div>
     </div>
-  </div>
-  <!-- KATEGORİLER -->
+    <!-- KATEGORİLER -->
     <!-- FOOTER -->
     <div class="container-fluid fixed-row-bottom mt-5">
         <div class="row p-5 bg-info">
@@ -434,7 +441,8 @@ if( $query1->rowCount() ){
                                         <strong class="text-white ">Gayrimenkul Kategorileri</strong>
                                         <li><a class="text-white" href="kiralik-konut">Konut</a></li>
                                         <li><a class="text-white" href="kiralik-isyeri">İşyeri</a></li>
-                                        <li><a class="text-white" href="kiralik-arsa">Arsa</a><li>
+                                        <li><a class="text-white" href="kiralik-arsa">Arsa</a>
+                                        <li>
                                     </div>
                                 </ul>
                             </div>
@@ -454,13 +462,13 @@ if( $query1->rowCount() ){
                     </div>
 
                     <div class="col-md-6">
-                    <div class="float-right">
+                        <div class="float-right">
 
-<a target="_blank" href="//<?php echo $query['sosyal_Facebook']; ?>"><em class="fab fa-facebook fa-2x text-white ml-3"></em></a>
-<a target="_blank" href="//<?php echo $query['sosyal_Twitter']; ?>"><em class="fab fa-twitter fa-2x text-white ml-3" aria-hidden="true"></em></a>
-<a target="_blank" href="//<?php echo $query['sosyal_Instagram']; ?>"><em class="fab fa-instagram fa-2x text-white ml-3" aria-hidden="true"></em></a>
-<p class="text-white h5 mt-4"><em class="fa fa-phone mr-3 mt-2"></em><?php echo $query['telefon1']; ?></p>
-</div>
+                            <a target="_blank" href="//<?php echo $query['sosyal_Facebook']; ?>"><em class="fab fa-facebook fa-2x text-white ml-3"></em></a>
+                            <a target="_blank" href="//<?php echo $query['sosyal_Twitter']; ?>"><em class="fab fa-twitter fa-2x text-white ml-3" aria-hidden="true"></em></a>
+                            <a target="_blank" href="//<?php echo $query['sosyal_Instagram']; ?>"><em class="fab fa-instagram fa-2x text-white ml-3" aria-hidden="true"></em></a>
+                            <p class="text-white h5 mt-4"><em class="fa fa-phone mr-3 mt-2"></em><?php echo $query['telefon1']; ?></p>
+                        </div>
 
                     </div>
 
@@ -478,7 +486,10 @@ if( $query1->rowCount() ){
     <!-- FOOTER -->
 
 
-
+<script>
+window.addEventListener('DOMContentLoaded',function(){
+    new SmartPhoto(".js-smartPhoto");
+});</script>
 
 </body>
 <!-- PAPER-UI VE EKLENTILER -->
@@ -486,21 +497,11 @@ if( $query1->rowCount() ){
 <script src="assets/js/popper.min.js" type="text/javascript"></script>
 <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
 
-
 <script src="assets/js/moment.min.js"></script>
 
 <script src="assets/js/paper-kit.js"></script>
-<script src="assets/js/ekko-lightbox.js"></script>
-<script src="assets/js/ekko-lightbox.min.js"></script>
+<script src="assets/js/flickity.pkgd.min.js"></script>
 
-<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-
-<script>
-    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
-        event.preventDefault();
-        $(this).ekkoLightbox();
-    });
-</script>
 <!-- PAPER-UI VE EKLENTILER -->
 
 </html>
