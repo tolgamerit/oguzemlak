@@ -21,10 +21,11 @@ include("assets/config.php");
     <link rel="stylesheet" href="assets/css/smartphoto.min.css">
     <link rel="stylesheet" href="assets/css/all.css">
     <script src="assets/js/all.js" type="text/javascript"></script>
+    <link href="assets/css/ekko-lightbox.css" rel="stylesheet" />
 
-<style>
+    <style>
 
-</style>
+    </style>
 </head>
 
 <body>
@@ -67,7 +68,7 @@ include("assets/config.php");
                     <li class="nav-item">
                         <a class="nav-link text-dark" href="iletisim">İletişim</a>
                     </li>
-                   
+
                     <li class="nav-item">
                         <a class="nav-link text-dark" target="_blank" href="//<?php echo $query['sosyal_Facebook']; ?>"><em class="fab fa-facebook  text-dark ml-1"></em></a>
                     </li>
@@ -105,7 +106,7 @@ include("assets/config.php");
                                                                                         else echo "Kiralık"; ?></strong></li>
 
                         <li class="breadcrumb-item "><a href="<?php echo $link; ?>
-                           "><strong>
+                                   "><strong>
                                     <?php
                                     if ($cek['ilan_Kategori'] == "konut")
                                         echo "Konut";
@@ -127,29 +128,27 @@ include("assets/config.php");
                         <div class="card rsm1 rounded">
 
                             <div class="card-body">
-                            
-                        <div class="carousel mb-3" data-flickity='{ "autoPlay": true }'>
+                                <div class="carousel mb-3" data-flickity='{ "autoPlay": true }'>
 
-                          <?php
-                         
-                          for ($i=20; $i <=29; $i++) 
-                          { 
-                            if($cek[$i]!=NULL)
-                            { 
-                                ?> 
-                                <img data-toggle="lightbox" data-gallery="example-gallery" href="<?php echo $cek[$i]; ?>" src="<?php echo $cek[$i]; ?>" class="carousel-cell-image rounded">
-                            <?php }}?>         
-                         
-                        </div>
-                    </div>
+                                    <?php
+
+                                    for ($i = 20; $i <= 29; $i++) {
+                                        if ($cek[$i] != NULL) {
+                                            ?>
+                                            <img data-toggle="lightbox" data-gallery="example-gallery" href="<?php echo $cek[$i]; ?>" src="<?php echo $cek[$i]; ?>" class="carousel-cell-image rounded">
+                                        <?php }
+                                } ?>
+
+                                </div>
+                            </div>
                             <div class="card-footer row p-4">
-                                <button class="btn  btn-info btn-round col-xl-6 mt-2"><span class="ab"><?php echo number_format(
+                                <button class="btn  btn-info btn-round col-xl-6 mt-2 ab"><?php echo number_format(
                                                                                             $cek['ilan_Fiyat'],
                                                                                             0,
                                                                                             ',',
                                                                                             '.'
-                                                                                        ); ?></span><em class="fas fa-lira-sign ml-1"></em></button>
-                                <a class="btn btn-info btn-round col-xl-6 mt-2" href="tel:05055555555"><em class="fa fa-phone mr-2"></em><span class="ab"><?php echo $query['telefon2']; ?></span></a>
+                                                                                        ); ?><em class="fas fa-lira-sign ml-1"></em></button>
+                                <a class="btn btn-info btn-round col-xl-6 mt-2 ab" href="tel:05055555555"><em class="fa fa-phone mr-2"></em>0505 555 55 55</a>
                             </div>
                         </div>
 
@@ -299,57 +298,39 @@ include("assets/config.php");
                     </div>
                 </div>
 
+            </div>
 
+            <!-- İLAN ÖZELLİK -->
 
-                <!-- İLAN ÖZELLİK -->
-
-                <div class="container-fluid mt-5">
+            <div class="container-fluid mt-5">
+                 <!-- İLAN KONUM -->
                 <div class="row d-flex justify-content-center">
-                <!-- İLAN KONUM -->
-                <div class="col-md-8">
-                    <p class="text-center h5 "> <strong>İlan Konumu</strong> </p>
+                   
+                    <div class="col-md-5">
+                        <p class="text-center h5 "> <strong>İlan Konumu</strong> </p>
 
 
 
-                    <div class="map-responsive rounded">
-                        <?php echo $cek['ilan_Harita']; ?>
-                    </div>
-                </div>
-                <!-- İLAN KONUM -->
-            </div>
-                    <div class="row mt-5">
-                        <div class="col-md-12 mx-auto">
-                            <p class="p-3 h5 text-center"> <strong>İlan Açıklaması</strong> </p>
-                            <div class="p-3">
-                                <h3><?php echo $cek['ilan_Aciklama']; ?></h3>
-                            </div>
-
-
+                        <div class="map-responsive rounded">
+                            <?php echo $cek['ilan_Harita']; ?>
                         </div>
-
-
-
-
-
-
-
-
-
-
                     </div>
-
-
+                  
                 </div>
-                <!-- İLAN ÖZELLİK -->
-
-
-
+                  <!-- İLAN KONUM -->
+                <div class="row mt-5">
+                    <div class="col-md-12 mx-auto">
+                        <p class="h5 text-center"> <strong>İlan Açıklaması</strong> </p>
+                        <div class="p-3">
+                            <h3><?php echo $cek['ilan_Aciklama']; ?></h3>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
-
+            <!-- İLAN ÖZELLİK -->
+            </div>
             <!-- İLAN-->
-           
-
-
         <?php }
 } ?>
 
@@ -486,10 +467,6 @@ include("assets/config.php");
     <!-- FOOTER -->
 
 
-<script>
-window.addEventListener('DOMContentLoaded',function(){
-    new SmartPhoto(".js-smartPhoto");
-});</script>
 
 </body>
 <!-- PAPER-UI VE EKLENTILER -->
@@ -500,8 +477,15 @@ window.addEventListener('DOMContentLoaded',function(){
 <script src="assets/js/moment.min.js"></script>
 
 <script src="assets/js/paper-kit.js"></script>
+<script src="assets/js/ekko-lightbox.js"></script>
+<script src="assets/js/ekko-lightbox.min.js"></script>
 <script src="assets/js/flickity.pkgd.min.js"></script>
-
+<script>
+    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox();
+    });
+</script>
 <!-- PAPER-UI VE EKLENTILER -->
 
 </html>
