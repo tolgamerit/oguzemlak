@@ -163,8 +163,8 @@ include("assets/function.php");
 
             <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
             <div class="yayin-bilgi mt-2">
-              <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-              <span class="float-right text-muted text-danger"><strong><?php
+              <span class="float-left"><strong class="ab">İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
+              <span class="float-right text-muted text-danger"><strong class="ab"><?php
                                                                         echo number_format(
                                                                           $gelen['ilan_Fiyat'],
                                                                           0,
@@ -177,11 +177,11 @@ include("assets/function.php");
           </div>
           <div class="card-footer ">
             <div class="row">
-              <span class="col-12 h6 text-muted text-left"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+              <span class="col-12 h6 text-muted text-left ab"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
 
             </div>
             <div class="row ">
-              <span class="col-12 h6 text-muted text-left"><i class="fas fa-calendar ml-1 mr-1"> </i><?php echo $gelen['ilan_YayinTarihi']; ?></span>
+              <span class="col-12 h6 text-muted text-left ab"><i class="fas fa-calendar ml-1 mr-1"> </i><?php echo $gelen['ilan_YayinTarihi']; ?></span>
 
             </div>
           </div>
@@ -213,8 +213,8 @@ include("assets/function.php");
 
             <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
             <div class="yayin-bilgi mt-2">
-              <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-              <span class="float-right text-muted text-danger"><strong><?php
+              <span class="float-left"><strong class="ab">İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
+              <span class="float-right text-muted text-danger"><strong class="ab"><?php
                                                                         echo number_format(
                                                                           $gelen['ilan_Fiyat'],
                                                                           0,
@@ -227,11 +227,11 @@ include("assets/function.php");
           </div>
           <div class="card-footer ">
             <div class="row">
-              <span class="col-12 h6 text-muted text-left"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+              <span class="col-12 h6 text-muted text-left ab"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
 
             </div>
             <div class="row ">
-              <span class="col-12 h6 text-muted text-left"><i class="fas fa-calendar ml-1 mr-1"> </i><?php echo $gelen['ilan_YayinTarihi']; ?></span>
+              <span class="col-12 h6 text-muted text-left ab"><i class="fas fa-calendar ml-1 mr-1"> </i><?php echo $gelen['ilan_YayinTarihi']; ?></span>
 
             </div>
           </div>
@@ -263,8 +263,8 @@ include("assets/function.php");
 
             <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
             <div class="yayin-bilgi mt-2">
-              <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-              <span class="float-right text-muted text-danger"><strong><?php
+              <span class="float-left"><strong class="ab">İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
+              <span class="float-right text-muted text-danger"><strong class="ab"><?php
                                                                         echo number_format(
                                                                           $gelen['ilan_Fiyat'],
                                                                           0,
@@ -277,11 +277,11 @@ include("assets/function.php");
           </div>
           <div class="card-footer ">
             <div class="row">
-              <span class="col-12 h6 text-muted text-left"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+              <span class="col-12 h6 text-muted text-left ab"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
 
             </div>
             <div class="row ">
-              <span class="col-12 h6 text-muted text-left"><i class="fas fa-calendar ml-1 mr-1"> </i><?php echo $gelen['ilan_YayinTarihi']; ?></span>
+              <span class="col-12 h6 text-muted text-left ab"><i class="fas fa-calendar ml-1 mr-1"> </i><?php echo $gelen['ilan_YayinTarihi']; ?></span>
 
             </div>
           </div>
@@ -313,8 +313,8 @@ include("assets/function.php");
 
             <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
             <div class="yayin-bilgi mt-2">
-              <span class="float-left"><strong>İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-              <span class="float-right text-muted text-danger"><strong><?php
+              <span class="float-left"><strong class="ab">İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
+              <span class="float-right text-muted text-danger"><strong class="ab"><?php
                                                                         echo number_format(
                                                                           $gelen['ilan_Fiyat'],
                                                                           0,
@@ -327,11 +327,11 @@ include("assets/function.php");
           </div>
           <div class="card-footer ">
             <div class="row">
-              <span class="col-12 h6 text-muted text-left"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
+              <span class="col-12 h6 text-muted text-left ab"><em class="fa fa-map-marker"></em><?php echo $gelen['ilan_Konum']; ?></span>
 
             </div>
             <div class="row ">
-              <span class="col-12 h6 text-muted text-left"><i class="fas fa-calendar ml-1 mr-1"> </i><?php echo $gelen['ilan_YayinTarihi']; ?></span>
+              <span class="col-12 h6 text-muted text-left ab"><i class="fas fa-calendar ml-1 mr-1"> </i><?php echo $gelen['ilan_YayinTarihi']; ?></span>
 
             </div>
           </div>
