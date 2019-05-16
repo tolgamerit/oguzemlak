@@ -21,15 +21,73 @@ include("assets/config.php");
     <link rel="stylesheet" href="assets/css/smartphoto.min.css">
     <link rel="stylesheet" href="assets/css/all.css">
     <script src="assets/js/all.js" type="text/javascript"></script>
-    <link href="assets/css/ekko-lightbox.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/photoswipe.css"> 
 
-    <style>
+<link rel="stylesheet" href="assets/css/default-skin/default-skin.css"> 
+<script src="assets/js/photoswipe.min.js"></script> 
 
-    </style>
+<!-- UI JS file -->
+<script src="assets/js/photoswipe-ui-default.min.js"></script> 
+
+<style>
+.my-gallery {
+  width: 100%;
+  float: left;
+}
+.my-gallery img {
+  width: 100%;
+  height: auto;
+}
+.my-gallery figure {
+  display: block;
+  float: left;
+  margin: 0 5px 5px 0;
+  width: 550px;
+}
+.my-gallery figcaption {
+  display: none;
+}</style>
 </head>
 
 <body>
-
+    <!-- SLIDER MODÜLÜ -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+      <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+<div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">           
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+          </div>
+        </div>
+</div>
+  <!-- SLIDER MODÜLÜ -->
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg bg-info">
         <div class="container ">
@@ -125,32 +183,36 @@ include("assets/config.php");
 
                     <div class="col-lg-6 col-md-6 col-sm-6">
 
-                        <div class="card rsm1 rounded">
-
-                            <div class="card-body">
-                                <div class="carousel mb-3" data-flickity='{ "autoPlay": true }'>
-
-                                    <?php
-
-                                    for ($i = 20; $i <= 29; $i++) {
+                    <div class="carousel mb-3 my-gallery" data-flickity='{ "autoPlay": true }'>
+                        <?php        
+                    for ($i = 20; $i <= 29; $i++) {
                                         if ($cek[$i] != NULL) {
                                             ?>
-                                            <img data-toggle="lightbox" data-gallery="example-gallery" href="<?php echo $cek[$i]; ?>" src="<?php echo $cek[$i]; ?>" class="carousel-cell-image rounded">
+                                             
+                                             
+                                             <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a class="" href="<?php echo $cek[$i]; ?>" itemprop="contentUrl" data-size="1024x1024">
+          <img class="rounded  " src="<?php echo $cek[$i]; ?>" />
+      </a>
+                                          <figcaption itemprop="caption description"></figcaption>
+                                          
+    </figure>
+
+
                                         <?php }
                                 } ?>
 
+                                
+
+                                 
+
                                 </div>
-                            </div>
-                            <div class="card-footer row p-4">
-                                <button class="btn  btn-info btn-round col-xl-6 mt-2 ab"><?php echo number_format(
-                                                                                            $cek['ilan_Fiyat'],
-                                                                                            0,
-                                                                                            ',',
-                                                                                            '.'
-                                                                                        ); ?><em class="fas fa-lira-sign ml-1"></em></button>
-                                <a class="btn btn-info btn-round col-xl-6 mt-2 ab" href="tel:05055555555"><em class="fa fa-phone mr-2"></em>0505 555 55 55</a>
-                            </div>
-                        </div>
+                                <div class="row p-4">
+    <button class="btn  btn-info btn-round col-xl-6 mt-2"><?php ECHO number_format($cek['ilan_Fiyat'], 0
+
+, ',', '.'); ?><em class="fas fa-lira-sign ml-1"></em></button>
+<a  class="btn btn-info btn-round col-xl-6 mt-2"  href="tel:05055555555"><em class="fa fa-phone mr-2"></em>0505 555 55 55</a>
+    </div>
 
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 ">
@@ -465,9 +527,213 @@ include("assets/config.php");
         </div>
     </div>
     <!-- FOOTER -->
+  <script>
+  var initPhotoSwipeFromDOM = function(gallerySelector) {
+
+// parse slide data (url, title, size ...) from DOM elements 
+// (children of gallerySelector)
+var parseThumbnailElements = function(el) {
+    var thumbElements = el.childNodes,
+        numNodes = thumbElements.length,
+        items = [],
+        figureEl,
+        linkEl,
+        size,
+        item;
+
+    for(var i = 0; i < numNodes; i++) {
+
+        figureEl = thumbElements[i]; // <figure> element
+
+        // include only element nodes 
+        if(figureEl.nodeType !== 1) {
+            continue;
+        }
+
+        linkEl = figureEl.children[0]; // <a> element
+
+        size = linkEl.getAttribute('data-size').split('x');
+
+        // create slide object
+        item = {
+            src: linkEl.getAttribute('href'),
+            w: parseInt(size[0], 10),
+            h: parseInt(size[1], 10)
+        };
 
 
 
+        if(figureEl.children.length > 1) {
+            // <figcaption> content
+            item.title = figureEl.children[1].innerHTML; 
+        }
+
+        if(linkEl.children.length > 0) {
+            // <img> thumbnail element, retrieving thumbnail url
+            item.msrc = linkEl.children[0].getAttribute('src');
+        } 
+
+        item.el = figureEl; // save link to element for getThumbBoundsFn
+        items.push(item);
+    }
+
+    return items;
+};
+
+// find nearest parent element
+var closest = function closest(el, fn) {
+    return el && ( fn(el) ? el : closest(el.parentNode, fn) );
+};
+
+// triggers when user clicks on thumbnail
+var onThumbnailsClick = function(e) {
+    e = e || window.event;
+    e.preventDefault ? e.preventDefault() : e.returnValue = false;
+
+    var eTarget = e.target || e.srcElement;
+
+    // find root element of slide
+    var clickedListItem = closest(eTarget, function(el) {
+        return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
+    });
+
+    if(!clickedListItem) {
+        return;
+    }
+
+    // find index of clicked item by looping through all child nodes
+    // alternatively, you may define index via data- attribute
+    var clickedGallery = clickedListItem.parentNode,
+        childNodes = clickedListItem.parentNode.childNodes,
+        numChildNodes = childNodes.length,
+        nodeIndex = 0,
+        index;
+
+    for (var i = 0; i < numChildNodes; i++) {
+        if(childNodes[i].nodeType !== 1) { 
+            continue; 
+        }
+
+        if(childNodes[i] === clickedListItem) {
+            index = nodeIndex;
+            break;
+        }
+        nodeIndex++;
+    }
+
+
+
+    if(index >= 0) {
+        // open PhotoSwipe if valid index found
+        openPhotoSwipe( index, clickedGallery );
+    }
+    return false;
+};
+
+// parse picture index and gallery index from URL (#&pid=1&gid=2)
+var photoswipeParseHash = function() {
+    var hash = window.location.hash.substring(1),
+    params = {};
+
+    if(hash.length < 5) {
+        return params;
+    }
+
+    var vars = hash.split('&');
+    for (var i = 0; i < vars.length; i++) {
+        if(!vars[i]) {
+            continue;
+        }
+        var pair = vars[i].split('=');  
+        if(pair.length < 2) {
+            continue;
+        }           
+        params[pair[0]] = pair[1];
+    }
+
+    if(params.gid) {
+        params.gid = parseInt(params.gid, 10);
+    }
+
+    return params;
+};
+
+var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
+    var pswpElement = document.querySelectorAll('.pswp')[0],
+        gallery,
+        options,
+        items;
+
+    items = parseThumbnailElements(galleryElement);
+
+    // define options (if needed)
+    options = {
+
+        // define gallery index (for URL)
+        galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+
+        getThumbBoundsFn: function(index) {
+            // See Options -> getThumbBoundsFn section of documentation for more info
+            var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
+                pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+                rect = thumbnail.getBoundingClientRect(); 
+
+            return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
+        }
+
+    };
+
+    // PhotoSwipe opened from URL
+    if(fromURL) {
+        if(options.galleryPIDs) {
+            // parse real index when custom PIDs are used 
+            // http://photoswipe.com/documentation/faq.html#custom-pid-in-url
+            for(var j = 0; j < items.length; j++) {
+                if(items[j].pid == index) {
+                    options.index = j;
+                    break;
+                }
+            }
+        } else {
+            // in URL indexes start from 1
+            options.index = parseInt(index, 10) - 1;
+        }
+    } else {
+        options.index = parseInt(index, 10);
+    }
+
+    // exit if index not found
+    if( isNaN(options.index) ) {
+        return;
+    }
+
+    if(disableAnimation) {
+        options.showAnimationDuration = 0;
+    }
+
+    // Pass data to PhotoSwipe and initialize it
+    gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+    gallery.init();
+};
+
+// loop through all gallery elements and bind events
+var galleryElements = document.querySelectorAll( gallerySelector );
+
+for(var i = 0, l = galleryElements.length; i < l; i++) {
+    galleryElements[i].setAttribute('data-pswp-uid', i+1);
+    galleryElements[i].onclick = onThumbnailsClick;
+}
+
+// Parse URL and open gallery if it contains #&pid=3&gid=1
+var hashData = photoswipeParseHash();
+if(hashData.pid && hashData.gid) {
+    openPhotoSwipe( hashData.pid ,  galleryElements[ hashData.gid - 1 ], true, true );
+}
+};
+
+// execute above function
+initPhotoSwipeFromDOM('.my-gallery');</script>
+      
 </body>
 <!-- PAPER-UI VE EKLENTILER -->
 <script src="assets/js/jquery.min.js" type="text/javascript"></script>
@@ -480,12 +746,7 @@ include("assets/config.php");
 <script src="assets/js/ekko-lightbox.js"></script>
 <script src="assets/js/ekko-lightbox.min.js"></script>
 <script src="assets/js/flickity.pkgd.min.js"></script>
-<script>
-    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
-        event.preventDefault();
-        $(this).ekkoLightbox();
-    });
-</script>
+
 <!-- PAPER-UI VE EKLENTILER -->
 
 </html>
