@@ -175,7 +175,7 @@ include("assets/config.php");
                                              
                                              
                                              <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-      <a class="" href="<?php echo $cek[$i]; ?>" itemprop="contentUrl" data-size="1024x1024">
+      <a class="" href="<?php echo $cek[$i]; ?>" itemprop="contentUrl" data-size="1920x1080">
           <img class="rounded  " src="<?php echo $cek[$i]; ?>" />
       </a>
                                           <figcaption itemprop="caption description"></figcaption>
