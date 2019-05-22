@@ -20,7 +20,6 @@ include("assets/function.php");
   <link href="assets/css/site.css" rel="stylesheet" />
   
   <link rel="stylesheet" href="assets/css/all.css">
-    <script src="assets/js/all.js" type="text/javascript"></script></head>
 
 <body>
 
@@ -359,6 +358,7 @@ include("assets/function.php");
 <script src="assets/js/jquery.min.js" type="text/javascript"></script>
 <script src="assets/js/popper.min.js" type="text/javascript"></script>
 <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="assets/js/all.js"></script>
 
 <script src="assets/js/moment.min.js"></script>
 <script src="assets/js/paper-kit.js"></script>

@@ -25,9 +25,9 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
     <link href="../assets/css/animate.min.css" rel="stylesheet" />
     <link href="../assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet" />
     <link href="../assets/css/bootstrap-toggle.min.css" rel="stylesheet">
-
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../assets/css/all.css">
+   <script src="../assets/js/all.js"></script>
+<script src="jquery.min.js"></script>
     <link href="../assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/richtext.min.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
