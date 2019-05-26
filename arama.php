@@ -145,7 +145,7 @@ include("assets/function.php");
           $durum = $_SESSION['durum'];
           $ilanad = $_SESSION['ilanad'];
           if ($_GET['sirala'] == "tarih") {
-              foreach ($db->query("select * from tbl_ilan where ilan_numarasi like '%$ilanad%' or ilan_Konum like '%$ilanad%'  and ilan_Kategori='$kategori' and ilan_Durum='$durum' order by ilan_YayinTarihi desc LIMIT $limit,$listelenen") as $gelen) {
+              foreach ($db->query("select * from tbl_ilan where (ilan_numarasi like '%$ilanad%' and ilan_Kategori='$kategori' and ilan_Durum='$durum') or (ilan_Konum like '%$ilanad%' and ilan_Kategori='$kategori' and ilan_Durum='$durum') order by ilan_YayinTarihi desc LIMIT $limit,$listelenen") as $gelen) {
 
                 $seourl = seo($gelen['ilan_Adi']);
                 ?>
@@ -194,7 +194,7 @@ include("assets/function.php");
     </div><?php
                 }
               } elseif ($_GET['sirala'] == "ucuz-pahali") {
-                foreach ($db->query("select * from tbl_ilan where ilan_numarasi like '%$ilanad%' or ilan_Konum like '%$ilanad%'  and ilan_Kategori='$kategori' and ilan_Durum='$durum' order by ilan_Fiyat asc LIMIT $limit,$listelenen") as $gelen) {
+                foreach ($db->query("select * from tbl_ilan where (ilan_numarasi like '%$ilanad%' and ilan_Kategori='$kategori' and ilan_Durum='$durum') or (ilan_Konum like '%$ilanad%' and ilan_Kategori='$kategori' and ilan_Durum='$durum') order by ilan_Fiyat asc LIMIT $limit,$listelenen") as $gelen) {
 
 
                   $seourl = seo($gelen['ilan_Adi']);
@@ -244,7 +244,7 @@ include("assets/function.php");
     </div><?php
                 }
               } elseif ($_GET['sirala'] == "pahali-ucuz") {
-                foreach ($db->query("select * from tbl_ilan where ilan_numarasi like '%$ilanad%' or ilan_Konum like '%$ilanad%'  and ilan_Kategori='$kategori' and ilan_Durum='$durum' order by ilan_Fiyat desc LIMIT $limit,$listelenen") as $gelen) {
+                foreach ($db->query("select * from tbl_ilan where (ilan_numarasi like '%$ilanad%' and ilan_Kategori='$kategori' and ilan_Durum='$durum') or (ilan_Konum like '%$ilanad%' and ilan_Kategori='$kategori' and ilan_Durum='$durum') order by ilan_Fiyat desc LIMIT $limit,$listelenen") as $gelen) {
 
 
                   $seourl = seo($gelen['ilan_Adi']);
