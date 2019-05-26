@@ -144,7 +144,7 @@ if (!isset($_SESSION['kullanici'], $_SESSION['parola'])) {
                                                 echo '<th scope="col">' . $sutun[$i] . '</th>';
                                                 $i++;
                                             }
-                                            echo '<th class="text-center" scope="col">Seçenekler</th>';
+                                            echo '<th  scope="col">Seçenekler</th>';
                                             echo '</tr>
                                 </thead>
                                 <tbody>';
