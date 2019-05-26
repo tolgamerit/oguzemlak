@@ -121,6 +121,7 @@ include("assets/function.php");
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="row">
           <?php
+          if(!isset($_GET['sirala'])) $_GET['sirala']='tarih';
           $ktgr = $_GET['ilan'];
           if ($ktgr == "konut") {
             $listelenen = 15;

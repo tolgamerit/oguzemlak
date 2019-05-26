@@ -131,6 +131,7 @@ include("assets/function.php");
       <div class="col-lg-12">
         <div class="row">
           <?php
+            if(!isset($_GET['sirala'])) $_GET['sirala']='tarih';
           if ($_POST['kategori'] != "") { }
 
           $listelenen = 15;
