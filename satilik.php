@@ -160,7 +160,7 @@ include("assets/function.php");
             <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
             <div class="yayin-bilgi mt-2">
               <span class="float-left"><strong class="ab">İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-              <span class="float-right text-muted text-danger"><strong class="ab"><?php
+              <span class="float-right text-muted text-success"><strong class="ab"><?php
                                                                         echo number_format(
                                                                           $gelen['ilan_Fiyat'],
                                                                           0,
@@ -216,7 +216,7 @@ include("assets/function.php");
             <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
             <div class="yayin-bilgi mt-2">
               <span class="float-left"><strong class="ab">İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-              <span class="float-right text-muted text-danger"><strong class="ab"><?php
+              <span class="float-right text-muted text-success"><strong class="ab"><?php
                                                                         echo number_format(
                                                                           $gelen['ilan_Fiyat'],
                                                                           0,
@@ -272,7 +272,7 @@ include("assets/function.php");
             <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
             <div class="yayin-bilgi mt-2">
               <span class="float-left"><strong class="ab">İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-              <span class="float-right text-muted text-danger"><strong class="ab"><?php
+              <span class="float-right text-muted text-success"><strong class="ab"><?php
                                                                         echo number_format(
                                                                           $gelen['ilan_Fiyat'],
                                                                           0,
@@ -328,7 +328,7 @@ include("assets/function.php");
             <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
             <div class="yayin-bilgi mt-2">
               <span class="float-left"><strong class="ab">İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-              <span class="float-right text-muted text-danger"><strong class="ab"><?php
+              <span class="float-right text-muted text-success"><strong class="ab"><?php
                                                                         echo number_format(
                                                                           $gelen['ilan_Fiyat'],
                                                                           0,
@@ -398,7 +398,7 @@ include("assets/function.php");
             <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
             <div class="yayin-bilgi mt-2">
               <span class="float-left"><strong class="ab">İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-              <span class="float-right text-muted text-danger"><strong class="ab"><?php
+              <span class="float-right text-muted text-success"><strong class="ab"><?php
                                                                         echo number_format(
                                                                           $gelen['ilan_Fiyat'],
                                                                           0,
@@ -454,7 +454,7 @@ include("assets/function.php");
             <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
             <div class="yayin-bilgi mt-2">
               <span class="float-left"><strong class="ab">İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-              <span class="float-right text-muted text-danger"><strong class="ab"><?php
+              <span class="float-right text-muted text-success"><strong class="ab"><?php
                                                                         echo number_format(
                                                                           $gelen['ilan_Fiyat'],
                                                                           0,
@@ -510,7 +510,7 @@ ilan_Durum='satilik' order by ilan_YayinTarihi desc LIMIT  $limit, $listelenen "
             <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
             <div class="yayin-bilgi mt-2">
               <span class="float-left"><strong class="ab">İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-              <span class="float-right text-muted text-danger"><strong class="ab"><?php
+              <span class="float-right text-muted text-success"><strong class="ab"><?php
                                                                         echo number_format(
                                                                           $gelen['ilan_Fiyat'],
                                                                           0,
@@ -566,7 +566,7 @@ ilan_Durum='satilik' order by ilan_YayinTarihi desc LIMIT  $limit, $listelenen "
             <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
             <div class="yayin-bilgi mt-2">
               <span class="float-left"><strong class="ab">İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-              <span class="float-right text-muted text-danger"><strong class="ab"><?php
+              <span class="float-right text-muted text-success"><strong class="ab"><?php
                                                                         echo number_format(
                                                                           $gelen['ilan_Fiyat'],
                                                                           0,
@@ -643,7 +643,7 @@ ilan_Durum='satilik' order by ilan_YayinTarihi desc LIMIT  $limit, $listelenen "
             <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
             <div class="yayin-bilgi mt-2">
               <span class="float-left"><strong class="ab">İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-              <span class="float-right text-muted text-danger"><strong class="ab"><?php
+              <span class="float-right text-muted text-success"><strong class="ab"><?php
                                                                         echo number_format(
                                                                           $gelen['ilan_Fiyat'],
                                                                           0,
@@ -699,7 +699,7 @@ ilan_Durum='satilik' order by ilan_YayinTarihi desc LIMIT  $limit, $listelenen "
             <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
             <div class="yayin-bilgi mt-2">
               <span class="float-left"><strong class="ab">İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-              <span class="float-right text-muted text-danger"><strong class="ab"><?php
+              <span class="float-right text-muted text-success"><strong class="ab"><?php
                                                                         echo number_format(
                                                                           $gelen['ilan_Fiyat'],
                                                                           0,
@@ -755,7 +755,7 @@ ilan_Durum='satilik' order by ilan_YayinTarihi desc LIMIT  $limit, $listelenen "
             <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
             <div class="yayin-bilgi mt-2">
               <span class="float-left"><strong class="ab">İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-              <span class="float-right text-muted text-danger"><strong class="ab"><?php
+              <span class="float-right text-muted text-success"><strong class="ab"><?php
                                                                         echo number_format(
                                                                           $gelen['ilan_Fiyat'],
                                                                           0,
@@ -809,7 +809,7 @@ ilan_Durum='satilik' order by ilan_YayinTarihi desc LIMIT  $limit, $listelenen "
             <h4 class="card-title"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
             <div class="yayin-bilgi mt-2">
               <span class="float-left"><strong class="ab">İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-              <span class="float-right text-muted text-danger"><strong class="ab"><?php
+              <span class="float-right text-muted text-success"><strong class="ab"><?php
                                                                         echo number_format(
                                                                           $gelen['ilan_Fiyat'],
                                                                           0,

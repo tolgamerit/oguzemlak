@@ -175,7 +175,7 @@ include("assets/function.php");
                 <h4 class="card-title mb-2"><?php echo mb_strtolower($gelen['ilan_Adi'], 'utf8'); ?></h4>
                 <div class="yayin-bilgi ">
                   <span class="float-left ab"><strong class="ab">İlan Numarası: <?php echo $gelen['ilan_numarasi']; ?></strong></span>
-                  <span class="float-right text-muted text-danger"><strong class="ab"><?php
+                  <span class="float-right text-muted text-success"><strong class="ab"><?php
                                                                             echo number_format(
                                                                               $gelen['ilan_Fiyat'],
                                                                               0,
