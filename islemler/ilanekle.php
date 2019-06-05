@@ -82,24 +82,61 @@ try
      `ilan_BulunduguKat`=?, `ilan_KatSayisi`=?, `ilan_BinaYasi`=?, `ilan_Isitma`=?, `ilan_KullanimDurumu`=?, `ilan_Esyali`=?, `ilan_KrediUygunluk`=?, `ilan_SiteIcerisinde`=?,
      `ilan_Aidat`=?, `ilan_Cephe`=?, `ilan_Fiyat`=?, `ilan_OneCikan`=?, `ilan_resim1`=?, `ilan_resim2`=?, `ilan_resim3`=?, `ilan_resim4`=?, `ilan_resim5`=?, `ilan_resim6`=?,
      `ilan_resim7`=?, `ilan_resim8`=?, `ilan_resim9`=?, `ilan_resim10`=?, `ilan_Kategori`=?, `ilan_Durum`=?, `ilan_Konum`=?");
-     $kayit->execute(array($ilanadi,$editor,$ilanharita,$yayintarihi,$metrekare,$odasayisi,$bulundugukat,$katsayisi,$binayas,$isitma,$kullanim,$esyali,$kredi,$siteicerisi,$aidat,$cephe,$fiyat,'Hayir',
+    $ck= $kayit->execute(array($ilanadi,$editor,$ilanharita,$yayintarihi,$metrekare,$odasayisi,$bulundugukat,$katsayisi,$binayas,$isitma,$kullanim,$esyali,$kredi,$siteicerisi,$aidat,$cephe,$fiyat,'Hayir',
      $resim[0],$resim[1],$resim[2],$resim[3],$resim[4],$resim[5],$resim[6],$resim[7],$resim[8],$resim[9],$kategori,$durum,$konum));
     
-if($kayit)
+if($ck)
 {
-  echo "
-  <div class='container'>
-  <div class='row'> 
-  <div class='col-md-12'>   <div style='box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)' class=' alert success text-center rounded' role='alert'>
-  İlan Eklendi!
-  </div></div>
-   </div>
-   </div>
-  
-  ";
+  ?>
+   
+                             <div class="alert success">
+ <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+ <strong>İlan Eklendi!</strong>
+</div>
+
+<script>
+var close = document.getElementsByClassName("closebtn");
+var i;
+
+for (i = 0; i < close.length; i++) {
+ close[i].onclick = function(){
+   var div = this.parentElement;
+   div.style.opacity = "0";
+   setTimeout(function(){ div.style.display = "none"; }, 600);
+ }
 }
- 
-echo"   <meta http-equiv='refresh' content='0.85;URL=../yonetim'>  ";
+</script>
+
+<?php
+echo"   <meta http-equiv='refresh' content='0.85;URL=index.php'>  ";
+
+}
+
+else
+{
+  ?>
+  <div class="alert">
+ <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+ <strong>Kayıt Sırasında Hata Oluştu!</strong>
+</div>
+
+<script>
+var close = document.getElementsByClassName("closebtn");
+var i;
+
+for (i = 0; i < close.length; i++) {
+ close[i].onclick = function(){
+   var div = this.parentElement;
+   div.style.opacity = "0";
+   setTimeout(function(){ div.style.display = "none"; }, 600);
+ }
+}
+</script>
+<?php
+echo"   <meta http-equiv='refresh' content='0.85;URL=ilanekle.php'>  ";
+
+}
+
  
 }
 catch (PDOException $e)
